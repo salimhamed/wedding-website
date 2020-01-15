@@ -3,6 +3,25 @@
 .details {
   .announcement {
     font-family: $primary-cursive-font-family;
-    font-weight: 900;
+    font-weight: 100;
+  }
+
+  .date {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    font-family: $primary-font-family;
+    font-size: 3.1em;
+    font-weight: 100;
+  }
+
+  .location {
+    font-family: $primary-cursive-font-family;
+    font-weight: 100;
+  }
+
+  .hashtag {
+    font-family: $primary-font-family;
+    font-weight: 100;
+    font-size: 0.9em;
   }
 }
