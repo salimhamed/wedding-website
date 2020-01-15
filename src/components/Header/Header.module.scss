@@ -6,13 +6,13 @@
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
-  background-color: $primary-color !important;
+  background-color: $secondary-color !important;
 
   padding-top: 165px !important;
   padding-bottom: 0 !important;
 
   h1 {
-    font-family: 'Cedarville Cursive', cursive;
+    font-family: $primary-font-family;
     color: #FFFFFF;
     font-weight: 900;
     font-size: 2em;
