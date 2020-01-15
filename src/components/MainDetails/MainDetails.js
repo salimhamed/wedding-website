@@ -12,8 +12,7 @@ function MainDetails() {
             <Container>
                 <Row>
                     <Col className={styles.details}>
-                        <hr/>
-                        <h4>Salim and Lledó are getting married!</h4>
+                        <h1 className={styles.announcement}>Salim and Lledó are getting married!</h1>
                         <h1>August 22, 2020</h1>
                         <h4>L'ampolla, Catalonia</h4>
                         <h4>#LledoiSalim</h4>

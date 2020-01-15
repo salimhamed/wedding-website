@@ -1,7 +1,8 @@
 @import "src/theme";
 
 .details {
-  h4 {
+  .announcement {
     font-family: $primary-font-family;
+    font-weight: 900;
   }
 }
