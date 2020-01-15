@@ -1,6 +1,52 @@
+@import "src/theme";
+
 .header {
-  padding-top: 10rem;
-  background-image: url('header.png');
-  background-position: center;
+  height: 300px;
+  background-image: url('header_large.png');
+  background-repeat: no-repeat;
+  background-position: top;
   background-size: cover;
+  background-color: #8fb2d2 !important;
+
+  // Huge Desktops
+  @media (min-width: $size-huge) {
+    height: 1200px;
+    background-size: 75%;
+  }
+
+  // Desktops
+  @media (min-width: $size-extra-large) and (max-width: $size-huge - 1) {
+    height: 1000px;
+  }
+
+  // Laptops / Desktops
+  @media (min-width: $size-large) and (max-width: $size-extra-large - 1) {
+    height: 900px;
+    background-size: cover;
+  }
+
+  // Tablets (Portrait)
+  @media (min-width: $size-medium) and (max-width: $size-large - 1) {
+    height: 800px;
+    background-image: url('header_small.png');
+  }
+
+  // Tablets (Landscape)
+  @media (min-width: $size-medium) and (max-width: $size-large - 1) and (orientation: landscape) {
+    height: 700px;
+    background-image: url('header_small.png');
+  }
+
+  // Mobile (Landscape)
+  @media (min-width: $size-small) and (max-width: $size-medium - 1) {
+    height: 600px;
+    background-image: url('header_small.png');
+  }
+
+  // Mobile
+  @media (min-width: $size-extra-small) and (max-width: $size-small - 1) {
+    height: 550px;
+    background-image: url('header_small.png');
+  }
+
 }
