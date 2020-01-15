@@ -4,17 +4,19 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
+import styles from "./MainDetails.module.scss"
+
 function MainDetails() {
     return (
         <section>
             <Container>
                 <Row>
-                    <Col>
+                    <Col className={styles.details}>
                         <hr/>
-                        <h4>#LledoiSalim</h4>
+                        <h4>Salim and Lledó are getting married!</h4>
                         <h1>August 22, 2020</h1>
-                        <h2>Count Down</h2>
                         <h4>L'ampolla, Catalonia</h4>
+                        <h4>#LledoiSalim</h4>
                     </Col>
                 </Row>
             </Container>
