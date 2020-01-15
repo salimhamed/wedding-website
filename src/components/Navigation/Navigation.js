@@ -2,15 +2,16 @@ import React from 'react'
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 
+import styles from "./Navigation.module.scss"
+
 function Navigation() {
     return (
-        <Navbar bg="light" expand="lg" sticky="top">
-            <Navbar.Brand href="#home">Lledo and Salim</Navbar.Brand>
+        <Navbar variant="dark" expand="lg" sticky="top" className={styles.navigation}>
+            <Navbar.Brand href="#home" className={styles.brand}>S & L</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
+                <Nav>
                     <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="#link">Link</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
