@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -10,10 +10,12 @@ function Schedule() {
             <Container>
                 <Row>
                     <Col>
-                        <hr/>
+                        <hr />
                         <p>
-                            Here's what to expect during our wedding weekend. There will also be a printout of this
-                            schedule available in your hotel rooms. We can't wait to celebrate with you!
+                            Here's what to expect during our wedding weekend.
+                            There will also be a printout of this schedule
+                            available in your hotel rooms. We can't wait to
+                            celebrate with you!
                         </p>
                     </Col>
                 </Row>

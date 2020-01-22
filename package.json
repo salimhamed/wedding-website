@@ -19,7 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "prettier --check src/**/*.{js,jsx,ts,tsx,json,css,scss,md}"
+    "format": "prettier --check 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "format-write": "prettier --write 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
   },
   "eslintConfig": {
     "extends": "react-app"
