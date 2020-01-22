@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
@@ -12,9 +12,13 @@ function MainDetails() {
             <Container>
                 <Row>
                     <Col className={styles.details}>
-                        <h1 className={styles.announcement}>Salim and Lledó are getting married!</h1>
+                        <h1 className={styles.announcement}>
+                            Salim and Lledó are getting married!
+                        </h1>
                         <h1 className={styles.date}>August 22, 2020</h1>
-                        <h4 className={styles.location}>L'Ampolla, Catalonia</h4>
+                        <h4 className={styles.location}>
+                            L'Ampolla, Catalonia
+                        </h4>
                         <h4 className={styles.hashtag}>#lledoisalim</h4>
                     </Col>
                 </Row>
