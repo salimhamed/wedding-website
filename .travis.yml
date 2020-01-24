@@ -1,4 +1,4 @@
 language: node_js
 script:
-  - npm test
-  - npm run format-write
+  - yarn test
+  - yarn run format-write
