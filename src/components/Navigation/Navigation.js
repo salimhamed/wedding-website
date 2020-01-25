@@ -2,7 +2,9 @@ import React from "react"
 import Navbar from "react-bootstrap/Navbar"
 import Nav from "react-bootstrap/Nav"
 import NavDropdown from "react-bootstrap/NavDropdown"
+import ReactCountryFlag from "react-country-flag"
 
+import { LANGUAGE } from "actions/constants"
 import styles from "./Navigation.module.scss"
 
 function Navigation() {
@@ -23,11 +25,11 @@ function Navigation() {
                 </Nav>
                 <Nav className="ml-auto">
                     <NavDropdown title="English">
-                        <NavDropdown.Item eventKey="english">
-                            English
+                        <NavDropdown.Item eventKey={LANGUAGE.EN}>
+                            English <ReactCountryFlag countryCode="US" svg />
                         </NavDropdown.Item>
-                        <NavDropdown.Item eventKey="catalan">
-                            Catalan
+                        <NavDropdown.Item eventKey={LANGUAGE.CAT}>
+                            Catalan <ReactCountryFlag countryCode="ES-CT" svg />
                         </NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
