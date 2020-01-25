@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import Navbar from "react-bootstrap/Navbar"
 import NavLink from "react-bootstrap/NavLink"
 import Nav from "react-bootstrap/Nav"
@@ -7,9 +7,20 @@ import Dropdown from "react-bootstrap/Dropdown"
 import ReactCountryFlag from "react-country-flag"
 
 import { LANGUAGE } from "actions/constants"
+import { switchLanguage } from "actions"
+import { Store } from "store"
+
 import styles from "./Navigation.module.scss"
 
 function Navigation() {
+    const { state, dispatch } = useContext(Store)
+
+    const {
+        app: { language },
+    } = state
+
+    const handleSelectLanguage = language => switchLanguage(language, dispatch)
+
     return (
         <Navbar
             variant="dark"
@@ -26,23 +37,25 @@ function Navigation() {
                     <Nav.Link href="#home">Home</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
-                    <Dropdown as={NavItem} alignRight>
-                        <Dropdown.Toggle as={NavLink} alignRight>
-                            Language
+                    <Dropdown as={NavItem}>
+                        <Dropdown.Toggle as={NavLink}>
+                            {language}
                         </Dropdown.Toggle>
                         <Dropdown.Menu alignRight>
                             <Dropdown.Item
                                 eventKey={LANGUAGE.EN}
                                 className={styles["dropdown-item"]}
+                                onSelect={handleSelectLanguage}
                             >
-                                English{" "}
+                                {LANGUAGE.EN}{" "}
                                 <ReactCountryFlag countryCode="US" svg />
                             </Dropdown.Item>
                             <Dropdown.Item
                                 eventKey={LANGUAGE.CAT}
                                 className={styles["dropdown-item"]}
+                                onSelect={handleSelectLanguage}
                             >
-                                Catalan{" "}
+                                {LANGUAGE.CAT}{" "}
                                 <ReactCountryFlag countryCode="ES-CT" svg />
                             </Dropdown.Item>
                         </Dropdown.Menu>
