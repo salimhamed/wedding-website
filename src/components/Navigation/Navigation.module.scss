@@ -2,9 +2,13 @@
 
 .navigation {
     background-color: $primary-color;
-}
 
-.brand {
-    font-family: $primary-cursive-font-family;
-    font-weight: 900;
+    .brand {
+        font-family: $primary-cursive-font-family;
+        font-weight: 900;
+    }
+
+    :global(.dropdown-menu) {
+        min-width: unset;
+    }
 }
