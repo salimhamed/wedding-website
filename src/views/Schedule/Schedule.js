@@ -12,7 +12,7 @@ function Schedule() {
         app: { language },
     } = state
 
-    const { heading: Heading, subHeading: SubHeading } = title[language]
+    const { Heading, SubHeading } = title[language]
     const scheduleItems = schedule[language]
 
     return (
