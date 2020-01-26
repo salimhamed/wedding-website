@@ -1,2 +1,2 @@
-export { default as Title } from "./Title"
-export { default as FAQs } from "./FAQs"
+export { default as title } from "./Title"
+export { default as faqs } from "./FAQs"
