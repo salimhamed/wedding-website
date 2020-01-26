@@ -18,13 +18,15 @@ export default {
             mapLink: "https://www.google.com/maps?cid=932337608444387060",
             Details: () => (
                 <>
-                    There will be a few light bites in addition to cocktails.
-                    Can’t wait to see you!
+                    <p>
+                        There will be a few light bites in addition to
+                        cocktails. Can’t wait to see you!
+                    </p>
                 </>
             ),
         },
         {
-            Title: () => <>Welcome Drinks</>,
+            Title: () => <>Wedding</>,
             Date: () => <>Friday, June 12, 2020</>,
             Time: () => <>8:00 PM to 10:00 PM</>,
             Location: () => <>Fairmont San Francisco</>,
@@ -37,8 +39,10 @@ export default {
             mapLink: "https://www.google.com/maps?cid=932337608444387060",
             Details: () => (
                 <>
-                    There will be a few light bites in addition to cocktails.
-                    Can’t wait to see you!
+                    <p>
+                        There will be a few light bites in addition to
+                        cocktails. Can’t wait to see you!
+                    </p>
                 </>
             ),
         },
@@ -58,13 +62,15 @@ export default {
             mapLink: "https://www.google.com/maps?cid=932337608444387060",
             Details: () => (
                 <>
-                    There will be a few light bites in addition to cocktails.
-                    Can’t wait to see you!
+                    <p>
+                        There will be a few light bites in addition to
+                        cocktails. Can’t wait to see you!
+                    </p>
                 </>
             ),
         },
         {
-            Title: () => <>Welcome Drinks</>,
+            Title: () => <>Wedding</>,
             Date: () => <>Friday, June 12, 2020</>,
             Time: () => <>8:00 PM to 10:00 PM</>,
             Location: () => <>Fairmont San Francisco</>,
@@ -77,8 +83,10 @@ export default {
             mapLink: "https://www.google.com/maps?cid=932337608444387060",
             Details: () => (
                 <>
-                    There will be a few light bites in addition to cocktails.
-                    Can’t wait to see you!
+                    <p>
+                        There will be a few light bites in addition to
+                        cocktails. Can’t wait to see you!
+                    </p>
                 </>
             ),
         },
