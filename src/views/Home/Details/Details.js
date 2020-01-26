@@ -15,25 +15,20 @@ function Details() {
         app: { language },
     } = state
 
-    const {
-        title: TitleContent,
-        date: DateContent,
-        location: LocationContent,
-        hashtag,
-    } = details[language]
+    const { Title, Date, Location, hashtag } = details[language]
     return (
         <section>
             <Container>
                 <Row>
                     <Col className={styles.details}>
                         <h1 className={styles.announcement}>
-                            <TitleContent />
+                            <Title />
                         </h1>
                         <h1 className={styles.date}>
-                            <DateContent />
+                            <Date />
                         </h1>
                         <h4 className={styles.location}>
-                            <LocationContent />
+                            <Location />
                         </h4>
                         <h4 className={styles.hashtag}>
                             <a
