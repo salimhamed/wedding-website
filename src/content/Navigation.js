@@ -7,6 +7,6 @@ export default {
         home: () => <span>Home</span>,
     },
     [LANGUAGE.CAT]: {
-        home: () => <span>(Catalan) Home</span>,
+        home: () => <span>Inici</span>,
     },
 }
