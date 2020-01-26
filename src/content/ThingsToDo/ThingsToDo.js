@@ -5,14 +5,14 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            title: () => <>Welcome Drinks</>,
-            address: () => (
+            Title: () => <>Welcome Drinks</>,
+            Address: () => (
                 <>
                     <p>Golden Gate Bridge</p>
                     <p>San Francisco, CA</p>
                 </>
             ),
-            details: () => (
+            Details: () => (
                 <>
                     <p>
                         We know this is cliché, but it’s a must see. A great
@@ -27,14 +27,14 @@ export default {
     ],
     [LANGUAGE.CAT]: [
         {
-            title: () => <>Welcome Drinks</>,
-            address: () => (
+            Title: () => <>Welcome Drinks</>,
+            Address: () => (
                 <>
                     <p>Golden Gate Bridge</p>
                     <p>San Francisco, CA</p>
                 </>
             ),
-            details: () => (
+            Details: () => (
                 <>
                     <p>
                         We know this is cliché, but it’s a must see. A great
