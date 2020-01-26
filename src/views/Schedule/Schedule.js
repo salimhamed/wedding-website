@@ -6,6 +6,8 @@ import Col from "react-bootstrap/Col"
 import { Store } from "store"
 import { title, schedule } from "content/Schedule"
 
+import { LeftItem } from "./Items"
+
 function Schedule() {
     const { state } = useContext(Store)
     const {
@@ -25,25 +27,20 @@ function Schedule() {
             </h2>
             <Container>
                 <Row>
-                    <Col md={4}>
+                    <Col sm={2} md={4}>
                         {scheduleItems.map((item, idx) => {
                             const { Title, Date, Time } = item
                             return (
-                                <div key={idx}>
-                                    <p>
-                                        <Title />
-                                    </p>
-                                    <p>
-                                        <Date />
-                                    </p>
-                                    <p>
-                                        <Time />
-                                    </p>
-                                </div>
+                                <LeftItem
+                                    key={idx}
+                                    Title={Title}
+                                    Date={Date}
+                                    Time={Time}
+                                />
                             )
                         })}
                     </Col>
-                    <Col md={8}>
+                    <Col sm={10} md={8}>
                         {scheduleItems.map((item, idx) => {
                             const { Location, Address, Details, mapLink } = item
                             return (
