@@ -28,7 +28,6 @@ function Navigation() {
     }
 
     const {
-        home: HomeNavText,
         schedule: ScheduleNavText,
         travel: TravelNavText,
         thingsToDo: ThingsToDoNavText,
@@ -42,15 +41,12 @@ function Navigation() {
             sticky="top"
             className={styles.navigation}
         >
-            <Navbar.Brand href="#home" className={styles.brand}>
+            <Navbar.Brand href="/" className={styles.brand}>
                 S & L
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <Nav.Link href="/">
-                        <HomeNavText />
-                    </Nav.Link>
                     <Nav.Link href="/schedule">
                         <ScheduleNavText />
                     </Nav.Link>
