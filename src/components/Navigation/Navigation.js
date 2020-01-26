@@ -27,7 +27,7 @@ function Navigation() {
         [LANGUAGE.EN]: "US",
     }
 
-    const { home: Home } = navigation[language]
+    const { home: HomeNavText } = navigation[language]
 
     return (
         <Navbar
@@ -43,7 +43,7 @@ function Navigation() {
             <Navbar.Collapse>
                 <Nav>
                     <Nav.Link href="/">
-                        <Home />
+                        <HomeNavText />
                     </Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
