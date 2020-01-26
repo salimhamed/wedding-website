@@ -14,12 +14,14 @@ function Header() {
         app: { language },
     } = state
 
-    const Header = headers[language]
+    const HeaderContent = headers[language]
 
     return (
         <Jumbotron fluid className={styles.header}>
             <Container>
-                <Header />
+                <h1>
+                    <HeaderContent />
+                </h1>
             </Container>
         </Jumbotron>
     )

@@ -21,6 +21,11 @@ function Navigation() {
 
     const handleSelectLanguage = language => switchLanguage(language, dispatch)
 
+    const languageCodes = {
+        [LANGUAGE.CAT]: "ES-CT",
+        [LANGUAGE.EN]: "US",
+    }
+
     return (
         <Navbar
             variant="dark"
@@ -39,6 +44,10 @@ function Navigation() {
                 <Nav className="ml-auto">
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
+                            <ReactCountryFlag
+                                countryCode={languageCodes[language]}
+                                svg
+                            />{" "}
                             {language}
                         </Dropdown.Toggle>
                         <Dropdown.Menu alignRight>
@@ -47,16 +56,16 @@ function Navigation() {
                                 className={styles["dropdown-item"]}
                                 onSelect={handleSelectLanguage}
                             >
-                                {LANGUAGE.EN}{" "}
-                                <ReactCountryFlag countryCode="US" svg />
+                                <ReactCountryFlag countryCode="US" svg />{" "}
+                                {LANGUAGE.EN}
                             </Dropdown.Item>
                             <Dropdown.Item
                                 eventKey={LANGUAGE.CAT}
                                 className={styles["dropdown-item"]}
                                 onSelect={handleSelectLanguage}
                             >
-                                {LANGUAGE.CAT}{" "}
-                                <ReactCountryFlag countryCode="ES-CT" svg />
+                                <ReactCountryFlag countryCode="ES-CT" svg />{" "}
+                                {LANGUAGE.CAT}
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

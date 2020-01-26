@@ -16,9 +16,9 @@ function MainDetails() {
     } = state
 
     const {
-        title: Title,
-        date: Date,
-        location: Location,
+        title: TitleContent,
+        date: DateContent,
+        location: LocationContent,
         hashtag,
     } = mainDetails[language]
     return (
@@ -27,13 +27,13 @@ function MainDetails() {
                 <Row>
                     <Col className={styles.details}>
                         <h1 className={styles.announcement}>
-                            <Title />
+                            <TitleContent />
                         </h1>
                         <h1 className={styles.date}>
-                            <Date />
+                            <DateContent />
                         </h1>
                         <h4 className={styles.location}>
-                            <Location />
+                            <LocationContent />
                         </h4>
                         <h4 className={styles.hashtag}>
                             <a
