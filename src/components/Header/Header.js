@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import Container from "react-bootstrap/Container"
 import Jumbotron from "react-bootstrap/Jumbotron"
 
-import headerContent from "content/Header"
+import { headers } from "content"
 import { Store } from "store"
 
 import styles from "./Header.module.scss"
@@ -14,7 +14,7 @@ function Header() {
         app: { language },
     } = state
 
-    const Header = headerContent[language]
+    const Header = headers[language]
 
     return (
         <Jumbotron fluid className={styles.header}>
