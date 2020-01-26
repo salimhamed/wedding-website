@@ -9,6 +9,7 @@ import ReactCountryFlag from "react-country-flag"
 import { LANGUAGE } from "actions/constants"
 import { switchLanguage } from "actions"
 import { Store } from "store"
+import { navigation } from "content"
 
 import styles from "./Navigation.module.scss"
 
@@ -26,6 +27,8 @@ function Navigation() {
         [LANGUAGE.EN]: "US",
     }
 
+    const { home: Home } = navigation[language]
+
     return (
         <Navbar
             variant="dark"
@@ -39,7 +42,9 @@ function Navigation() {
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="/">
+                        <Home />
+                    </Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
                     <Dropdown as={NavItem}>
