@@ -7,16 +7,14 @@ const hashtag = "lledoisalim"
 export default {
     [LANGUAGE.EN]: {
         title: () => <span>Salim and Lledó are getting married!</span>,
-        date: () => <span>August 22, 2020</span>,
-        location: () => <span>L'Ampolla, Catalonia</span>,
+        date: () => <span>08/08/2020</span>,
+        location: () => <span>Terres de l&apos;Ebre, Catalonia</span>,
         hashtag,
     },
     [LANGUAGE.CAT]: {
-        title: () => (
-            <span>(Catalan) Salim and Lledó are getting married!</span>
-        ),
-        date: () => <span>(Catalan)August 22, 2020</span>,
-        location: () => <span>(Catalan)L'Ampolla, Catalonia</span>,
+        title: () => <span>El Salim i la Lledó es casen!</span>,
+        date: () => <span>08/08/2020</span>,
+        location: () => <span>Terres de l&apos;Ebre, Catalunya</span>,
         hashtag,
     },
 }
