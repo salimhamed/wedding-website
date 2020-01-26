@@ -51,16 +51,16 @@ function Navigation() {
                     <Nav.Link href="/">
                         <HomeNavText />
                     </Nav.Link>
-                    <Nav.Link href="/">
+                    <Nav.Link href="/schedule">
                         <ScheduleNavText />
                     </Nav.Link>
-                    <Nav.Link href="/">
+                    <Nav.Link href="/travel">
                         <TravelNavText />
                     </Nav.Link>
-                    <Nav.Link href="/">
+                    <Nav.Link href="/things-to-do">
                         <ThingsToDoNavText />
                     </Nav.Link>
-                    <Nav.Link href="/">
+                    <Nav.Link href="/faq">
                         <FAQNavText />
                     </Nav.Link>
                 </Nav>
