@@ -5,7 +5,7 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 import { Store } from "store"
-import { mainDetails } from "content/Home"
+import { details } from "content/Home"
 
 import styles from "./Details.module.scss"
 
@@ -20,7 +20,7 @@ function Details() {
         date: DateContent,
         location: LocationContent,
         hashtag,
-    } = mainDetails[language]
+    } = details[language]
     return (
         <section>
             <Container>
