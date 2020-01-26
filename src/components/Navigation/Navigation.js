@@ -27,7 +27,13 @@ function Navigation() {
         [LANGUAGE.EN]: "US",
     }
 
-    const { home: HomeNavText } = navigation[language]
+    const {
+        home: HomeNavText,
+        schedule: ScheduleNavText,
+        travel: TravelNavText,
+        thingsToDo: ThingsToDoNavText,
+        faq: FAQNavText,
+    } = navigation[language]
 
     return (
         <Navbar
@@ -44,6 +50,18 @@ function Navigation() {
                 <Nav>
                     <Nav.Link href="/">
                         <HomeNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/">
+                        <ScheduleNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/">
+                        <TravelNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/">
+                        <ThingsToDoNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/">
+                        <FAQNavText />
                     </Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
