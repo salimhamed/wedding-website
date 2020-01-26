@@ -6,7 +6,6 @@ import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navigation } from "components/Navigation"
-import { Header } from "components/Header"
 
 import { Home } from "views/Home"
 import { Schedule } from "views/Schedule"
@@ -23,7 +22,6 @@ ReactDOM.render(
             <Switch>
                 <div>
                     <Navigation />
-                    <Header />
                     <Route exact path={"/"} component={Home} />
                     <Route exact path={"/schedule"} component={Schedule} />
                     <Route exact path={"/travel"} component={Travel} />

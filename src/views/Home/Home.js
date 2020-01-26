@@ -1,14 +1,18 @@
 import React from "react"
 
-import { MainDetails } from "components/MainDetails"
+import { Header } from "components/Header"
 
+import { Details } from "./Details"
 import styles from "./Home.module.scss"
 
 function Home() {
     return (
-        <div className={styles.container}>
-            <MainDetails />
-        </div>
+        <>
+            <Header />
+            <div className={styles.container}>
+                <Details />
+            </div>
+        </>
     )
 }
 

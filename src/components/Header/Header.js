@@ -3,12 +3,12 @@ import React, { useContext } from "react"
 import Container from "react-bootstrap/Container"
 import Jumbotron from "react-bootstrap/Jumbotron"
 
-import { headers } from "content"
+import { headers } from "content/Home"
 import { Store } from "store"
 
 import styles from "./Header.module.scss"
 
-function Header() {
+function Header({ image }) {
     const { state } = useContext(Store)
     const {
         app: { language },
