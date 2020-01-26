@@ -8,7 +8,7 @@ import { Store } from "store"
 
 import styles from "./Header.module.scss"
 
-function Header({ image }) {
+function Header() {
     const { state } = useContext(Store)
     const {
         app: { language },

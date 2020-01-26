@@ -1,7 +1,7 @@
 import React from "react"
 
-import { Header } from "components/Header"
 
+import { Header } from "./Header"
 import { Details } from "./Details"
 import styles from "./Home.module.scss"
 
