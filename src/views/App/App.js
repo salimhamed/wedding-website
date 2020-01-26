@@ -4,8 +4,6 @@ import { Navigation } from "components/Navigation"
 import { Header } from "components/Header"
 import { MainDetails } from "components/MainDetails"
 
-import "./App.css"
-
 function App() {
     return (
         <div className="App">
