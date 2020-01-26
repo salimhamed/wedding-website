@@ -4,9 +4,9 @@ import { Navigation } from "components/Navigation"
 import { Header } from "components/Header"
 import { MainDetails } from "components/MainDetails"
 
-function App() {
+function Home() {
     return (
-        <div className="App">
+        <div>
             <Navigation />
             <Header />
             <MainDetails />
@@ -14,4 +14,4 @@ function App() {
     )
 }
 
-export default App
+export default Home

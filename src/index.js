@@ -1,16 +1,21 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-import { App } from "./views/App"
+import { Home } from "./views/Home"
 import { StoreProvider } from "./store"
 import * as serviceWorker from "./serviceWorker"
 
 ReactDOM.render(
     <StoreProvider>
-        <App />
+        <BrowserRouter>
+            <Switch>
+                <Route exact path={"/"} component={Home} />
+            </Switch>
+        </BrowserRouter>
     </StoreProvider>,
     document.getElementById("root")
 )
