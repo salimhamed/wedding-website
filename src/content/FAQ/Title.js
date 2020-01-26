@@ -4,8 +4,8 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        heading: () => <>FAQs</>,
-        subHeading: () => (
+        Heading: () => <>FAQs</>,
+        SubHeading: () => (
             <>
                 If you have any other questions other than what we’ve listed
                 here, please reach out to our wedding planner, Annie, at
@@ -14,8 +14,8 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        heading: () => <>FAQs</>,
-        subHeading: () => (
+        Heading: () => <>FAQs</>,
+        SubHeading: () => (
             <>
                 If you have any other questions other than what we’ve listed
                 here, please reach out to our wedding planner, Annie, at

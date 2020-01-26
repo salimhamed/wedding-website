@@ -1,7 +1,10 @@
 import React, { useContext } from "react"
+import Container from "react-bootstrap/Container"
 
 import { Store } from "store"
-import { title } from "content/Schedule"
+import { title, schedule } from "content/Schedule"
+
+import { Item } from "./Item"
 
 function Schedule() {
     const { state } = useContext(Store)
@@ -9,7 +12,8 @@ function Schedule() {
         app: { language },
     } = state
 
-    const { heading: Heading, subHeading: SubHeading } = title[language]
+    const { Heading, SubHeading } = title[language]
+    const scheduleItems = schedule[language]
 
     return (
         <>
@@ -19,6 +23,11 @@ function Schedule() {
             <h2>
                 <SubHeading />
             </h2>
+            <Container>
+                {scheduleItems.map((item, idx) => (
+                    <Item key={idx} {...item} />
+                ))}
+            </Container>
         </>
     )
 }

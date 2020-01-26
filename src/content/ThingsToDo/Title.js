@@ -4,8 +4,8 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        heading: () => <>Things to Do</>,
-        subHeading: () => (
+        Heading: () => <>Things to Do</>,
+        SubHeading: () => (
             <>
                 We’re so excited to share a few of our favorite places in the
                 area with you.
@@ -13,8 +13,8 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        heading: () => <>Things to Do</>,
-        subHeading: () => (
+        Heading: () => <>Things to Do</>,
+        SubHeading: () => (
             <>
                 We’re so excited to share a few of our favorite places in the
                 area with you.

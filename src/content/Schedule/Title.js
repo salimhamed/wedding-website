@@ -4,8 +4,8 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        heading: () => <>Schedule</>,
-        subHeading: () => (
+        Heading: () => <>Schedule</>,
+        SubHeading: () => (
             <span>
                 Here's what to expect during our wedding weekend. There will
                 also be a printout of this schedule available in your hotel
@@ -14,8 +14,8 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        heading: () => <>Schedule</>,
-        subHeading: () => (
+        Heading: () => <>Schedule</>,
+        SubHeading: () => (
             <span>
                 Here's what to expect during our wedding weekend. There will
                 also be a printout of this schedule available in your hotel
