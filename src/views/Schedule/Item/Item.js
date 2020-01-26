@@ -6,7 +6,7 @@ import styles from "./Item.module.scss"
 
 const Item = ({ Title, Date, Time, Location, Address, Details }) => (
     <Row className={styles.item}>
-        <Col>
+        <Col md={2} className={styles["left-col"]}>
             <h3>
                 <Title />
             </h3>
@@ -17,12 +17,12 @@ const Item = ({ Title, Date, Time, Location, Address, Details }) => (
                 <Time />
             </h4>
         </Col>
-        <Col>
+        <Col md={10} className={styles["right-col"]}>
             <h3>
                 <Location />
             </h3>
             <Address />
-            <Details/>
+            <Details />
         </Col>
     </Row>
 )
