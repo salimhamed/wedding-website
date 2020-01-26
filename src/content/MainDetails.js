@@ -12,9 +12,7 @@ export default {
         hashtag,
     },
     [LANGUAGE.CAT]: {
-        title: () => (
-            <span>El Salim i la Lledó es casen!</span>
-        ),
+        title: () => <span>El Salim i la Lledó es casen!</span>,
         date: () => <span>08/08/2020</span>,
         location: () => <span>Terres de l&apos;Ebre, Catalunya</span>,
         hashtag,
