@@ -19,19 +19,13 @@ import * as serviceWorker from "./serviceWorker"
 ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
+            <Navigation />
             <Switch>
-                <div>
-                    <Navigation />
-                    <Route exact path={"/"} component={Home} />
-                    <Route exact path={"/schedule"} component={Schedule} />
-                    <Route exact path={"/travel"} component={Travel} />
-                    <Route
-                        exact
-                        path={"/things-to-do"}
-                        component={ThingsToDo}
-                    />
-                    <Route exact path={"/faq"} component={FAQ} />
-                </div>
+                <Route exact path={"/"} component={Home} />
+                <Route exact path={"/schedule"} component={Schedule} />
+                <Route exact path={"/travel"} component={Travel} />
+                <Route exact path={"/things-to-do"} component={ThingsToDo} />
+                <Route exact path={"/faq"} component={FAQ} />
             </Switch>
         </BrowserRouter>
     </StoreProvider>,
