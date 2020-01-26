@@ -5,11 +5,11 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
 import { Store } from "store"
-import { mainDetails } from "content"
+import { details } from "content/Home"
 
-import styles from "./MainDetails.module.scss"
+import styles from "./Details.module.scss"
 
-function MainDetails() {
+function Details() {
     const { state } = useContext(Store)
     const {
         app: { language },
@@ -20,7 +20,7 @@ function MainDetails() {
         date: DateContent,
         location: LocationContent,
         hashtag,
-    } = mainDetails[language]
+    } = details[language]
     return (
         <section>
             <Container>
@@ -51,4 +51,4 @@ function MainDetails() {
     )
 }
 
-export default MainDetails
+export default Details

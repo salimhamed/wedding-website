@@ -27,7 +27,12 @@ function Navigation() {
         [LANGUAGE.EN]: "US",
     }
 
-    const { home: Home } = navigation[language]
+    const {
+        schedule: ScheduleNavText,
+        travel: TravelNavText,
+        thingsToDo: ThingsToDoNavText,
+        faq: FAQNavText,
+    } = navigation[language]
 
     return (
         <Navbar
@@ -36,14 +41,23 @@ function Navigation() {
             sticky="top"
             className={styles.navigation}
         >
-            <Navbar.Brand href="#home" className={styles.brand}>
+            <Navbar.Brand href="/" className={styles.brand}>
                 S & L
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <Nav.Link href="/">
-                        <Home />
+                    <Nav.Link href="/schedule">
+                        <ScheduleNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/travel">
+                        <TravelNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/things-to-do">
+                        <ThingsToDoNavText />
+                    </Nav.Link>
+                    <Nav.Link href="/faq">
+                        <FAQNavText />
                     </Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
