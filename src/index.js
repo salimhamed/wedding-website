@@ -5,24 +5,35 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
+import { Navigation } from "components/Navigation"
+import { Header } from "components/Header"
+
+import { Home } from "views/Home"
+import { Schedule } from "views/Schedule"
+import { Travel } from "views/Travel"
+import { ThingsToDo } from "views/ThingsToDo"
+import { FAQ } from "views/FAQ"
+
 import { StoreProvider } from "./store"
 import * as serviceWorker from "./serviceWorker"
-
-import { Home } from "./views/Home"
-import { Schedule } from "./views/Schedule"
-import { Travel } from "./views/Travel"
-import { ThingsToDo } from "./views/ThingsToDo"
-import { FAQ } from "./views/FAQ"
 
 ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
             <Switch>
-                <Route exact path={"/"} component={Home} />
-                <Route exact path={"/schedule"} component={Schedule} />
-                <Route exact path={"/travel"} component={Travel} />
-                <Route exact path={"/things-to-do"} component={ThingsToDo} />
-                <Route exact path={"/faq"} component={FAQ} />
+                <div>
+                    <Navigation />
+                    <Header />
+                    <Route exact path={"/"} component={Home} />
+                    <Route exact path={"/schedule"} component={Schedule} />
+                    <Route exact path={"/travel"} component={Travel} />
+                    <Route
+                        exact
+                        path={"/things-to-do"}
+                        component={ThingsToDo}
+                    />
+                    <Route exact path={"/faq"} component={FAQ} />
+                </div>
             </Switch>
         </BrowserRouter>
     </StoreProvider>,

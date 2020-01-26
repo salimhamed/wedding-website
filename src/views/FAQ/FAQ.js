@@ -1,16 +1,7 @@
 import React from "react"
 
-import { Navigation } from "components/Navigation"
-import { Header } from "components/Header"
-
 function FAQ() {
-    return (
-        <div>
-            <Navigation />
-            <Header />
-            FAQ
-        </div>
-    )
+    return <>FAQ</>
 }
 
 export default FAQ
