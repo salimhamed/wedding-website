@@ -5,11 +5,11 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            type: () => <>Flight</>,
-            title: () => <>BCN</>,
-            address: null,
-            phone: null,
-            details: () => (
+            Type: () => <>Flight</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
                 <>
                     <p>
                         This is the best place to fly into. You could go to
@@ -21,16 +21,16 @@ export default {
             link: null,
         },
         {
-            type: () => <>Lodging for Wedding</>,
-            title: () => <>Fairmont San Francisco</>,
-            address: (
+            Type: () => <>Lodging for Wedding</>,
+            Title: () => <>Fairmont San Francisco</>,
+            Address: (
                 <>
                     <p>950 Mason Street</p>
                     <p>San Francisco, CA 94108</p>
                 </>
             ),
-            phone: <>(415) 772-5000</>,
-            details: () => (
+            Phone: <>(415) 772-5000</>,
+            Details: () => (
                 <>
                     <p>
                         This is where we’ll be having our rehearsal dinner and
@@ -44,11 +44,11 @@ export default {
     ],
     [LANGUAGE.CAT]: [
         {
-            type: () => <>Flight</>,
-            title: () => <>BCN</>,
-            address: null,
-            phone: null,
-            details: () => (
+            Type: () => <>Flight</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
                 <>
                     <p>
                         This is the best place to fly into. You could go to
@@ -60,16 +60,16 @@ export default {
             link: null,
         },
         {
-            type: () => <>Lodging for Wedding</>,
-            title: () => <>Fairmont San Francisco</>,
-            address: (
+            Type: () => <>Lodging for Wedding</>,
+            Title: () => <>Fairmont San Francisco</>,
+            Address: (
                 <>
                     <p>950 Mason Street</p>
                     <p>San Francisco, CA 94108</p>
                 </>
             ),
-            phone: <>(415) 772-5000</>,
-            details: () => (
+            Phone: <>(415) 772-5000</>,
+            Details: () => (
                 <>
                     <p>
                         This is where we’ll be having our rehearsal dinner and

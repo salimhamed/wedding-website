@@ -4,14 +4,14 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        heading: () => <>Travel</>,
-        subHeading: () => (
+        Heading: () => <>Travel</>,
+        SubHeading: () => (
             <>Some travel recommendations for our out-of-town guests.</>
         ),
     },
     [LANGUAGE.CAT]: {
-        heading: () => <>Travel</>,
-        subHeading: () => (
+        Heading: () => <>Travel</>,
+        SubHeading: () => (
             <>Some travel recommendations for our out-of-town guests.</>
         ),
     },

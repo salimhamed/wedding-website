@@ -9,7 +9,7 @@ function Travel() {
         app: { language },
     } = state
 
-    const { heading: Heading, subHeading: SubHeading } = title[language]
+    const { Heading, SubHeading } = title[language]
     return (
         <>
             <h1>
