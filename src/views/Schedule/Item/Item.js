@@ -8,7 +8,7 @@ import styles from "./Item.module.scss"
 const Item = ({ Title, Date, Time, Location, Address, Details }) => (
     <Row className={styles.item}>
         <Col
-            md={{ span: 3, offset: 1 }}
+            md={{ span: 3, offset: 2 }}
             className={classNames(
                 styles["item-col"],
                 styles["left"],
