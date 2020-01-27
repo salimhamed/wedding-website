@@ -5,9 +5,13 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        Content: () => <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />,
+        Content: () => (
+            <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+        ),
     },
     [LANGUAGE.CAT]: {
-        Content: () => <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />,
+        Content: () => (
+            <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+        ),
     },
 }
