@@ -1,0 +1,63 @@
+@import "src/theme";
+
+@import "~bootstrap/scss/_functions.scss";
+@import "~bootstrap/scss/_variables.scss";
+@import "~bootstrap/scss/mixins/_breakpoints.scss";
+
+.item {
+    h1,
+    h2,
+    h3 {
+        font-family: $primary-cursive-font-family;
+        font-weight: 600;
+    }
+
+    h4 {
+        font-size: 16px;
+    }
+
+    margin-bottom: 30px;
+    @include media-breakpoint-down(sm) {
+        margin: 0;
+        padding: 35px 55px 35px;
+    }
+
+    .item-col {
+        padding-top: 70px;
+        padding-bottom: 70px;
+        @include media-breakpoint-down(sm) {
+            padding: 0;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: $border-color;
+        }
+
+        &.left {
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: $border-color;
+            text-align: right;
+            padding-right: 25px;
+            @include media-breakpoint-down(sm) {
+                border-style: none;
+                text-align: center;
+                padding: 0;
+            }
+        }
+        &.right {
+            padding-left: 25px;
+            @include media-breakpoint-down(sm) {
+                text-align: center;
+                padding: 25px 0 45px;
+            }
+            .address {
+                p {
+                    line-height: 0.4;
+                }
+            }
+            .details {
+                margin-top: 40px;
+            }
+        }
+    }
+}
