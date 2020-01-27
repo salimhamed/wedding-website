@@ -4,7 +4,7 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        Heading: () => <>FAQs</>,
+        Heading: () => <>Questions?</>,
         SubHeading: () => (
             <>
                 If you have any other questions other than what we’ve listed
@@ -14,7 +14,7 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>FAQs</>,
+        Heading: () => <>Questions?</>,
         SubHeading: () => (
             <>
                 If you have any other questions other than what we’ve listed
