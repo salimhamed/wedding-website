@@ -1,10 +1,12 @@
 import React, { useContext } from "react"
+import { NavLink as RouterNavLink } from "react-router-dom"
 import Navbar from "react-bootstrap/Navbar"
 import NavLink from "react-bootstrap/NavLink"
 import Nav from "react-bootstrap/Nav"
 import NavItem from "react-bootstrap/NavItem"
 import Dropdown from "react-bootstrap/Dropdown"
 import ReactCountryFlag from "react-country-flag"
+import classNames from "classnames"
 
 import { LANGUAGE } from "actions/constants"
 import { switchLanguage } from "actions"
@@ -41,24 +43,39 @@ function Navigation() {
             sticky="top"
             className={styles.navigation}
         >
-            <Navbar.Brand href="/" className={styles.brand}>
+            <RouterNavLink
+                to="/"
+                className={classNames("navbar-brand", styles.brand)}
+            >
                 S & L
-            </Navbar.Brand>
+            </RouterNavLink>
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <Nav.Link href="/schedule">
+                    <RouterNavLink
+                        to="/schedule"
+                        className="nav-link"
+                        role="button"
+                    >
                         <ScheduleNavText />
-                    </Nav.Link>
-                    <Nav.Link href="/travel">
+                    </RouterNavLink>
+                    <RouterNavLink
+                        to="/travel"
+                        className="nav-link"
+                        role="button"
+                    >
                         <TravelNavText />
-                    </Nav.Link>
-                    <Nav.Link href="/things-to-do">
+                    </RouterNavLink>
+                    <RouterNavLink
+                        to="/things-to-do"
+                        className="nav-link"
+                        role="button"
+                    >
                         <ThingsToDoNavText />
-                    </Nav.Link>
-                    <Nav.Link href="/faq">
+                    </RouterNavLink>
+                    <RouterNavLink to="/faq" className="nav-link" role="button">
                         <FAQNavText />
-                    </Nav.Link>
+                    </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
                     <Dropdown as={NavItem}>
