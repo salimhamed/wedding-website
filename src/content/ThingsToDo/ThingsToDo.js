@@ -5,7 +5,7 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Title: () => <>Welcome Drinks</>,
+            Title: () => <>Walk the Golden Gate Bridge</>,
             Address: () => (
                 <>
                     <p>Golden Gate Bridge</p>
@@ -27,7 +27,7 @@ export default {
     ],
     [LANGUAGE.CAT]: [
         {
-            Title: () => <>Welcome Drinks</>,
+            Title: () => <>Walk the Golden Gate Bridge</>,
             Address: () => (
                 <>
                     <p>Golden Gate Bridge</p>

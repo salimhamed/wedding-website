@@ -23,13 +23,13 @@ export default {
         {
             Type: () => <>Lodging for Wedding</>,
             Title: () => <>Fairmont San Francisco</>,
-            Address: (
+            Address: () => (
                 <>
                     <p>950 Mason Street</p>
                     <p>San Francisco, CA 94108</p>
                 </>
             ),
-            Phone: <>(415) 772-5000</>,
+            Phone: () => <>(415) 772-5000</>,
             Details: () => (
                 <>
                     <p>
@@ -46,7 +46,12 @@ export default {
         {
             Type: () => <>Flight</>,
             Title: () => <>BCN</>,
-            Address: null,
+            Address: () => (
+                <>
+                    <p>950 Mason Street</p>
+                    <p>San Francisco, CA 94108</p>
+                </>
+            ),
             Phone: null,
             Details: () => (
                 <>
@@ -62,13 +67,13 @@ export default {
         {
             Type: () => <>Lodging for Wedding</>,
             Title: () => <>Fairmont San Francisco</>,
-            Address: (
+            Address: () => (
                 <>
                     <p>950 Mason Street</p>
                     <p>San Francisco, CA 94108</p>
                 </>
             ),
-            Phone: <>(415) 772-5000</>,
+            Phone: () => <>(415) 772-5000</>,
             Details: () => (
                 <>
                     <p>
