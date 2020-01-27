@@ -1,22 +1,27 @@
+@import "src/theme";
+
 .item {
-    margin-top: 45px;
-    margin-bottom: 45px;
-
-    padding-top: 30px;
-    padding-bottom: 30px;
-
-    h3 {
-        font-size: 20px;
+    h1, h2, h3 {
+        font-family: $primary-cursive-font-family;
+        font-weight: 600;
     }
+
     h4 {
         font-size: 16px;
     }
 
-    .left-col {
-        border-right-style: solid;
-        border-right-width: 1px;
-        border-right-color: #babbbc;
-    }
-    .right-col {
+    .item-col {
+        padding-top: 70px;
+        padding-bottom: 70px;
+        &.left {
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-right-color: #babbbc;
+            text-align: right;
+            padding-right: 25px;
+        }
+        &.right {
+            padding-left: 25px;
+        }
     }
 }
