@@ -20,7 +20,7 @@ const Header = ({ imageUrl, Heading, SubHeading }) => (
                 </h1>
             </Container>
         </Jumbotron>
-        <Container className={styles['sub-heading']}>
+        <Container className={styles["sub-heading"]}>
             <h5 className="text-muted">
                 <SubHeading />
             </h5>
