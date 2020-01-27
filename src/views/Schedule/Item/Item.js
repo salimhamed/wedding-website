@@ -5,7 +5,7 @@ import Col from "react-bootstrap/Col"
 
 import styles from "./Item.module.scss"
 
-const Item = ({ Title, Date, Time, Location, Address, Details }) => (
+const Item = ({ Title, Date, Time, Location, Address, Details, mapLink }) => (
     <Row className={styles.item}>
         <Col
             sm={12}
@@ -38,8 +38,10 @@ const Item = ({ Title, Date, Time, Location, Address, Details }) => (
             <h3>
                 <Location />
             </h3>
-            <div className={classNames("text-muted", styles.address)}>
-                <Address />
+            <div className={classNames(styles.address)}>
+                <a href={mapLink} target="_blank" rel="noopener noreferrer">
+                    <Address />
+                </a>
             </div>
             <div className={styles.details}>
                 <Details />
