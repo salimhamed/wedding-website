@@ -3,6 +3,8 @@ import Container from "react-bootstrap/Container"
 
 import { Store } from "store"
 import { title, schedule } from "content/Schedule"
+import { Header } from "components/Header"
+import headerImg from "photos/spain_octopus.jpg"
 
 import { Item } from "./Item"
 
@@ -17,14 +19,11 @@ function Schedule() {
 
     return (
         <>
-            <Container>
-                <h1>
-                    <Heading />
-                </h1>
-                <h2>
-                    <SubHeading />
-                </h2>
-            </Container>
+            <Header
+                imageUrl={headerImg}
+                Heading={Heading}
+                SubHeading={SubHeading}
+            />
             <Container fluid>
                 {scheduleItems.map((item, idx) => (
                     <Item key={idx} {...item} />
