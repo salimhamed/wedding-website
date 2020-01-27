@@ -55,18 +55,14 @@ const Item = ({
                         <RightMainTitle />
                     </h3>
                 )}
-                {RightFirstContact && (
+                {RightFirstContact || RightSecondContact ? (
                     <div className={classNames(styles.contact, "text-muted")}>
-                        <RightFirstContact />
+                        {RightFirstContact && <RightFirstContact />}
+                        {RightSecondContact && <RightSecondContact />}
                     </div>
-                )}
-                {RightSecondContact && (
-                    <div className={classNames(styles.contact, "text-muted")}>
-                        <RightSecondContact />
-                    </div>
-                )}
+                ) : null}
                 {RightDetails && (
-                    <div className={styles.details}>
+                    <div>
                         <RightDetails />
                     </div>
                 )}
