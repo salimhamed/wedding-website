@@ -1,8 +1,8 @@
 @import "src/theme";
 
-.header {
+.heading {
+    text-align: center;
     height: 300px;
-    background-image: url("~photos/header_small.png");
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -21,7 +21,6 @@
     // Huge Desktops
     @media (min-width: $size-huge) {
         height: 1250px;
-        background-image: url("~photos/header_large.png");
         padding-top: 940px !important;
 
         h1 {
@@ -32,7 +31,6 @@
     // Desktops
     @media (min-width: $size-extra-large) and (max-width: $size-huge - 1) {
         height: 960px;
-        background-image: url("~photos/header_large.png");
         padding-top: 750px !important;
 
         h1 {
@@ -43,7 +41,6 @@
     // Laptops / Desktops
     @media (min-width: $size-large) and (max-width: $size-extra-large - 1) {
         height: 900px;
-        background-image: url("~photos/header_medium.png");
         padding-top: 600px !important;
 
         h1 {
@@ -54,7 +51,6 @@
     // Tablets (Portrait)
     @media (min-width: $size-medium) and (max-width: $size-large - 1) {
         height: 800px;
-        background-image: url("~photos/header_medium.png");
         padding-top: 550px !important;
 
         h1 {
@@ -65,7 +61,6 @@
     // Tablets (Landscape)
     @media (min-width: $size-medium) and (max-width: $size-large - 1) and (orientation: landscape) {
         height: 760px;
-        background-image: url("~photos/header_medium.png");
         padding-top: 500px !important;
 
         h1 {
@@ -76,7 +71,6 @@
     // Mobile (Landscape)
     @media (min-width: $size-small) and (max-width: $size-medium - 1) {
         height: 620px;
-        background-image: url("~photos/header_medium.png");
         padding-top: 400px !important;
 
         h1 {
@@ -93,4 +87,8 @@
             font-size: 3em;
         }
     }
+}
+
+.sub-heading {
+    padding: 10px 40px 45px;
 }
