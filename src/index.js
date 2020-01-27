@@ -6,6 +6,7 @@ import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navigation } from "components/Navigation"
+import { Footer } from "components/Footer"
 
 import { Home } from "views/Home"
 import { Schedule } from "views/Schedule"
@@ -27,6 +28,7 @@ ReactDOM.render(
                 <Route exact path={"/things-to-do"} component={ThingsToDo} />
                 <Route exact path={"/faq"} component={FAQ} />
             </Switch>
+            <Footer />
         </BrowserRouter>
     </StoreProvider>,
     document.getElementById("root")
