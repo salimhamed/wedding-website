@@ -6,6 +6,7 @@ import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navigation } from "components/Navigation"
+import { Footer } from "components/Footer"
 
 import { Home } from "views/Home"
 import { Schedule } from "views/Schedule"
@@ -19,14 +20,21 @@ import * as serviceWorker from "./serviceWorker"
 ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
-            <Navigation />
-            <Switch>
-                <Route exact path={"/"} component={Home} />
-                <Route exact path={"/schedule"} component={Schedule} />
-                <Route exact path={"/travel"} component={Travel} />
-                <Route exact path={"/things-to-do"} component={ThingsToDo} />
-                <Route exact path={"/faq"} component={FAQ} />
-            </Switch>
+            <main className="mb-4">
+                <Navigation />
+                <Switch>
+                    <Route exact path={"/"} component={Home} />
+                    <Route exact path={"/schedule"} component={Schedule} />
+                    <Route exact path={"/travel"} component={Travel} />
+                    <Route
+                        exact
+                        path={"/things-to-do"}
+                        component={ThingsToDo}
+                    />
+                    <Route exact path={"/faq"} component={FAQ} />
+                </Switch>
+            </main>
+            <Footer />
         </BrowserRouter>
     </StoreProvider>,
     document.getElementById("root")
