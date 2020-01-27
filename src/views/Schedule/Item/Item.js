@@ -36,8 +36,12 @@ const Item = ({ Title, Date, Time, Location, Address, Details }) => (
             <h3>
                 <Location />
             </h3>
-            <Address />
-            <Details />
+            <div className="text-muted">
+                <Address />
+            </div>
+            <div className={styles.details}>
+                <Details />
+            </div>
         </Col>
     </Row>
 )

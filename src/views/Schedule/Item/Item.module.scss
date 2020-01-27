@@ -1,7 +1,11 @@
 @import "src/theme";
 
 .item {
-    h1, h2, h3 {
+    margin-bottom: 30px;
+
+    h1,
+    h2,
+    h3 {
         font-family: $primary-cursive-font-family;
         font-weight: 600;
     }
@@ -22,6 +26,12 @@
         }
         &.right {
             padding-left: 25px;
+            p {
+                line-height: 0.4;
+            }
+            .details {
+              margin-top: 40px;
+            }
         }
     }
 }
