@@ -8,6 +8,7 @@ import styles from "./Item.module.scss"
 const Item = ({ Title, Date, Time, Location, Address, Details }) => (
     <Row className={styles.item}>
         <Col
+            sm={12}
             md={{ span: 3, offset: 2 }}
             className={classNames(
                 styles["item-col"],
@@ -26,6 +27,7 @@ const Item = ({ Title, Date, Time, Location, Address, Details }) => (
             </h4>
         </Col>
         <Col
+            sm={12}
             md={5}
             className={classNames(
                 styles["item-col"],
@@ -36,7 +38,7 @@ const Item = ({ Title, Date, Time, Location, Address, Details }) => (
             <h3>
                 <Location />
             </h3>
-            <div className="text-muted">
+            <div className={classNames("text-muted", styles.address)}>
                 <Address />
             </div>
             <div className={styles.details}>
