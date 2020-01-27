@@ -4,10 +4,6 @@ import { BrowserRouter, Route, Switch } from "react-router-dom"
 
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/scss/mixins/_breakpoints.scss"
-// @import "~bootstrap-4.0.0/scss/_functions.scss";
-// @import "~bootstrap-4.0.0/scss/_variables.scss";
-// @import "~bootstrap-4.0.0/scss/mixins/_breakpoints.scss";
 
 import { Navigation } from "components/Navigation"
 
