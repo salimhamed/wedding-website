@@ -7,7 +7,8 @@ import styles from "./Item.module.scss"
 
 const Item = ({
     LeftMainTitle = null,
-    LeftSubTitle = null,
+    LeftFirstSubTitle = null,
+    LeftSecondSubTitle = null,
     RightMainTitle = null,
     RightFirstContact = null,
     RightSecondContact = null,
@@ -29,9 +30,14 @@ const Item = ({
                         <LeftMainTitle />
                     </h1>
                 )}
-                {LeftSubTitle && (
+                {LeftFirstSubTitle && (
                     <h4 className="text-muted">
-                        <LeftSubTitle />
+                        <LeftFirstSubTitle />
+                    </h4>
+                )}
+                {LeftSecondSubTitle && (
+                    <h4 className="text-muted">
+                        <LeftSecondSubTitle />
                     </h4>
                 )}
             </Col>

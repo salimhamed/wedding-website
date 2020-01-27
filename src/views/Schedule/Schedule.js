@@ -4,9 +4,8 @@ import Container from "react-bootstrap/Container"
 import { Store } from "store"
 import { title, schedule } from "content/Schedule"
 import { Header } from "components/Header"
+import { Item } from "components/Item"
 import headerImg from "photos/spain_octopus.jpg"
-
-import { Item } from "./Item"
 
 function Schedule() {
     const { state } = useContext(Store)
@@ -25,9 +24,38 @@ function Schedule() {
                 SubHeading={SubHeading}
             />
             <Container fluid>
-                {scheduleItems.map((item, idx) => (
-                    <Item key={idx} {...item} />
-                ))}
+                {scheduleItems.map(
+                    (
+                        {
+                            Title,
+                            Date,
+                            Time,
+                            Location,
+                            Address,
+                            Details,
+                            mapLink,
+                        },
+                        idx
+                    ) => (
+                        <Item
+                            key={idx}
+                            LeftMainTitle={Title}
+                            LeftFirstSubTitle={Date}
+                            LeftSecondSubTitle={Time}
+                            RightMainTitle={Location}
+                            RightFirstContact={() => (
+                                <a
+                                    href={mapLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Address />
+                                </a>
+                            )}
+                            RightDetails={Details}
+                        />
+                    )
+                )}
             </Container>
         </>
     )
