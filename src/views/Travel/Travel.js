@@ -4,9 +4,8 @@ import Container from "react-bootstrap/Container"
 import { Store } from "store"
 import { title, travel } from "content/Travel"
 import { Header } from "components/Header"
+import { Item } from "components/Item"
 import headerImg from "photos/airplane.jpg"
-
-import { Item } from "./Item"
 
 function Travel() {
     const { state } = useContext(Store)
@@ -27,9 +26,18 @@ function Travel() {
                 SubHeading={SubHeading}
             />
             <Container fluid>
-                {travelItems.map((item, idx) => (
-                    <Item key={idx} {...item} />
-                ))}
+                {travelItems.map(
+                    ({ Type, Title, Details, Address, Phone }, idx) => (
+                        <Item
+                            key={idx}
+                            LeftMainTitle={Type}
+                            LeftFirstSubTitle={Title}
+                            RightFirstContact={Address}
+                            RightSecondContact={Phone}
+                            RightDetails={Details}
+                        />
+                    )
+                )}
             </Container>
         </>
     )
