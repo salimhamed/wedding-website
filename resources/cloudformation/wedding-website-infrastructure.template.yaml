@@ -172,4 +172,4 @@ Outputs:
 
   UserTable:
     Value: !Ref UserTable
-    Description: The name of the Forge User Settings DynamoDB table.
+    Description: The name of the DynamoDB table for User information.

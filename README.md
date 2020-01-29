@@ -11,7 +11,7 @@ The website provides the following features:
 
 ## Deploying the Site
 
-### Deploy CloudFormation Stack
+### 1. Deploy CloudFormation Stack
 
 ```shell script
 aws cloudformation create-stack \
@@ -21,6 +21,20 @@ aws cloudformation create-stack \
     --capabilities CAPABILITY_IAM \
     --template-body file://resources/cloudformation/wedding-website-infrastructure.template.yaml \
     --stack-policy-body file://resources/cloudformation/wedding-website-infrastructure.policy.json
+```
+
+### 2. Set Environment Variables
+
+```shell script
+# see the stack outputs
+aws cloudformation describe-stacks \
+    --profile personal \
+    --region us-east-1 \
+    --stack-name WeddingWebsite
+
+# add the outputs to a .env file
+cp env-example .env
+vim .env  # fill in the correct values from the CloudFormation stack outputs
 ```
 
 ### Resources
