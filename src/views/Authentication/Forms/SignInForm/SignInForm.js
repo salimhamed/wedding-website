@@ -11,7 +11,7 @@ function SignInForm() {
             <Form.Control type="email" placeholder="Enter email" />
             <Form.Control type="password" placeholder="Password" />
             <Button variant="primary" type="submit" size="lg" block>
-                Sign in
+                Sign In
             </Button>
         </Form>
     )
