@@ -12,7 +12,6 @@ const initialState = {
             username: null,
             email: null,
             name: null,
-            loading: false,
             error: null,
         },
     },
