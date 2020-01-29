@@ -15,7 +15,7 @@ ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
             <Switch>
-                <Route exact path={"/auth"} component={Authentication} />
+                <Route path={"/auth"} component={Authentication} />
                 <Route component={AppLayout} />
             </Switch>
         </BrowserRouter>

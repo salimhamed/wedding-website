@@ -1,8 +1,9 @@
 import React from "react"
 import Container from "react-bootstrap/Container"
+import { Route, Switch } from "react-router-dom"
 import classNames from "classnames"
 
-import { SignInForm } from "./Forms"
+import { SignInForm, SignUpForm } from "./Forms"
 
 import styles from "./Authentication.module.scss"
 
@@ -19,9 +20,12 @@ function Authentication() {
         >
             <div>
                 <div className="text-center">
-                    <h1 className={classNames("mb-4", styles.header)}>S & L</h1>
+                    <h1 className={classNames("mb-4")}>S & L</h1>
                 </div>
-                <SignInForm />
+                <Switch>
+                    <Route exact path={"/auth"} component={SignInForm} />
+                    <Route exact path={"/auth/signup"} component={SignUpForm} />
+                </Switch>
             </div>
         </Container>
     )
