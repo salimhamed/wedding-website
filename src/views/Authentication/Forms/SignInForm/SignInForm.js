@@ -7,7 +7,7 @@ import styles from "./SignInForm.module.scss"
 function SignInForm() {
     return (
         <Form className={styles.form}>
-            <h4 className="text-muted">Sign In to RSVP</h4>
+            <h4 className="text-muted">Please Sign In</h4>
             <Form.Control type="email" placeholder="Enter email" />
             <Form.Control type="password" placeholder="Password" />
             <Button variant="primary" type="submit" size="lg" block>
