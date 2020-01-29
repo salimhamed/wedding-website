@@ -35,9 +35,6 @@ Resources:
       AdminCreateUserConfig:
         InviteMessageTemplate:
           EmailSubject: Salim and Lledó Website
-      AliasAttributes:
-        - email
-      EmailConfiguration: EmailConfiguration
       EmailVerificationSubject: Salim and Lledó Website
       UsernameAttributes:
         - email

@@ -16,6 +16,7 @@ The website provides the following features:
 ```shell script
 aws cloudformation create-stack \
     --profile personal \
+    --region us-east-1 \
     --stack-name WeddingWebsite \
     --capabilities CAPABILITY_IAM \
     --template-body file://resources/cloudformation/wedding-website-infrastructure.template.yaml \
