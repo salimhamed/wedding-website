@@ -9,6 +9,19 @@ The website provides the following features:
 -   Multi-language support (my fiancee is Catalonia)
 -   Ability to RSVP (site authentication uses AWS Amplify)
 
+## Deploying the Site
+
+### Deploy CloudFormation Stack
+
+```shell script
+aws cloudformation create-stack \
+    --profile personal \
+    --stack-name WeddingWebsite \
+    --capabilities CAPABILITY_IAM \
+    --template-body file://resources/cloudformation/wedding-website-infrastructure.template.yaml \
+    --stack-policy-body file://resources/cloudformation/wedding-website-infrastructure.policy.json
+```
+
 ### Resources
 
 -   [Original README](docs/create-react-app.md) from `create-react-app`

@@ -7,6 +7,7 @@ Description: AWS resources for the wedding website project
 Parameters:
   ServiceName:
     Type: String
+    Default: WeddingWebsite
 
 
 Resources:
@@ -66,7 +67,7 @@ Resources:
       AllowUnauthenticatedIdentities: True
       CognitoIdentityProviders:
         - ClientId: !Ref UserPoolClient
-          ProviderName: !Sub "cognito-idp.${AWS::Region}.amazonaws.com/${CognitoUserPoolId}"
+          ProviderName: !Sub "cognito-idp.${AWS::Region}.amazonaws.com/${UserPool}"
 
   UnauthenticatedIamRole:
     Type: AWS::IAM::Role
