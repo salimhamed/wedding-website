@@ -1,231 +1,71 @@
 AWSTemplateFormatVersion: "2010-09-09"
 
-Transform:
-  - CloudformationAlarmMacro-Prod
 
-Description: AWS resources that host the Forge web application.
+Description: AWS resources for the wedding website project
+
 
 Parameters:
   ServiceName:
     Type: String
-    Description: The Service Name.
-    Default: Forge
-
-  Stage:
-    Type: String
-    Description: The Stage for the CloudFormation stack.
-    AllowedValues:
-      - Alpha
-      - Beta
-      - Prod
-
-  RootDomainName:
-    Description: Domain name for your website (example.com)
-    Type: String
-
-  AcmCertificateArn:
-    Type: String
-    Description: the Amazon Resource Name (ARN) of an AWS Certificate Manager (ACM) certificate.
-    AllowedPattern: "arn:aws:acm:.*"
-
-  CognitoUserPoolId:
-    Type: String
-    Description:
-      The provider name for the Cognito User Pool with Downstream users.
-      For example, cognito-idp.us-east-2.amazonaws.com/us-east-2_123456789.
-
-  CognitoUserPoolClientId:
-    Type: String
-    Description: The ID for the user pool client.
-
-  SignupSQSQueue:
-    Type: String
-    Description: The name of the SQS Queue where signups should be pushed.
-
-  PythonLambdaCodeS3Bucket:
-    Type: String
-    Description: The S3 bucket where the built Python Lambda artifacts are located.
-
-  PythonLambdaCodeS3Key:
-    Type: String
-    Description: The S3 key where the built Python Lambda artifacts are located.
-
-  NodeLambdaCodeS3Bucket:
-    Type: String
-    Description: The S3 bucket where the built Node Lambda artifacts are located.
-
-  NodeLambdaCodeS3Key:
-    Type: String
-    Description: The S3 key where the built Node Lambda artifacts are located.
 
 
 Resources:
-  WWWBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      BucketName: !Sub "forge.${RootDomainName}"
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        IndexDocument: index.html
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-
-  WWWBucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    DependsOn:
-      - WWWBucket
-    Properties:
-      Bucket: !Ref WWWBucket
-      PolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Sid: PublicReadGetObject
-            Effect: Allow
-            Principal: "*"
-            Action:
-              - s3:GetObject
-            Resource:
-              - !Sub "${WWWBucket.Arn}/*"
-
-  PRBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      AccessControl: PublicRead
-      WebsiteConfiguration:
-        IndexDocument: index.html
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-
-  PRBucketPolicy:
-    Type: AWS::S3::BucketPolicy
-    DependsOn:
-      - PRBucket
-    Properties:
-      Bucket: !Ref PRBucket
-      PolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Sid: PublicReadGetObject
-            Effect: Allow
-            Principal: "*"
-            Action:
-              - s3:GetObject
-            Resource:
-              - !Sub "${PRBucket.Arn}/*"
-
-  WebsiteCloudfront:
-    Type: AWS::CloudFront::Distribution
-    DependsOn:
-      - WWWBucket
-    Properties:
-      DistributionConfig:
-        Comment: !Sub "Cloudfront Distribution pointing to S3 bucket for static website in ${Stage} stage."
-        Origins:
-          - DomainName: !Select [2, !Split ["/", !GetAtt WWWBucket.WebsiteURL]]
-            Id: S3Origin
-            CustomOriginConfig:
-              HTTPPort: "80"
-              HTTPSPort: "443"
-              OriginProtocolPolicy: http-only
-        Enabled: True
-        HttpVersion: http2
-        DefaultRootObject: index.html
-        Aliases:
-          - !Sub "forge.${RootDomainName}"
-        DefaultCacheBehavior:
-          AllowedMethods:
-            - GET
-            - HEAD
-          Compress: True
-          TargetOriginId: S3Origin
-          ForwardedValues:
-            QueryString: True
-            Cookies:
-              Forward: none
-          ViewerProtocolPolicy: redirect-to-https
-        PriceClass: PriceClass_All
-        CustomErrorResponses:
-          - ErrorCode: 404
-            ResponseCode: 200
-            ResponsePagePath: /index.html
-          - ErrorCode: 403
-            ResponseCode: 200
-            ResponsePagePath: /index.html
-        ViewerCertificate:
-          AcmCertificateArn: !Ref AcmCertificateArn
-          SslSupportMethod: sni-only
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-
-  WebsiteCloudfrontRecordSetGroup:
-    Type: AWS::Route53::RecordSetGroup
-    DependsOn:
-      - WebsiteCloudfront
-    Properties:
-      HostedZoneName: !Sub "${RootDomainName}."
-      RecordSets:
-        - AliasTarget:
-            DNSName: !GetAtt WebsiteCloudfront.DomainName
-            HostedZoneId: Z2FDTNDATAQYW2
-          Name: !Sub "forge.${RootDomainName}"
-          Type: A
-        - AliasTarget:
-            DNSName: !GetAtt WebsiteCloudfront.DomainName
-            HostedZoneId: Z2FDTNDATAQYW2
-          Name: !Sub "forge.${RootDomainName}"
-          Type: AAAA
-
-  UserSettingsDynamoDBTable:
+  UserTable:
     Type: AWS::DynamoDB::Table
     Properties:
       AttributeDefinitions:
-        - AttributeName: UserId
+        - AttributeName: Email
           AttributeType: S
         - AttributeName: Domain
           AttributeType: S
       BillingMode: PAY_PER_REQUEST
       KeySchema:
-        - AttributeName: UserId
+        - AttributeName: Email
           KeyType: HASH
         - AttributeName: Domain
           KeyType: RANGE
       Tags:
         - Key: ServiceName
           Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
 
-  ForgeSettingsDynamoDBTable:
-    Type: AWS::DynamoDB::Table
+  UserPool:
+    Type: AWS::Cognito::UserPool
     Properties:
-      AttributeDefinitions:
-        - AttributeName: Id
-          AttributeType: S
-      BillingMode: PAY_PER_REQUEST
-      KeySchema:
-        - AttributeName: Id
-          KeyType: HASH
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
+      AdminCreateUserConfig:
+        InviteMessageTemplate:
+          EmailSubject: Salim and Lledó Website
+      AliasAttributes:
+        - email
+      EmailConfiguration: EmailConfiguration
+      EmailVerificationSubject: Salim and Lledó Website
+      UsernameAttributes:
+        - email
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref UserPool
+      ExplicitAuthFlows:
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+      GenerateSecret: False
+      PreventUserExistenceErrors: ENABLED
+      RefreshTokenValidity: 360
+      ReadAttributes:
+        - email
+        - name
+        - address
+      WriteAttributes:
+        - email
+        - name
+        - address
 
   IdentityPool:
     Type: AWS::Cognito::IdentityPool
     Properties:
       AllowUnauthenticatedIdentities: True
       CognitoIdentityProviders:
-        - ClientId: !Ref CognitoUserPoolClientId
+        - ClientId: !Ref UserPoolClient
           ProviderName: !Sub "cognito-idp.${AWS::Region}.amazonaws.com/${CognitoUserPoolId}"
 
   UnauthenticatedIamRole:
@@ -253,18 +93,9 @@ Resources:
           ]
         }
       Policies:
-        - PolicyName: UnauthenticatedPolicy
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - mobileanalytics:PutEvents
-                  - cognito-sync:*
-                Resource: "*"
-        # TODO: remove access to user settings table when aws amplify supports switching from unauthenticated to authenticated user
+        # TODO: limit access when aws amplify supports switching from unauthenticated to authenticated user
         # https://github.com/aws-amplify/amplify-js/issues/2089
-        - PolicyName: UserSettings
+        - PolicyName: UserTablePermissions
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
@@ -272,17 +103,7 @@ Resources:
                 Action:
                   - dynamodb:PutItem
                   - dynamodb:GetItem
-                  - dynamodb:BatchGetItem
-                Resource: !GetAtt UserSettingsDynamoDBTable.Arn
-        - PolicyName: ForgeSettings
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: Allow
-                Action:
-                  - dynamodb:GetItem
-                  - dynamodb:BatchGetItem
-                Resource: !GetAtt ForgeSettingsDynamoDBTable.Arn
+                Resource: !GetAtt UserTable.Arn
 
   AuthenticatedIamRole:
     Type: AWS::IAM::Role
@@ -319,25 +140,15 @@ Resources:
                   - cognito-sync:*
                   - cognito-identity:*
                 Resource: "*"
-        - PolicyName: UserSettings
-          PolicyDocument:
-            Version: "2012-10-17"
-            Statement:
-              - Effect: "Allow"
-                Action:
-                  - dynamodb:PutItem
-                  - dynamodb:GetItem
-                  - dynamodb:BatchGetItem
-                Resource: !GetAtt UserSettingsDynamoDBTable.Arn
-        - PolicyName: ForgeSettings
+        - PolicyName: UserTablePermissions
           PolicyDocument:
             Version: "2012-10-17"
             Statement:
               - Effect: Allow
                 Action:
+                  - dynamodb:PutItem
                   - dynamodb:GetItem
-                  - dynamodb:BatchGetItem
-                Resource: !GetAtt ForgeSettingsDynamoDBTable.Arn
+                Resource: !GetAtt UserTable.Arn
 
   IdentityPoolRoleAttachment:
     Type: AWS::Cognito::IdentityPoolRoleAttachment
@@ -347,232 +158,20 @@ Resources:
         authenticated: !GetAtt AuthenticatedIamRole.Arn
         unauthenticated: !GetAtt UnauthenticatedIamRole.Arn
 
-  SignUpSNSNotification:
-    Type: AWS::SNS::Topic
-    Properties:
-      DisplayName: !Sub "ForgeSignup-${Stage}-${AWS::Region}"
-      Subscription:
-        - Endpoint: !Sub "arn:aws:sqs:${AWS::Region}:${AWS::AccountId}:${SignupSQSQueue}"
-          Protocol: sqs
-
-  PresignupLambdaPermission:
-    Type: AWS::Lambda::Permission
-    Properties:
-      FunctionName: !GetAtt PreSignUpLambdaFunction.Arn
-      Action: lambda:InvokeFunction
-      Principal: cognito-idp.amazonaws.com
-      SourceArn: !Sub "arn:aws:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/${CognitoUserPoolId}"
-
-  PresignupLambdaRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Action:
-              - sts:AssumeRole
-            Principal:
-              Service: lambda.amazonaws.com
-      Policies:
-        - PolicyName: CognitoAutoApproveUser
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-              - Effect: Allow
-                Action:
-                  - logs:CreateLogGroup
-                  - logs:CreateLogStream
-                  - logs:PutLogEvents
-                Resource: "arn:aws:logs:*:*:*"
-              - Effect: Allow
-                Action:
-                  - cognito-idp:AdminConfirmSignUp
-                Resource: "*"
-              - Effect: Allow
-                Action:
-                  - sns:Publish
-                Resource:
-                  - !Ref SignUpSNSNotification
-
-  PreSignUpLambdaFunction:
-    Type: AWS::Lambda::Function
-    Properties:
-      Description: !Sub "Automatically verifies a user in Cognito immediately after signup and posts to Slack for ${Stage}"
-      Code:
-        S3Bucket: !Ref PythonLambdaCodeS3Bucket
-        S3Key: !Ref PythonLambdaCodeS3Key
-      Role: !GetAtt PresignupLambdaRole.Arn
-      Timeout: 20
-      Handler: src.lambda_functions.pre_signup_lambda_function.lambda_handler
-      Runtime: python3.7
-      MemorySize: 128
-      Environment:
-        Variables:
-          STAGE: !Ref Stage
-          SIGNUP_SNS_TOPIC_ARN: !Ref SignUpSNSNotification
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-        - Key: ALARMS_ENABLED
-          Value: "true"
-        - Key: ALARM_LEVEL
-          Value: high
-
-  PdfBucket:
-    Type: AWS::S3::Bucket
-    Properties:
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-
-  DeadPdfRequestQueue:
-    Type: AWS::SQS::Queue
-    Properties:
-      Tags:
-        - Key: ALARMS_ENABLED
-          Value: "true"
-        - Key: ALARM_LEVEL
-          Value: high
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-
-  PdfRequestQueue:
-    Type: AWS::SQS::Queue
-    Properties:
-      VisibilityTimeout: 1200
-      RedrivePolicy:
-        deadLetterTargetArn: !GetAtt DeadPdfRequestQueue.Arn
-        maxReceiveCount: 10
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-
-  GeneratePdfLambdaRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Version: "2012-10-17"
-        Statement:
-          - Effect: Allow
-            Action:
-              - sts:AssumeRole
-            Principal:
-              Service: lambda.amazonaws.com
-      Policies:
-        - PolicyName: GeneratePdfAccess
-          PolicyDocument:
-            Version: 2012-10-17
-            Statement:
-              - Effect: Allow
-                Action:
-                  - logs:CreateLogGroup
-                  - logs:CreateLogStream
-                  - logs:PutLogEvents
-                Resource: "arn:aws:logs:*:*:*"
-              - Effect: Allow
-                Action:
-                  - s3:*
-                Resource:
-                  - !GetAtt PdfBucket.Arn
-                  - !Sub "${PdfBucket.Arn}/*"
-              - Effect: Allow
-                Resource: "*"
-                Action:
-                  - secretsmanager:GetSecretValue
-              - Effect: Allow
-                Action:
-                  - sqs:ReceiveMessage
-                  - sqs:SendMessage
-                  - sqs:DeleteMessage
-                  - sqs:GetQueueAttributes
-                Resource: "*"
-
-  GeneratePdfLambdaFunction:
-    Type: AWS::Lambda::Function
-    Properties:
-      Description: !Sub "Generates PDF reports for ${Stage} stage"
-      Code:
-        S3Bucket: !Ref NodeLambdaCodeS3Bucket
-        S3Key: !Ref NodeLambdaCodeS3Key
-      Role: !GetAtt GeneratePdfLambdaRole.Arn
-      Timeout: 900
-      Handler: generatePdfReport.handler
-      Runtime: nodejs8.10
-      MemorySize: 1600
-      ReservedConcurrentExecutions: 3
-      Environment:
-        Variables:
-          STAGE: !Ref Stage
-          PDF_S3_BUCKET: !Ref PdfBucket
-          LOGIN_SECRET_ID_PREFIX: "CEREBRO_EXPORTS_"
-      Tags:
-        - Key: ServiceName
-          Value: !Ref ServiceName
-        - Key: Stage
-          Value: !Ref Stage
-        - Key: ALARMS_ENABLED
-          Value: "true"
-        - Key: ALARM_LEVEL
-          Value: high
-
-  GeneratePdfLambdaFunctionTrigger:
-    Type: AWS::Lambda::EventSourceMapping
-    Properties:
-      BatchSize: 1
-      Enabled: True
-      EventSourceArn: !GetAtt PdfRequestQueue.Arn
-      FunctionName: !GetAtt GeneratePdfLambdaFunction.Arn
 
 Outputs:
-  WebsiteURL:
-    Value: !Sub "https://forge.${RootDomainName}"
-    Description: URL for website hosted on Cloudfront
-
-  WWWBucketName:
-    Value: !Ref WWWBucket
-    Description: The name of the www bucket that contains the website source code.
-
-  WebsiteCloudfront:
-    Value: !Ref WebsiteCloudfront
-    Description: The CloudFront Distribution ID for the 'www' website endpoint
-
-  PRBucketName:
-    Value: !Ref PRBucket
-    Description: The name of the s3 bucket that stores PR branch builds.
-
   UserPool:
-    Value: !Ref CognitoUserPoolId
+    Value: !Ref UserPool
     Description: The ID for the Congnito User Pool.
 
   UserPoolClient:
-    Value: !Ref CognitoUserPoolClientId
+    Value: !Ref UserPoolClient
     Description: The ID for the Congnito User Pool Client.
 
   IdentityPoolID:
     Value: !Ref IdentityPool
     Description: The ID for the Congnito Identity Pool.
 
-  UserSettingsDynamoDBTableName:
-    Value: !Ref UserSettingsDynamoDBTable
+  UserTable:
+    Value: !Ref UserTable
     Description: The name of the Forge User Settings DynamoDB table.
-
-  ForgeSettingsDynamoDBTableName:
-    Value: !Ref ForgeSettingsDynamoDBTable
-    Description: The name of the Forge Settings DynamoDB table.
-
-  SignUpSNSNotificationArn:
-    Value: !Ref SignUpSNSNotification
-    Description: The ARN for the Signup SNS topic.
-
-  PdfRequestQueue:
-    Value: !Ref PdfRequestQueue
-    Description: PDF Request SQS Queue.

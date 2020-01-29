@@ -1,11 +1,6 @@
 {
   "Parameters": {
-    "Stage": "Alpha",
-    "RootDomainName": "dsi.wtf",
-    "AcmCertificateArn": "arn:aws:acm:us-east-1:771176993081:certificate/cf15be9c-da5d-421e-a474-bb7c18811cd0",
-    "CognitoUserPoolId": "us-west-2_dyIGFaTpS",
-    "CognitoUserPoolClientId": "1uifrombneudf0vlc0eslj0tbd",
-    "SignupSQSQueue": "SalesforceInfrastructure-Beta-SignupQueue-H60GQZR5OT4D"
+    "Stage": "WeddingWebsite"
   },
   "StackPolicy": {
     "Statement": [
@@ -31,13 +26,25 @@
         "Effect": "Deny",
         "Action": "Update:Replace",
         "Principal": "*",
-        "Resource": "LogicalResourceId/PreSignUpLambdaFunction"
+        "Resource": "LogicalResourceId/UserPool"
       },
       {
         "Effect": "Deny",
         "Action": "Update:Delete",
         "Principal": "*",
-        "Resource": "LogicalResourceId/PreSignUpLambdaFunction"
+        "Resource": "LogicalResourceId/UserPool"
+      },
+      {
+        "Effect": "Deny",
+        "Action": "Update:Replace",
+        "Principal": "*",
+        "Resource": "LogicalResourceId/UserPoolClient"
+      },
+      {
+        "Effect": "Deny",
+        "Action": "Update:Delete",
+        "Principal": "*",
+        "Resource": "LogicalResourceId/UserPoolClient"
       }
     ]
   }
