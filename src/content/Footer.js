@@ -11,7 +11,7 @@ export default {
     },
     [LANGUAGE.CAT]: {
         Content: () => (
-            <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+            <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />
         ),
     },
 }
