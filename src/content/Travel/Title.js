@@ -6,13 +6,13 @@ export default {
     [LANGUAGE.EN]: {
         Heading: () => <>Travel</>,
         SubHeading: () => (
-            <>Some travel recommendations for our out-of-town guests.</>
+            <>Terres de l'Ebre? Where is it? How do I get there?</>
         ),
     },
     [LANGUAGE.CAT]: {
         Heading: () => <>Travel</>,
         SubHeading: () => (
-            <>Some travel recommendations for our out-of-town guests.</>
+            <>Com arribo a aquesta preciosa regió de Catalunya anomenada les Terres de l'Ebre?</>
         ),
     },
 }
