@@ -6,5 +6,5 @@ export const APP = {
 
 export const LANGUAGE = {
     EN: "English",
-    CAT: "Catalan",
+    CAT: "Català",
 }
