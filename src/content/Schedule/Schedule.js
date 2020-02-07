@@ -9,7 +9,7 @@ export default {
             Date: () => <>Friday, August 7, 2020</>,
             Time: () => <>4:00 PM to 7:00 PM</>,
             Location: () => <>La Barraca</>,
-            // https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html
+            link: "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
             Address: () => (
                 <>
                     <p>Passeig de l'Arenal, s/n</p>
@@ -31,7 +31,8 @@ export default {
             Date: () => <>Saturday, August 8, 2020</>,
             Time: () => <>6:00 PM to 6:00 AM (+1)</>,
             Location: () => <>Les Moles</>,
-            // http://www.lesmoles.com/index.asp?i=en
+            link: "http://www.lesmoles.com/index.asp?i=en",
+            // link: "https://guide.michelin.com/en/catalunya/ulldecona/restaurant/les-moles#",
             Address: () => (
                 <>
                     <p>Carretera de la Sénia, Km. 2</p>
@@ -47,7 +48,7 @@ export default {
                         local quarry (and it has a Michelin star!).
                     </p>
                 </>
-            ),// https://guide.michelin.com/en/catalunya/ulldecona/restaurant/les-moles#
+            ),
         },
     ],
     [LANGUAGE.CAT]: [
@@ -56,7 +57,7 @@ export default {
             Date: () => <>Divendres, 7 d'agost de 2020</>,
             Time: () => <>de 16h a 19h</>,
             Location: () => <>La Barraca</>,
-            // https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html
+            link: "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
             Address: () => (
                 <>
                     <p>Passeig de l'Arenal, s/n</p>
@@ -78,7 +79,8 @@ export default {
             Date: () => <>Dissabte, 8 d'agost de 2020</>,
             Time: () => <>de 18h a 6h (+1)</>,
             Location: () => <>Les Moles</>,
-            // http://www.lesmoles.com/index.asp
+            link: "http://www.lesmoles.com/index.asp",
+            // link: "https://guide.michelin.com/en/catalunya/ulldecona/restaurant/les-moles#",
             Address: () => (
                 <>
                     <p>Carretera de la Sénia, Km. 2</p>
@@ -94,7 +96,7 @@ export default {
                         per als molins, anomenades \"moles\" (i té una estrella Michelin!).
                     </p>
                 </>
-            ), // https://guide.michelin.com/es/es/catalunya/ulldecona/restaurante/les-moles
+            ),
         },
     ],
 }
