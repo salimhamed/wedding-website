@@ -14,7 +14,7 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>Schedule</>,
+        Heading: () => <>El Plan</>,
         SubHeading: () => (
             <span>
                 Here's what to expect during our wedding weekend. There will

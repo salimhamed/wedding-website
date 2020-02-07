@@ -10,7 +10,7 @@ export default {
         faq: () => <span>FAQs</span>,
     },
     [LANGUAGE.CAT]: {
-        schedule: () => <span>Horari</span>,
+        schedule: () => <span>El Plan</span>,
         travel: () => <span>Com Arribar</span>,
         thingsToDo: () => <span>Què Fer</span>,
         faq: () => <span>Preguntes</span>,
