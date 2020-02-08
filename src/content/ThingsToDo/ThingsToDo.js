@@ -81,12 +81,6 @@ export default {
         },
         {
             Title: () => <>Castell de Miravet</>,
-            Address: () => (
-                <>
-                    <p>Camí del Castell, s/n</p>
-                    <p>43747 Miravet</p>
-                </>
-            ),
             Details: () => (
                 <>
                     <p>
@@ -107,12 +101,6 @@ export default {
         },
         {
             Title: () => <>Centre Picasso</>,
-            Address: () => (
-                <>
-                    <p>Carrer de l'Hospital, s/n</p>
-                    <p>43596 Horta de Sant Joan</p>
-                </>
-            ),
             Details: () => (
                 <>
                     <p>
@@ -153,12 +141,6 @@ export default {
         },
         {
             Title: () => <>The wine cathedral</>,
-            Address: () => (
-                <>
-                    <p>Carrer del Pilonet, 8</p>
-                    <p>43594 El Pinell de Brai</p>
-                </>
-            ),
             Details: () => (
                 <>
                     <p>
@@ -250,12 +232,6 @@ export default {
         },
         {
             Title: () => <>Castell de Miravet</>,
-            Address: () => (
-                <>
-                    <p>Camí del Castell, s/n</p>
-                    <p>43747 Miravet</p>
-                </>
-            ),
             Details: () => (
                 <>
                     <p>
@@ -277,12 +253,6 @@ export default {
         },
         {
             Title: () => <>Centre Picasso</>,
-            Address: () => (
-                <>
-                    <p>Carrer de l'Hospital, s/n</p>
-                    <p>43596 Horta de Sant Joan</p>
-                </>
-            ),
             Details: () => (
                 <>
                     <p>
@@ -324,12 +294,6 @@ export default {
         },
         {
             Title: () => <>The wine cathedral</>,
-            Address: () => (
-                <>
-                    <p>Carrer del Pilonet, 8</p>
-                    <p>43594 El Pinell de Brai</p>
-                </>
-            ),
             Details: () => (
                 <>
                     <p>

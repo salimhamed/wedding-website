@@ -6,7 +6,11 @@ export default {
     [LANGUAGE.EN]: {
         Heading: () => <>Travel</>,
         SubHeading: () => (
-            <>Terres de l'Ebre? Where is it? How do I get there?</>
+            <>
+                We're getting married in a region called{" "}
+                <strong>Terres de l'Ebre</strong>. Here's info on how to get
+                there and where to stay.
+            </>
         ),
     },
     [LANGUAGE.CAT]: {

@@ -10,6 +10,12 @@
     h3 {
         font-family: $primary-cursive-font-family;
         font-weight: 600;
+        a:link,
+        a:visited,
+        a:hover,
+        a:link {
+            color: black;
+        }
     }
 
     h4 {
@@ -34,7 +40,7 @@
 
         &.left {
             border-right-style: solid;
-            border-right-width: 1px;
+            border-right-width: 2px;
             border-right-color: $border-color;
             text-align: right;
             padding-right: 25px;

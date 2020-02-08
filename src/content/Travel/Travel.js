@@ -5,7 +5,7 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Title: () => <>Terres de l'Ebre</>,
+            Type: () => <>Terres de l'Ebre</>,
             Details: () => (
                 <>
                     Les Terres de l'Ebre is located in the south-west of
@@ -88,7 +88,7 @@ export default {
     ],
     [LANGUAGE.CAT]: [
         {
-            Title: () => <>Terres de l'Ebre</>,
+            Type: () => <>Terres de l'Ebre</>,
             Details: () => (
                 <>
                     Les Terres de l'Ebre es troba al sud-oest de Catalunya, al

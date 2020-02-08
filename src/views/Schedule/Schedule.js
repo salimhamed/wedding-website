@@ -31,6 +31,7 @@ function Schedule() {
                             Date,
                             Time,
                             Location,
+                            locationLink,
                             Address,
                             Details,
                             mapLink,
@@ -42,7 +43,15 @@ function Schedule() {
                             LeftMainTitle={Title}
                             LeftFirstSubTitle={Date}
                             LeftSecondSubTitle={Time}
-                            RightMainTitle={Location}
+                            RightMainTitle={() => (
+                                <a
+                                    href={locationLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <Location />
+                                </a>
+                            )}
                             RightFirstContact={() => (
                                 <a
                                     href={mapLink}

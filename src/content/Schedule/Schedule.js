@@ -5,11 +5,11 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Title: () => <>Welcome \"pica-pica"\</>,
+            Title: () => <>Welcome &ldquo;pica-pica&ldquo;</>,
             Date: () => <>Friday, August 7, 2020</>,
             Time: () => <>4:00 PM to 7:00 PM</>,
             Location: () => <>La Barraca</>,
-            link:
+            locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
             Address: () => (
                 <>
@@ -34,8 +34,7 @@ export default {
             Date: () => <>Saturday, August 8, 2020</>,
             Time: () => <>6:00 PM to 6:00 AM (+1)</>,
             Location: () => <>Les Moles</>,
-            link: "http://www.lesmoles.com/index.asp?i=en",
-            // link: "https://guide.michelin.com/en/catalunya/ulldecona/restaurant/les-moles#",
+            locationLink: "http://www.lesmoles.com/index.asp?i=en",
             Address: () => (
                 <>
                     <p>Carretera de la Sénia, Km. 2</p>
@@ -63,7 +62,7 @@ export default {
             Date: () => <>Divendres, 7 d'agost de 2020</>,
             Time: () => <>de 16h a 19h</>,
             Location: () => <>La Barraca</>,
-            link:
+            locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
             Address: () => (
                 <>
@@ -87,8 +86,7 @@ export default {
             Date: () => <>Dissabte, 8 d'agost de 2020</>,
             Time: () => <>de 18h a 6h (+1)</>,
             Location: () => <>Les Moles</>,
-            link: "http://www.lesmoles.com/index.asp",
-            // link: "https://guide.michelin.com/en/catalunya/ulldecona/restaurant/les-moles#",
+            locationLink: "http://www.lesmoles.com/index.asp",
             Address: () => (
                 <>
                     <p>Carretera de la Sénia, Km. 2</p>
