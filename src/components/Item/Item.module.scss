@@ -20,6 +20,7 @@
 
     h4 {
         font-size: 16px;
+        font-family: $primary-font-family;
     }
 
     margin-bottom: 30px;
@@ -58,9 +59,13 @@
             }
             .contact {
                 margin-bottom: 40px;
+                font-family: $primary-font-family;
                 p {
                     line-height: 0.4;
                 }
+            }
+            .details {
+                font-family: $primary-font-family;
             }
         }
     }
