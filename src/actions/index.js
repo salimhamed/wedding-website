@@ -1,5 +1,5 @@
 import { APP } from "./constants"
-import { signUpWithCognito } from "services"
+import { signUpWithCognito, signInWithCognito } from "services"
 
 export const switchLanguage = (language, dispatch) => {
     dispatch({
@@ -8,9 +8,14 @@ export const switchLanguage = (language, dispatch) => {
     })
 }
 
-export const signUp = async ({ name, email, password }, callback, dispatch) => {
+export const signUp = async (
+    { name, email, password },
+    setSubmitting,
+    setStatus,
+    dispatch
+) => {
     try {
-        const { user } = await signUpWithCognito({
+        await signUpWithCognito({
             username: email,
             password,
             attributes: {
@@ -18,6 +23,10 @@ export const signUp = async ({ name, email, password }, callback, dispatch) => {
                 name,
             },
         })
+
+        const user = await signInWithCognito(email, password)
+
+        console.log(user.attributes)
 
         dispatch({
             type: APP.SET.USER,
@@ -28,11 +37,13 @@ export const signUp = async ({ name, email, password }, callback, dispatch) => {
             },
         })
     } catch (error) {
+        const { message } = error
+        setStatus(message)
         dispatch({
             type: APP.SET.USER_ERROR,
-            payload: error.message
+            payload: message,
         })
     }
 
-    callback()
+    setSubmitting(false)
 }
