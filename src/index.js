@@ -22,8 +22,8 @@ import * as serviceWorker from "./serviceWorker"
 ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
-            <SEO />
             <main className="mb-4">
+                <SEO />
                 <Navigation />
                 <Switch>
                     <Route exact path={"/"} component={Home} />
