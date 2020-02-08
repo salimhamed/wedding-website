@@ -49,7 +49,9 @@ const SEO = ({
                 <meta name="twitter:description" content={description} />
             )}
 
-            {image && <meta name="twitter:image" content={getPublicURL(image)} />}
+            {image && (
+                <meta name="twitter:image" content={getPublicURL(image)} />
+            )}
         </Helmet>
     )
 }

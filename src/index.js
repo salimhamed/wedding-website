@@ -7,7 +7,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navigation } from "components/Navigation"
 import { Footer } from "components/Footer"
-import { SEO } from "components/SEO"
 
 import { Home } from "views/Home"
 import { Schedule } from "views/Schedule"
@@ -23,7 +22,6 @@ ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
             <main className="mb-4">
-                <SEO />
                 <Navigation />
                 <Switch>
                     <Route exact path={"/"} component={Home} />
