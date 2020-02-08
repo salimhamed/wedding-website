@@ -47,3 +47,10 @@ export const signUp = async (
 
     setSubmitting(false)
 }
+
+export const confirmCode = async (
+    { code },
+    setSubmitting,
+    setStatus,
+    dispatch
+) => {}

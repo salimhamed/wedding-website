@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container"
 import { Route, Switch } from "react-router-dom"
 import classNames from "classnames"
 
-import { SignInForm, SignUpForm } from "./Forms"
+import { SignInForm, SignUpForm, ConfirmationForm } from "./Forms"
 
 import styles from "./Authentication.module.scss"
 
@@ -25,6 +25,11 @@ function Authentication() {
                 <Switch>
                     <Route exact path={"/auth"} component={SignInForm} />
                     <Route exact path={"/auth/signup"} component={SignUpForm} />
+                    <Route
+                        exact
+                        path={"/auth/confirm"}
+                        component={ConfirmationForm}
+                    />
                 </Switch>
             </div>
         </Container>
