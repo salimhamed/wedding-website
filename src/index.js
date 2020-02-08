@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navigation } from "components/Navigation"
 import { Footer } from "components/Footer"
+import { SEO } from "components/SEO"
 
 import { Home } from "views/Home"
 import { Schedule } from "views/Schedule"
@@ -21,6 +22,7 @@ import * as serviceWorker from "./serviceWorker"
 ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
+            <SEO />
             <main className="mb-4">
                 <Navigation />
                 <Switch>
