@@ -24,24 +24,13 @@ function ThingsToDo() {
                 SubHeading={SubHeading}
             />
             <Container fluid>
-                {thingsToDoItems.map(
-                    ({ Title, Address, Details, link }, idx) => (
-                        <Item
-                            key={idx}
-                            LeftMainTitle={Title}
-                            RightFirstContact={() => (
-                                <a
-                                    href={link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Address />
-                                </a>
-                            )}
-                            RightDetails={Details}
-                        />
-                    )
-                )}
+                {thingsToDoItems.map(({ Title, Details, link }, idx) => (
+                    <Item
+                        key={idx}
+                        LeftMainTitle={Title}
+                        RightDetails={Details}
+                    />
+                ))}
             </Container>
         </>
     )

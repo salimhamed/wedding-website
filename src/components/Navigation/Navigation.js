@@ -34,6 +34,7 @@ function Navigation() {
         travel: TravelNavText,
         thingsToDo: ThingsToDoNavText,
         faq: FAQNavText,
+        registry: RegistryNavText,
     } = navigation[language]
 
     return (
@@ -75,6 +76,13 @@ function Navigation() {
                     </RouterNavLink>
                     <RouterNavLink to="/faq" className="nav-link" role="button">
                         <FAQNavText />
+                    </RouterNavLink>
+                    <RouterNavLink
+                        to="/registry"
+                        className="nav-link"
+                        role="button"
+                    >
+                        <RegistryNavText />
                     </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">

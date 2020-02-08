@@ -16,6 +16,7 @@
         color: #ffffff;
         font-weight: 900;
         font-size: 2em;
+        text-shadow: 2px 2px $shadow-color;
     }
 
     // Huge Desktops
@@ -92,4 +93,5 @@
 .sub-heading {
     text-align: center;
     padding: 10px 40px 45px;
+    font-family: $primary-font-family;
 }

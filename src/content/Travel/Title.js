@@ -6,13 +6,20 @@ export default {
     [LANGUAGE.EN]: {
         Heading: () => <>Travel</>,
         SubHeading: () => (
-            <>Some travel recommendations for our out-of-town guests.</>
+            <>
+                We're getting married in a region called{" "}
+                <strong>Terres de l'Ebre</strong>. Here's info on how to get
+                there and where to stay.
+            </>
         ),
     },
     [LANGUAGE.CAT]: {
         Heading: () => <>Travel</>,
         SubHeading: () => (
-            <>Some travel recommendations for our out-of-town guests.</>
+            <>
+                Com arribo a aquesta preciosa regió de Catalunya anomenada les
+                Terres de l'Ebre?
+            </>
         ),
     },
 }

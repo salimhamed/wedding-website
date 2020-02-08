@@ -13,6 +13,7 @@ import { Schedule } from "views/Schedule"
 import { Travel } from "views/Travel"
 import { ThingsToDo } from "views/ThingsToDo"
 import { FAQ } from "views/FAQ"
+import { Registry } from "views/Registry"
 
 import { StoreProvider } from "./store"
 import * as serviceWorker from "./serviceWorker"
@@ -32,6 +33,7 @@ ReactDOM.render(
                         component={ThingsToDo}
                     />
                     <Route exact path={"/faq"} component={FAQ} />
+                    <Route exact path={"/registry"} component={Registry} />
                 </Switch>
             </main>
             <Footer />

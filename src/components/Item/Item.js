@@ -62,7 +62,7 @@ const Item = ({
                     </div>
                 ) : null}
                 {RightDetails && (
-                    <div>
+                    <div className={styles.details}>
                         <RightDetails />
                     </div>
                 )}

@@ -7,19 +7,17 @@ export default {
         Heading: () => <>Schedule</>,
         SubHeading: () => (
             <span>
-                Here's what to expect during our wedding weekend. There will
-                also be a printout of this schedule available in your hotel
-                rooms. We can't wait to celebrate with you!
+                Here's what to expect during our wedding weekend. We can't wait
+                to celebrate with you!
             </span>
         ),
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>Schedule</>,
+        Heading: () => <>El Plan</>,
         SubHeading: () => (
             <span>
-                Here's what to expect during our wedding weekend. There will
-                also be a printout of this schedule available in your hotel
-                rooms. We can't wait to celebrate with you!
+                Això és el què tenim planejat durant el nostre cap de setmana de
+                noces. Quines ganes tenim de celebrar-ho amb vosaltres!
             </span>
         ),
     },

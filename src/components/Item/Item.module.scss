@@ -10,10 +10,17 @@
     h3 {
         font-family: $primary-cursive-font-family;
         font-weight: 600;
+        a:link,
+        a:visited,
+        a:hover,
+        a:link {
+            color: black;
+        }
     }
 
     h4 {
         font-size: 16px;
+        font-family: $primary-font-family;
     }
 
     margin-bottom: 30px;
@@ -34,7 +41,7 @@
 
         &.left {
             border-right-style: solid;
-            border-right-width: 1px;
+            border-right-width: 2px;
             border-right-color: $border-color;
             text-align: right;
             padding-right: 25px;
@@ -52,9 +59,13 @@
             }
             .contact {
                 margin-bottom: 40px;
+                font-family: $primary-font-family;
                 p {
                     line-height: 0.4;
                 }
+            }
+            .details {
+                font-family: $primary-font-family;
             }
         }
     }

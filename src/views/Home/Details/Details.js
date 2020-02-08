@@ -27,10 +27,10 @@ function Details() {
                         <h1 className={styles.date}>
                             <Date />
                         </h1>
-                        <h4 className={styles.location}>
+                        <h2 className={styles.location}>
                             <Location />
-                        </h4>
-                        <h4 className={styles.hashtag}>
+                        </h2>
+                        <h3 className={styles.hashtag}>
                             <a
                                 href={`https://www.instagram.com/explore/tags/${hashtag}`}
                                 target="_blank"
@@ -38,7 +38,7 @@ function Details() {
                             >
                                 {`#${hashtag}`}
                             </a>
-                        </h4>
+                        </h3>
                     </Col>
                 </Row>
             </Container>

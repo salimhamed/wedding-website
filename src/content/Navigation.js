@@ -8,11 +8,13 @@ export default {
         travel: () => <span>Travel</span>,
         thingsToDo: () => <span>Things to Do</span>,
         faq: () => <span>FAQs</span>,
+        registry: () => <span>Registry</span>,
     },
     [LANGUAGE.CAT]: {
-        schedule: () => <span>Schedule</span>,
-        travel: () => <span>Travel</span>,
-        thingsToDo: () => <span>Things to Do</span>,
-        faq: () => <span>FAQs</span>,
+        schedule: () => <span>El Plan</span>,
+        travel: () => <span>Com Arribar</span>,
+        thingsToDo: () => <span>Què Fer</span>,
+        faq: () => <span>Preguntes</span>,
+        registry: () => <span>Registre</span>,
     },
 }
