@@ -14,7 +14,7 @@ export default {
         link: "https://terresdelebre.travel/en",
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>Things to Do</>,
+        Heading: () => <>Què fer</>,
         SubHeading: () => (
             <>Aquí teniu algunes idees de què fer per les Terres de l'Ebre.</>
         ),

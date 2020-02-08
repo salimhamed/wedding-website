@@ -14,7 +14,7 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>Travel</>,
+        Heading: () => <>Com arribar</>,
         SubHeading: () => (
             <>
                 Com arribo a aquesta preciosa regió de Catalunya anomenada les
