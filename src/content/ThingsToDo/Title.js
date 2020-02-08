@@ -16,8 +16,7 @@ export default {
         Heading: () => <>Things to Do</>,
         SubHeading: () => (
             <>
-                We’re so excited to share a few of our favorite places in the
-                area with you.
+                Aquí teniu algunes idees de què fer per les Terres de l'Ebre.
             </>
         ),
     },
