@@ -30,7 +30,9 @@ const SEO = ({
                 <meta property="og:description" content={description} />
             )}
 
-            {image && <meta property="og:image" content={getPublicURL(image)} />}
+            {image && (
+                <meta property="og:image" content={getPublicURL(image)} />
+            )}
 
             <meta name="twitter:card" content="summary_large_image" />
 
@@ -40,7 +42,9 @@ const SEO = ({
                 <meta name="twitter:description" content={description} />
             )}
 
-            {image && <meta name="twitter:image" content={getPublicURL(image)} />}
+            {image && (
+                <meta name="twitter:image" content={getPublicURL(image)} />
+            )}
         </Helmet>
     )
 }
