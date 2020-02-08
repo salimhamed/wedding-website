@@ -1,29 +1,17 @@
 import React from "react"
 import { Helmet } from "react-helmet"
-import get from "lodash/get"
 import { withRouter } from "react-router-dom"
 
-import { Store } from "store"
 import { getPublicURL } from "utilities/pages"
 import imageUrl from "photos/orcas.png"
 
 const SEO = ({
-    title: propsTitle = "Lledó and Salim",
-    description: propsDescription = "We're getting married!",
-    image: propsImage = imageUrl,
+    title = "Lledó and Salim",
+    description = "We're getting married!",
+    image = imageUrl,
     article = false,
     location: { pathname },
 }) => {
-    const { state } = React.useContext(Store)
-
-    const appSeo = get(state, ["app", "seo"])
-    const appDescription = get(appSeo, ["description"])
-    const appTitle = get(appSeo, ["title"])
-    const appImage = get(appSeo, ["image", "fields", "file", "url"])
-
-    const description = propsDescription || appDescription
-    const title = propsTitle || appTitle
-    const image = propsImage || appImage
     const url = getPublicURL(pathname)
 
     return (
