@@ -11,6 +11,7 @@ export default {
                 area with you.
             </>
         ),
+        link: "https://terresdelebre.travel/en",
     },
     [LANGUAGE.CAT]: {
         Heading: () => <>Things to Do</>,
@@ -19,5 +20,6 @@ export default {
                 Aquí teniu algunes idees de què fer per les Terres de l'Ebre.
             </>
         ),
+        link: "https://terresdelebre.travel",
     },
 }
