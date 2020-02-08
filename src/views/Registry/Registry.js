@@ -3,7 +3,7 @@ import React, { useContext } from "react"
 import { Store } from "store"
 import { title } from "content/Registry"
 import { Header } from "components/Header"
-import headerImg from "photos/concert.png"
+import headerImg from "photos/orcas.png"
 
 function Registry() {
     const { state } = useContext(Store)
