@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet"
 import { withRouter } from "react-router-dom"
 
 import { getPublicURL } from "utilities/pages"
-import imageUrl from "photos/orcas.png"
+import imageUrl from "photos/orcas_thumb.png"
 
 const SEO = ({
     title = "Lledó and Salim",
@@ -18,7 +18,7 @@ const SEO = ({
         <Helmet>
             <meta name="description" content={description} />
 
-            {image && <meta name="image" content={getPublicURL(image)} />}
+            {image && <meta name="image" content={image} />}
 
             {url && <meta property="og:url" content={url} />}
 
@@ -30,9 +30,7 @@ const SEO = ({
                 <meta property="og:description" content={description} />
             )}
 
-            {image && (
-                <meta property="og:image" content={getPublicURL(image)} />
-            )}
+            {image && <meta property="og:image" content={image} />}
 
             <meta name="twitter:card" content="summary_large_image" />
 
@@ -42,9 +40,7 @@ const SEO = ({
                 <meta name="twitter:description" content={description} />
             )}
 
-            {image && (
-                <meta name="twitter:image" content={getPublicURL(image)} />
-            )}
+            {image && <meta name="twitter:image" content={image} />}
         </Helmet>
     )
 }
