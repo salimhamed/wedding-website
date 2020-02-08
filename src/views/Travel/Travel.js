@@ -16,8 +16,6 @@ function Travel() {
     const { Heading, SubHeading } = title[language]
     const travelItems = travel[language]
 
-    console.log({ travelItems })
-
     return (
         <>
             <Header

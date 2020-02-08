@@ -1,42 +1,32 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Auth from "@aws-amplify/auth"
 
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-import { Navigation } from "components/Navigation"
-import { Footer } from "components/Footer"
-
-import { Home } from "views/Home"
-import { Schedule } from "views/Schedule"
-import { Travel } from "views/Travel"
-import { ThingsToDo } from "views/ThingsToDo"
-import { FAQ } from "views/FAQ"
-import { Registry } from "views/Registry"
+import { Authentication } from "views/Authentication"
+import { AppLayout } from "views/AppLayout"
 
 import { StoreProvider } from "./store"
 import * as serviceWorker from "./serviceWorker"
 
+Auth.configure({
+    identityPoolId: process.env.REACT_APP_IDENTITY_POOL_ID,
+    region: process.env.REACT_APP_REGION,
+    userPoolId: process.env.REACT_APP_USER_POOL,
+    userPoolWebClientId: process.env.REACT_APP_USER_POOL_CLIENT,
+    mandatorySignIn: false, // Enforce user authentication prior to accessing AWS resources or not
+})
+
 ReactDOM.render(
     <StoreProvider>
         <BrowserRouter>
-            <main className="mb-4">
-                <Navigation />
-                <Switch>
-                    <Route exact path={"/"} component={Home} />
-                    <Route exact path={"/schedule"} component={Schedule} />
-                    <Route exact path={"/travel"} component={Travel} />
-                    <Route
-                        exact
-                        path={"/things-to-do"}
-                        component={ThingsToDo}
-                    />
-                    <Route exact path={"/faq"} component={FAQ} />
-                    <Route exact path={"/registry"} component={Registry} />
-                </Switch>
-            </main>
-            <Footer />
+            <Switch>
+                <Route path={"/auth"} component={Authentication} />
+                <Route component={AppLayout} />
+            </Switch>
         </BrowserRouter>
     </StoreProvider>,
     document.getElementById("root")

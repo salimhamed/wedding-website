@@ -1,0 +1,21 @@
+@import "src/theme";
+
+body {
+    background-color: #eee;
+}
+
+.container {
+    h1 {
+        font-family: $primary-cursive-font-family;
+        font-weight: 600;
+    }
+    h4 {
+        margin-bottom: 20px;
+    }
+    button {
+        margin-top: 30px;
+    }
+    p {
+        margin-top: 20px;
+    }
+}

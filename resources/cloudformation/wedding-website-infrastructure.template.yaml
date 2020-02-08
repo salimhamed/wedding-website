@@ -1,0 +1,175 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+
+Description: AWS resources for the wedding website project
+
+
+Parameters:
+  ServiceName:
+    Type: String
+    Default: WeddingWebsite
+
+
+Resources:
+  UserTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: Email
+          AttributeType: S
+        - AttributeName: Domain
+          AttributeType: S
+      BillingMode: PAY_PER_REQUEST
+      KeySchema:
+        - AttributeName: Email
+          KeyType: HASH
+        - AttributeName: Domain
+          KeyType: RANGE
+      Tags:
+        - Key: ServiceName
+          Value: !Ref ServiceName
+
+  UserPool:
+    Type: AWS::Cognito::UserPool
+    Properties:
+      AdminCreateUserConfig:
+        InviteMessageTemplate:
+          EmailSubject: Salim and Lledó Website
+      EmailVerificationSubject: Salim and Lledó Website
+      UsernameAttributes:
+        - email
+
+  UserPoolClient:
+    Type: AWS::Cognito::UserPoolClient
+    Properties:
+      UserPoolId: !Ref UserPool
+      ExplicitAuthFlows:
+        - ALLOW_USER_SRP_AUTH
+        - ALLOW_REFRESH_TOKEN_AUTH
+      GenerateSecret: False
+      PreventUserExistenceErrors: ENABLED
+      RefreshTokenValidity: 360
+      ReadAttributes:
+        - email
+        - name
+        - address
+      WriteAttributes:
+        - email
+        - name
+        - address
+
+  IdentityPool:
+    Type: AWS::Cognito::IdentityPool
+    Properties:
+      AllowUnauthenticatedIdentities: True
+      CognitoIdentityProviders:
+        - ClientId: !Ref UserPoolClient
+          ProviderName: !Sub "cognito-idp.${AWS::Region}.amazonaws.com/${UserPool}"
+
+  UnauthenticatedIamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: !Sub |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Federated": "cognito-identity.amazonaws.com"
+              },
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Condition": {
+                "StringEquals": {
+                  "cognito-identity.amazonaws.com:aud": "${IdentityPool}"
+                },
+                "ForAnyValue:StringLike": {
+                  "cognito-identity.amazonaws.com:amr": "unauthenticated"
+                }
+              }
+            }
+          ]
+        }
+      Policies:
+        # TODO: limit access when aws amplify supports switching from unauthenticated to authenticated user
+        # https://github.com/aws-amplify/amplify-js/issues/2089
+        - PolicyName: UserTablePermissions
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                  - dynamodb:GetItem
+                Resource: !GetAtt UserTable.Arn
+
+  AuthenticatedIamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: !Sub |
+        {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Federated": "cognito-identity.amazonaws.com"
+              },
+              "Action": "sts:AssumeRoleWithWebIdentity",
+              "Condition": {
+                "StringEquals": {
+                  "cognito-identity.amazonaws.com:aud": "${IdentityPool}"
+                },
+                "ForAnyValue:StringLike": {
+                  "cognito-identity.amazonaws.com:amr": "authenticated"
+                }
+              }
+            }
+          ]
+        }
+      Policies:
+        - PolicyName: GeneralCognitoPermissions
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action:
+                  - mobileanalytics:PutEvents
+                  - cognito-sync:*
+                  - cognito-identity:*
+                Resource: "*"
+        - PolicyName: UserTablePermissions
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+                  - dynamodb:GetItem
+                Resource: !GetAtt UserTable.Arn
+
+  IdentityPoolRoleAttachment:
+    Type: AWS::Cognito::IdentityPoolRoleAttachment
+    Properties:
+      IdentityPoolId: !Ref IdentityPool
+      Roles:
+        authenticated: !GetAtt AuthenticatedIamRole.Arn
+        unauthenticated: !GetAtt UnauthenticatedIamRole.Arn
+
+
+Outputs:
+  UserPool:
+    Value: !Ref UserPool
+    Description: The ID for the Congnito User Pool.
+
+  UserPoolClient:
+    Value: !Ref UserPoolClient
+    Description: The ID for the Congnito User Pool Client.
+
+  IdentityPoolID:
+    Value: !Ref IdentityPool
+    Description: The ID for the Congnito Identity Pool.
+
+  UserTable:
+    Value: !Ref UserTable
+    Description: The name of the DynamoDB table for User information.
