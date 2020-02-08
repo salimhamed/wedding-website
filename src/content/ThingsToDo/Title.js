@@ -16,9 +16,7 @@ export default {
     [LANGUAGE.CAT]: {
         Heading: () => <>Things to Do</>,
         SubHeading: () => (
-            <>
-                Aquí teniu algunes idees de què fer per les Terres de l'Ebre.
-            </>
+            <>Aquí teniu algunes idees de què fer per les Terres de l'Ebre.</>
         ),
         link: "https://terresdelebre.travel",
     },

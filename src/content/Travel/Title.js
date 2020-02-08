@@ -12,7 +12,10 @@ export default {
     [LANGUAGE.CAT]: {
         Heading: () => <>Travel</>,
         SubHeading: () => (
-            <>Com arribo a aquesta preciosa regió de Catalunya anomenada les Terres de l'Ebre?</>
+            <>
+                Com arribo a aquesta preciosa regió de Catalunya anomenada les
+                Terres de l'Ebre?
+            </>
         ),
     },
 }
