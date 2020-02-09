@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { number, object } from "yup"
+import { number, object, string } from "yup"
 import { Link } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -12,13 +12,22 @@ import { Store } from "store"
 import styles from "../Forms.module.scss"
 
 const schema = object({
+    email: string()
+        .email()
+        .required(),
     code: number()
         .min(6)
         .required(),
 })
 
 function ConfirmationForm() {
-    const { dispatch } = useContext(Store)
+    const { state, dispatch } = useContext(Store)
+
+    const {
+        app: {
+            user: { email },
+        },
+    } = state
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
@@ -29,6 +38,7 @@ function ConfirmationForm() {
         <Formik
             validationSchema={schema}
             initialValues={{
+                email: email || "",
                 code: "",
             }}
             onSubmit={submitForm}
@@ -50,7 +60,26 @@ function ConfirmationForm() {
                 >
                     <div className="text-center">
                         <h4 className="text-muted">Enter Confirmation Code</h4>
+                        <p>Check your email for a 6 digit code.</p>
                     </div>
+                    <Form.Group controlId="controlIdEmail">
+                        <Form.Control
+                            name="email"
+                            type="email"
+                            placeholder="Email"
+                            value={values.email}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={touched.email && errors.email}
+                        />
+                        <Form.Text className="text-muted">
+                            Enter the email address that received the
+                            confirmation email.
+                        </Form.Text>
+                        <Form.Control.Feedback type="invalid">
+                            {errors.email}
+                        </Form.Control.Feedback>
+                    </Form.Group>
                     <Form.Group controlId="controlIdCode">
                         <Form.Control
                             name="code"
@@ -87,7 +116,6 @@ function ConfirmationForm() {
                             Trying to create an account?{" "}
                             <Link to="/auth/signup">Sign up here.</Link>
                         </p>
-
                     </div>
                 </Form>
             )}

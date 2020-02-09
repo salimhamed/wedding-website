@@ -12,10 +12,11 @@ export const signUp = async (
     { name, email, password },
     setSubmitting,
     setStatus,
+    history,
     dispatch
 ) => {
     try {
-        await signUpWithCognito({
+        const { userSub: username } = await signUpWithCognito({
             username: email,
             password,
             attributes: {
@@ -24,18 +25,16 @@ export const signUp = async (
             },
         })
 
-        const user = await signInWithCognito(email, password)
-
-        console.log(user.attributes)
-
         dispatch({
             type: APP.SET.USER,
             payload: {
-                username: user.getUsername(),
-                name: user.attributes.name,
-                email: user.attributes.email,
+                username,
+                name,
+                email,
             },
         })
+
+        history.push("/auth/confirm")
     } catch (error) {
         const { message } = error
         setStatus(message)
@@ -53,4 +52,6 @@ export const confirmCode = async (
     setSubmitting,
     setStatus,
     dispatch
-) => {}
+) => {
+    // const user = await signInWithCognito(email, password)
+}

@@ -21,12 +21,12 @@ const schema = object({
         .required(),
 })
 
-function SignUpForm() {
+function SignUpForm({ history }) {
     const { dispatch } = useContext(Store)
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
-        signUp(values, setSubmitting, setStatus, dispatch)
+        signUp(values, setSubmitting, setStatus, history, dispatch)
     }
 
     return (
