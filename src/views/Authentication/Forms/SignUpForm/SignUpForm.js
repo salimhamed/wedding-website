@@ -9,7 +9,7 @@ import { Formik } from "formik"
 import { signUp } from "actions"
 import { Store } from "store"
 
-import styles from "./SignUpForm.module.scss"
+import styles from "../Forms.module.scss"
 
 const schema = object({
     name: string().required(),
@@ -21,12 +21,12 @@ const schema = object({
         .required(),
 })
 
-function SignUpForm() {
+function SignUpForm({ history }) {
     const { dispatch } = useContext(Store)
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
-        signUp(values, setSubmitting, setStatus, dispatch)
+        signUp(values, setSubmitting, setStatus, history, dispatch)
     }
 
     return (
@@ -116,10 +116,12 @@ function SignUpForm() {
                             {status}
                         </Alert>
                     )}
-                    <p>
-                        Already have an account?{" "}
-                        <Link to="/auth">Sign in here.</Link>
-                    </p>
+                    <div className={styles.links}>
+                        <p>
+                            Already have an account?{" "}
+                            <Link to="/auth">Sign in here.</Link>
+                        </p>
+                    </div>
                 </Form>
             )}
         </Formik>

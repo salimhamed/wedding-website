@@ -9,6 +9,10 @@ export default {
         thingsToDo: () => <span>Things to Do</span>,
         faq: () => <span>FAQs</span>,
         registry: () => <span>Registry</span>,
+        rsvp: () => <span>RSVP</span>,
+        signOut: () => <span>Sign Out</span>,
+        signIn: () => <span>Sign In</span>,
+        manageRsvp: () => <span>Manage RSVP</span>,
     },
     [LANGUAGE.CAT]: {
         schedule: () => <span>El Plan</span>,
@@ -16,5 +20,9 @@ export default {
         thingsToDo: () => <span>Què Fer</span>,
         faq: () => <span>Preguntes</span>,
         registry: () => <span>Registre</span>,
+        rsvp: () => <span>RSVP</span>,
+        signOut: () => <span>Sign Out</span>,
+        signIn: () => <span>Sign In</span>,
+        manageRsvp: () => <span>Manage RSVP</span>,
     },
 }

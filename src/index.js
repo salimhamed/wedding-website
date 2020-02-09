@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useContext } from "react"
 import ReactDOM from "react-dom"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Auth from "@aws-amplify/auth"
@@ -8,8 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Authentication } from "views/Authentication"
 import { AppLayout } from "views/AppLayout"
+import { initializeApp } from "actions"
 
-import { StoreProvider } from "./store"
+import { StoreProvider, Store } from "./store"
 import * as serviceWorker from "./serviceWorker"
 
 Auth.configure({
@@ -20,14 +21,26 @@ Auth.configure({
     mandatorySignIn: false, // Enforce user authentication prior to accessing AWS resources or not
 })
 
-ReactDOM.render(
-    <StoreProvider>
+const App = () => {
+    const { dispatch } = useContext(Store)
+
+    useEffect(() => {
+        initializeApp(dispatch)
+    }, [dispatch])
+
+    return (
         <BrowserRouter>
             <Switch>
                 <Route path={"/auth"} component={Authentication} />
                 <Route component={AppLayout} />
             </Switch>
         </BrowserRouter>
+    )
+}
+
+ReactDOM.render(
+    <StoreProvider>
+        <App />
     </StoreProvider>,
     document.getElementById("root")
 )

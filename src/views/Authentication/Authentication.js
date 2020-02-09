@@ -1,13 +1,26 @@
-import React from "react"
+import React, { useContext } from "react"
 import Container from "react-bootstrap/Container"
-import { Route, Switch } from "react-router-dom"
+import { Route, Switch, Redirect } from "react-router-dom"
 import classNames from "classnames"
 
 import { SignInForm, SignUpForm } from "./Forms"
+import { Store } from "store"
 
 import styles from "./Authentication.module.scss"
 
-function Authentication() {
+function Authentication({ location }) {
+    const { state } = useContext(Store)
+
+    const {
+        app: {
+            user: { isAuthenticated },
+        },
+    } = state
+
+    if (isAuthenticated) {
+        return <Redirect to={{ pathname: "/", state: { from: location } }} />
+    }
+
     return (
         <Container
             className={classNames(

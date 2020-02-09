@@ -5,6 +5,9 @@ export const signUpWithCognito = params => Auth.signUp(params)
 export const signInWithCognito = (username, password) =>
     Auth.signIn(username, password)
 
+export const resendConfirmationEmailWithCognito = username =>
+    Auth.resendSignUp(username)
+
 export const signOutWithCognito = () => Auth.signOut()
 
 export const currentAuthenticatedUserWithCognito = async () => {

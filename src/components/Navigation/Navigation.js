@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { NavLink as RouterNavLink } from "react-router-dom"
+import { NavLink as RouterNavLink, withRouter } from "react-router-dom"
 import Navbar from "react-bootstrap/Navbar"
 import NavLink from "react-bootstrap/NavLink"
 import Nav from "react-bootstrap/Nav"
@@ -9,20 +9,25 @@ import ReactCountryFlag from "react-country-flag"
 import classNames from "classnames"
 
 import { LANGUAGE } from "actions/constants"
-import { switchLanguage } from "actions"
+import { switchLanguage, signOut } from "actions"
 import { Store } from "store"
 import { navigation } from "content"
 
 import styles from "./Navigation.module.scss"
 
-function Navigation() {
+function Navigation({ history }) {
     const { state, dispatch } = useContext(Store)
 
     const {
-        app: { language },
+        app: {
+            language,
+            user: { name, isAuthenticated },
+        },
     } = state
 
     const handleSelectLanguage = language => switchLanguage(language, dispatch)
+
+    const handleSignOut = () => signOut(dispatch)
 
     const languageCodes = {
         [LANGUAGE.CAT]: "ES-CT",
@@ -35,6 +40,10 @@ function Navigation() {
         thingsToDo: ThingsToDoNavText,
         faq: FAQNavText,
         registry: RegistryNavText,
+        rsvp: RSVPNavText,
+        signOut: SignOutText,
+        signIn: SignInText,
+        manageRsvp: ManageRSVPText,
     } = navigation[language]
 
     return (
@@ -84,8 +93,44 @@ function Navigation() {
                     >
                         <RegistryNavText />
                     </RouterNavLink>
+                    <RouterNavLink
+                        to="/rsvp"
+                        className="nav-link"
+                        role="button"
+                    >
+                        <RSVPNavText />
+                    </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
+                    {isAuthenticated ? (
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>
+                                {name}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu alignRight>
+                                <Dropdown.Item
+                                    className={styles["dropdown-item"]}
+                                    onSelect={handleSignOut}
+                                >
+                                    <SignOutText />
+                                </Dropdown.Item>
+                                <Dropdown.Item
+                                    className={styles["dropdown-item"]}
+                                    onSelect={() => history.push("/rsvp")}
+                                >
+                                    <ManageRSVPText />
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    ) : (
+                        <RouterNavLink
+                            to="/auth"
+                            className="nav-link"
+                            role="button"
+                        >
+                            <SignInText />
+                        </RouterNavLink>
+                    )}
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
                             <ReactCountryFlag
@@ -119,4 +164,4 @@ function Navigation() {
     )
 }
 
-export default Navigation
+export default withRouter(Navigation)
