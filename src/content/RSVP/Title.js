@@ -8,8 +8,8 @@ export default {
         Heading: () => <>RSVP</>,
         SubHeadingAuthenticated: ({ user }) => (
             <span>
-                Hi <strong>{user.name}</strong>! We can't wait to see you! Use
-                the form below to manager your RSVP.
+                Hi <strong>{user.name}</strong>! We can't wait to see you in
+                Catalonia! Use the form below to manage your RSVP.
             </span>
         ),
         SubHeading: () => (

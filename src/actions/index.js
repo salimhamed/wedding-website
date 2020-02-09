@@ -1,11 +1,16 @@
-import { APP } from "./constants"
+import get from "lodash/get"
+
 import {
     signUpWithCognito,
     signInWithCognito,
     signOutWithCognito,
     currentAuthenticatedUserWithCognito,
     resendConfirmationEmailWithCognito,
+    getItemFromDynamo,
+    putItemToDynamo,
 } from "services"
+
+import { APP } from "./constants"
 
 export const switchLanguage = (language, dispatch) => {
     dispatch({
@@ -126,4 +131,64 @@ export const signOut = async dispatch => {
             payload: message,
         })
     }
+}
+
+export const fetchUserRSVPInformation = async (email, dispatch) => {
+    try {
+        const { Item } = await getItemFromDynamo({
+            Email: email,
+            Domain: "RSVP",
+        })
+
+        const { Item: ConfirmationItem } = await getItemFromDynamo({
+            Email: email,
+            Domain: "RSVP_CONFIRMATION",
+        })
+
+        const allowed = get(Item, ["Data"], null)
+        const confirmed = get(ConfirmationItem, ["Data"], null)
+
+        dispatch({
+            type: APP.SET.RSVP,
+            payload: {
+                allowed,
+                confirmed,
+            },
+        })
+    } catch (error) {
+        console.error(error.message)
+    }
+}
+
+export const putUserRSVPInformation = async (
+    { email, weddingGuests, rehearsalGuests },
+    setSubmitting,
+    setStatus,
+    setShowConfirmation,
+    dispatch
+) => {
+    try {
+        await putItemToDynamo({
+            Email: email,
+            Domain: "RSVP_CONFIRMATION",
+            Data: {
+                Rehearsal: {
+                    ConfirmedGuests: rehearsalGuests,
+                },
+                Wedding: {
+                    ConfirmedGuests: weddingGuests,
+                },
+            },
+        })
+        await fetchUserRSVPInformation(email, dispatch)
+
+        setShowConfirmation(true)
+
+        // dismiss alert
+        setTimeout(() => setShowConfirmation(false), 3000)
+    } catch (error) {
+        const { message } = error
+        setStatus(message)
+    }
+    setSubmitting(false)
 }
