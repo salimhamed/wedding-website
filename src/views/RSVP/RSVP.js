@@ -19,11 +19,9 @@ function RSVP() {
                 imageUrl={headerImg}
                 Heading={Heading}
                 SubHeading={
-                    user.isAuthenticated ? (
-                        () => <SubHeadingAuthenticated user={user} />
-                    ) : (
-                        SubHeading
-                    )
+                    user.isAuthenticated
+                        ? () => <SubHeadingAuthenticated user={user} />
+                        : SubHeading
                 }
             />
         </>
