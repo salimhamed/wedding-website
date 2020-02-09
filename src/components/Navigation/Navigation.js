@@ -40,6 +40,7 @@ function Navigation() {
         thingsToDo: ThingsToDoNavText,
         faq: FAQNavText,
         registry: RegistryNavText,
+        rsvp: RSVPNavText,
         signOut: SignOutText,
         signIn: SignInText,
     } = navigation[language]
@@ -90,6 +91,13 @@ function Navigation() {
                         role="button"
                     >
                         <RegistryNavText />
+                    </RouterNavLink>
+                    <RouterNavLink
+                        to="/rsvp"
+                        className="nav-link"
+                        role="button"
+                    >
+                        <RSVPNavText />
                     </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
