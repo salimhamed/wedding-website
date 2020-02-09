@@ -29,6 +29,7 @@ function ThingsToDo() {
                         key={idx}
                         LeftMainTitle={Title}
                         RightDetails={Details}
+                        infoLink={link}
                     />
                 ))}
             </Container>
