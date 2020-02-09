@@ -20,7 +20,16 @@ const schema = object({
     weddingGuests: number().required(),
     rehearsalGuests: number().required(),
     songs: string(),
+    needBus: string(),
+    origin: string(),
 })
+
+const YES = "Yes"
+const NO = "No"
+
+const LAMPOLLA = "L'Ampolla"
+const TORTOSA = "Tortosa"
+const OTHER = "Other"
 
 function RSVPForm() {
     const { state, dispatch } = useContext(Store)
@@ -70,13 +79,17 @@ function RSVPForm() {
         )
     }
 
+    // wedding values
     const weddingMaxGuests = get(allowed, ["Wedding", "MaxGuests"])
     const weddingConfirmedGuests = get(confirmed, [
         "Wedding",
         "ConfirmedGuests",
     ])
     const weddingSongs = get(confirmed, ["Wedding", "Songs"])
+    const weddingNeedBus = get(confirmed, ["Wedding", "NeedBus"])
+    const weddingOrigin = get(confirmed, ["Wedding", "Origin"])
 
+    // rehearsal values
     const rehearsalMaxGuests = get(allowed, ["Rehearsal", "MaxGuests"])
     const rehearsalConfirmedGuests = get(confirmed, [
         "Rehearsal",
@@ -93,6 +106,8 @@ function RSVPForm() {
             initialValues={{
                 weddingGuests: weddingConfirmedGuests || 0,
                 rehearsalGuests: rehearsalConfirmedGuests || 0,
+                needBus: weddingNeedBus || NO,
+                origin: weddingOrigin || TORTOSA,
                 songs: weddingSongs || "",
             }}
             onSubmit={submitForm}
@@ -139,6 +154,53 @@ function RSVPForm() {
                             be in attendance.
                         </Form.Text>
                     </Form.Group>
+                    <Form.Group controlId="controlIdNeedBus">
+                        <Form.Label>
+                            Would you like bus transportation to/from the venue?
+                        </Form.Label>
+                        <Form.Control
+                            name="needBus"
+                            as="select"
+                            value={values.needBus}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={touched.needBus && errors.needBus}
+                        >
+                            <option label={YES} value={YES} />
+                            <option label={NO} value={NO} />
+                        </Form.Control>
+                        <Form.Text className="text-muted">
+                            We'll be providing bus transportation to/from the
+                            venue. Let us know if you'd like to reserve a spot
+                            for your group!
+                        </Form.Text>
+                    </Form.Group>
+                    {values.needBus === YES && (
+                        <Form.Group controlId="controlIdOrigin">
+                            <Form.Label>Where is your origin?</Form.Label>
+                            <Form.Control
+                                name="origin"
+                                as="select"
+                                value={values.origin}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                isInvalid={touched.origin && errors.origin}
+                            >
+                                <option label={TORTOSA} value={TORTOSA} />
+                                <option label={LAMPOLLA} value={LAMPOLLA} />
+                                <option
+                                    label={`${OTHER} - Contact us if you want help arranging transportation`}
+                                    value={OTHER}
+                                />
+                            </Form.Control>
+                            <Form.Text className="text-muted">
+                                We're only planning on having bus transportation
+                                from L'Ampolla and Tortosa. Reach out if you
+                                need help arranging transportation from other
+                                locations.
+                            </Form.Text>
+                        </Form.Group>
+                    )}
                     <Form.Group controlId="controlIdWeddingSongs">
                         <Form.Label>Song requests</Form.Label>
                         <Form.Control
@@ -156,7 +218,9 @@ function RSVPForm() {
                         </Form.Text>
                     </Form.Group>
                     <div className="text-center mt-5">
-                        <h5 className="text-muted">Rehearsal Dinner</h5>
+                        <h5 className="text-muted">
+                            Welcome &ldquo;Pica-pica&ldquo;
+                        </h5>
                     </div>
                     <Form.Group controlId="controlIdRehearsalGuests">
                         <Form.Label>Number of guests attending</Form.Label>
