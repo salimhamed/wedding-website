@@ -13,6 +13,8 @@ const initialState = {
             email: null,
             name: null,
             error: null,
+            isConfirmationEmailSent: false,
+            isAuthenticated: false,
         },
     },
 }
