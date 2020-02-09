@@ -1,5 +1,11 @@
+@import "src/theme";
+
 .footer {
-    background-color: rgba(238, 239, 240, 0.44);
+    background-color: $footer-color;
     font-size: 13px;
     font-weight: 300;
+    p {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
 }

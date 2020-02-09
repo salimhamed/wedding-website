@@ -3,6 +3,8 @@ import { object, number } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
+import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container"
 import { Formik } from "formik"
 import isUndefined from "lodash/isUndefined"
 import isNull from "lodash/isNull"
@@ -49,10 +51,20 @@ function RSVPForm() {
 
     if (isNull(allowed)) {
         return (
-            <div>
-                Whoops, it looks like we don't have your email address. Email us
-                at hola@lledoisalim so we can update our records.
-            </div>
+            <Container>
+                <Col className={styles.intro}>
+                    <Alert variant="info">
+                        Whoops, it looks like we don't have your email address.
+                        Email us at{" "}
+                        <strong>
+                            <a href="mailto:hola@lledoisalim">
+                                hola@lledoisalim
+                            </a>
+                        </strong>{" "}
+                        so we can update our records.
+                    </Alert>
+                </Col>
+            </Container>
         )
     }
 

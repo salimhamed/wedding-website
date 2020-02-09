@@ -6,12 +6,28 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: {
         Content: () => (
-            <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+            <>
+                <p>
+                    <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+                </p>
+                <p>
+                    Contact us at{" "}
+                    <a href="mailto:hola@lledoisalim">hola@lledoisalim</a>
+                </p>
+            </>
         ),
     },
     [LANGUAGE.CAT]: {
         Content: () => (
-            <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />
+            <>
+                <p>
+                    <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />
+                </p>
+                <p>
+                    Contact us at{" "}
+                    <a href="mailto:hola@lledoisalim">hola@lledoisalim</a>
+                </p>
+            </>
         ),
     },
 }
