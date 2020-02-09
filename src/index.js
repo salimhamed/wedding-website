@@ -26,7 +26,7 @@ const App = () => {
 
     useEffect(() => {
         initializeApp(dispatch)
-    })
+    }, [dispatch])
 
     return (
         <BrowserRouter>

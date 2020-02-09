@@ -101,13 +101,13 @@ function Navigation() {
                             <Dropdown.Menu alignRight>
                                 <Dropdown.Item
                                     className={styles["dropdown-item"]}
-                                    onSelect={handleSignOut()}
+                                    onSelect={handleSignOut}
                                 >
                                     <SignOutText />
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
-                    ): (
+                    ) : (
                         <RouterNavLink
                             to="/auth"
                             className="nav-link"
