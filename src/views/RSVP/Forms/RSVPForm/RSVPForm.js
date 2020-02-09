@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { object, number } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -21,6 +21,8 @@ const schema = object({
 function RSVPForm() {
     const { state, dispatch } = useContext(Store)
 
+    const [showConfirmation, setShowConfirmation] = useState(false)
+
     const {
         app: {
             user: { email },
@@ -40,6 +42,7 @@ function RSVPForm() {
             { email, ...values },
             setSubmitting,
             setStatus,
+            setShowConfirmation,
             dispatch
         )
     }
@@ -65,7 +68,9 @@ function RSVPForm() {
         "ConfirmedGuests",
     ])
 
-    const buttonText = isUndefined(weddingConfirmedGuests) ? "Submit RSVP" : "Update RSVP"
+    const buttonText = isUndefined(weddingConfirmedGuests)
+        ? "Submit RSVP"
+        : "Update RSVP"
 
     return (
         <Formik
@@ -152,6 +157,14 @@ function RSVPForm() {
                             {status}
                         </Alert>
                     )}
+                    <Alert
+                        variant="success"
+                        className="mt-4"
+                        onClose={() => setShowConfirmation(false)}
+                        show={showConfirmation}
+                    >
+                        Thanks for your RSVP!
+                    </Alert>
                 </Form>
             )}
         </Formik>

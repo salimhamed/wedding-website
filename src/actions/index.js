@@ -164,6 +164,7 @@ export const putUserRSVPInformation = async (
     { email, weddingGuests, rehearsalGuests },
     setSubmitting,
     setStatus,
+    setShowConfirmation,
     dispatch
 ) => {
     try {
@@ -179,7 +180,12 @@ export const putUserRSVPInformation = async (
                 },
             },
         })
-        fetchUserRSVPInformation(email, dispatch)
+        await fetchUserRSVPInformation(email, dispatch)
+
+        setShowConfirmation(true)
+
+        // dismiss alert
+        setTimeout(() => setShowConfirmation(false), 3000)
     } catch (error) {
         const { message } = error
         setStatus(message)
