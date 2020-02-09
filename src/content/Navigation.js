@@ -10,6 +10,7 @@ export default {
         faq: () => <span>FAQs</span>,
         registry: () => <span>Registry</span>,
         signOut: () => <span>Sign Out</span>,
+        signIn: () => <span>Sign In</span>,
     },
     [LANGUAGE.CAT]: {
         schedule: () => <span>El Plan</span>,
@@ -18,5 +19,6 @@ export default {
         faq: () => <span>Preguntes</span>,
         registry: () => <span>Registre</span>,
         signOut: () => <span>Sign Out</span>,
+        signIn: () => <span>Sign In</span>,
     },
 }

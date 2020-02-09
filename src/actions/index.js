@@ -3,6 +3,7 @@ import {
     signUpWithCognito,
     signInWithCognito,
     signOutWithCognito,
+    currentAuthenticatedUserWithCognito,
     resendConfirmationEmailWithCognito,
 } from "services"
 
@@ -13,7 +14,24 @@ export const switchLanguage = (language, dispatch) => {
     })
 }
 
-export const initializeApp = async () => console.log()
+export const initializeApp = async dispatch => {
+    const CognitoUser = await currentAuthenticatedUserWithCognito()
+
+    if (CognitoUser) {
+        const {
+            attributes: { sub: username, name, email },
+        } = CognitoUser
+
+        dispatch({
+            type: APP.SET.INITIALIZE_USER,
+            payload: {
+                username,
+                name,
+                email,
+            },
+        })
+    }
+}
 
 export const signUp = async (
     { name, email, password },

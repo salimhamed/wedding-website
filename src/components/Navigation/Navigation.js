@@ -25,6 +25,8 @@ function Navigation() {
         },
     } = state
 
+    console.log({ isAuthenticated, name })
+
     const handleSelectLanguage = language => switchLanguage(language, dispatch)
 
     const handleSignOut = () => signOut(dispatch)
@@ -41,6 +43,7 @@ function Navigation() {
         faq: FAQNavText,
         registry: RegistryNavText,
         signOut: SignOutText,
+        signIn: SignInText,
     } = navigation[language]
 
     return (
@@ -92,7 +95,7 @@ function Navigation() {
                     </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
-                    {isAuthenticated && (
+                    {isAuthenticated ? (
                         <Dropdown as={NavItem}>
                             <Dropdown.Toggle as={NavLink}>
                                 {name}
@@ -106,6 +109,14 @@ function Navigation() {
                                 </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
+                    ): (
+                        <RouterNavLink
+                            to="/auth"
+                            className="nav-link"
+                            role="button"
+                        >
+                            <SignInText />
+                        </RouterNavLink>
                     )}
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
