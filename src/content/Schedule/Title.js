@@ -16,7 +16,7 @@ export default {
         Heading: () => <>El Plan</>,
         SubHeading: () => (
             <span>
-                Això és el què tenim planejat durant el nostre cap de setmana de
+                Aquest és el plan durant el nostre cap de setmana de
                 noces. Quines ganes tenim de celebrar-ho amb vosaltres!
             </span>
         ),
