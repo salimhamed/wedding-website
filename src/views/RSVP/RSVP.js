@@ -5,6 +5,8 @@ import { title } from "content/RSVP"
 import { Header } from "components/Header"
 import headerImg from "photos/orcas.png"
 
+import { RSVPForm } from "./Forms"
+
 function RSVP() {
     const { state } = useContext(Store)
     const {
@@ -24,6 +26,7 @@ function RSVP() {
                         : SubHeading
                 }
             />
+            <RSVPForm />
         </>
     )
 }
