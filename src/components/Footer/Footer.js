@@ -1,18 +1,15 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useCookies } from "react-cookie"
 import classNames from "classnames"
 
-import { Store } from "store"
 import { footer } from "content"
 
 import styles from "./Footer.module.scss"
 
 const Footer = () => {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const { Content } = footer[language]
+    const { Content } = footer[cookies.language]
 
     return (
         <footer

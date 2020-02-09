@@ -1,7 +1,11 @@
 import React, { useEffect, useContext } from "react"
+import { useCookies } from "react-cookie"
 import ReactDOM from "react-dom"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Auth from "@aws-amplify/auth"
+import { CookiesProvider } from "react-cookie"
+import get from "lodash/get"
+import isNull from "lodash/isNull"
 
 import "./index.css"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -9,6 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import { Authentication } from "views/Authentication"
 import { AppLayout } from "views/AppLayout"
 import { initializeApp } from "actions"
+import { LANGUAGE } from "actions/constants"
 
 import { StoreProvider, Store } from "./store"
 import * as serviceWorker from "./serviceWorker"
@@ -24,9 +29,15 @@ Auth.configure({
 const App = () => {
     const { dispatch } = useContext(Store)
 
+    const [cookies, setCookie] = useCookies(["language"])
+    const language = get(cookies, ["language"], null)
+
     useEffect(() => {
         initializeApp(dispatch)
-    }, [dispatch])
+        if (isNull(language)) {
+            setCookie("language", LANGUAGE.EN, { path: "/" })
+        }
+    }, [dispatch, setCookie, language])
 
     return (
         <BrowserRouter>
@@ -39,9 +50,11 @@ const App = () => {
 }
 
 ReactDOM.render(
-    <StoreProvider>
-        <App />
-    </StoreProvider>,
+    <CookiesProvider>
+        <StoreProvider>
+            <App />
+        </StoreProvider>
+    </CookiesProvider>,
     document.getElementById("root")
 )
 

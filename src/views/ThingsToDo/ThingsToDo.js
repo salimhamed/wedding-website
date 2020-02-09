@@ -1,20 +1,17 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useCookies } from "react-cookie"
 import Container from "react-bootstrap/Container"
 
-import { Store } from "store"
-import { title, thingsToDo } from "content/ThingsToDo"
+import { thingsToDo, title } from "content/ThingsToDo"
 import { Header } from "components/Header"
 import { Item } from "components/Item"
 import headerImg from "photos/sky_diving.jpeg"
 
 function ThingsToDo() {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const { Heading, SubHeading } = title[language]
-    const thingsToDoItems = thingsToDo[language]
+    const { Heading, SubHeading } = title[cookies.language]
+    const thingsToDoItems = thingsToDo[cookies.language]
 
     return (
         <>

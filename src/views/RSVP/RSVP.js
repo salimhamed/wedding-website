@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { useCookies } from "react-cookie"
 
 import { Store } from "store"
 import { title } from "content/RSVP"
@@ -9,11 +10,15 @@ import { RSVPForm } from "./Forms"
 
 function RSVP() {
     const { state } = useContext(Store)
+    const [cookies] = useCookies(["language"])
+
     const {
-        app: { language, user },
+        app: { user },
     } = state
 
-    const { Heading, SubHeading, SubHeadingAuthenticated } = title[language]
+    const { Heading, SubHeading, SubHeadingAuthenticated } = title[
+        cookies.language
+    ]
 
     return (
         <>

@@ -1,17 +1,14 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useCookies } from "react-cookie"
 
-import { Store } from "store"
 import { title } from "content/Registry"
 import { Header } from "components/Header"
 import headerImg from "photos/orcas.png"
 
 function Registry() {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const { Heading, SubHeading } = title[language]
+    const { Heading, SubHeading } = title[cookies.language]
 
     return (
         <>

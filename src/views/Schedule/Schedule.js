@@ -1,20 +1,17 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useCookies } from "react-cookie"
 import Container from "react-bootstrap/Container"
 
-import { Store } from "store"
-import { title, schedule } from "content/Schedule"
+import { schedule, title } from "content/Schedule"
 import { Header } from "components/Header"
 import { Item } from "components/Item"
 import headerImg from "photos/spain_octopus.jpg"
 
 function Schedule() {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const { Heading, SubHeading } = title[language]
-    const scheduleItems = schedule[language]
+    const { Heading, SubHeading } = title[cookies.language]
+    const scheduleItems = schedule[cookies.language]
 
     return (
         <>

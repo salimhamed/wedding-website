@@ -1,21 +1,18 @@
-import React, { useContext } from "react"
+import React from "react"
+import { useCookies } from "react-cookie"
 
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
-import { Store } from "store"
 import { details } from "content/Home"
 
 import styles from "./Details.module.scss"
 
 function Details() {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const { Title, Date, Location, hashtag } = details[language]
+    const { Title, Date, Location, hashtag } = details[cookies.language]
     return (
         <section>
             <Container>
