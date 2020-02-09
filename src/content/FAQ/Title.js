@@ -16,7 +16,8 @@ export default {
         Heading: () => <>Preguntes?</>,
         SubHeading: () => (
             <>
-                Si teniu alguna pregunta, si us plau, escriviu-nos a hola@lledoisalim.com.
+                Si teniu alguna pregunta, si us plau, escriviu-nos a
+                hola@lledoisalim.com.
             </>
         ),
     },
