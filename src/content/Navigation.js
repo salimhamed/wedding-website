@@ -12,6 +12,7 @@ export default {
         rsvp: () => <span>RSVP</span>,
         signOut: () => <span>Sign Out</span>,
         signIn: () => <span>Sign In</span>,
+        manageRsvp: () => <span>Manage RSVP</span>,
     },
     [LANGUAGE.CAT]: {
         schedule: () => <span>El Plan</span>,
@@ -22,5 +23,6 @@ export default {
         rsvp: () => <span>RSVP</span>,
         signOut: () => <span>Sign Out</span>,
         signIn: () => <span>Sign In</span>,
+        manageRsvp: () => <span>Manage RSVP</span>,
     },
 }

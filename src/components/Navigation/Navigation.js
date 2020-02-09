@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { NavLink as RouterNavLink } from "react-router-dom"
+import { NavLink as RouterNavLink, withRouter } from "react-router-dom"
 import Navbar from "react-bootstrap/Navbar"
 import NavLink from "react-bootstrap/NavLink"
 import Nav from "react-bootstrap/Nav"
@@ -15,7 +15,7 @@ import { navigation } from "content"
 
 import styles from "./Navigation.module.scss"
 
-function Navigation() {
+function Navigation({ history }) {
     const { state, dispatch } = useContext(Store)
 
     const {
@@ -43,6 +43,7 @@ function Navigation() {
         rsvp: RSVPNavText,
         signOut: SignOutText,
         signIn: SignInText,
+        manageRsvp: ManageRSVPText,
     } = navigation[language]
 
     return (
@@ -113,6 +114,12 @@ function Navigation() {
                                 >
                                     <SignOutText />
                                 </Dropdown.Item>
+                                <Dropdown.Item
+                                    className={styles["dropdown-item"]}
+                                    onSelect={() => history.push("/rsvp")}
+                                >
+                                    <ManageRSVPText />
+                                </Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                     ) : (
@@ -157,4 +164,4 @@ function Navigation() {
     )
 }
 
-export default Navigation
+export default withRouter(Navigation)
