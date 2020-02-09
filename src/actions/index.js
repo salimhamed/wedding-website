@@ -136,12 +136,12 @@ export const signOut = async dispatch => {
 export const fetchUserRSVPInformation = async (email, dispatch) => {
     try {
         const { Item } = await getItemFromDynamo({
-            Email: email,
+            Email: email.toLowerCase(),
             Domain: "RSVP",
         })
 
         const { Item: ConfirmationItem } = await getItemFromDynamo({
-            Email: email,
+            Email: email.toLowerCase(),
             Domain: "RSVP_CONFIRMATION",
         })
 
@@ -169,7 +169,7 @@ export const putUserRSVPInformation = async (
 ) => {
     try {
         await putItemToDynamo({
-            Email: email,
+            Email: email.toLowerCase(),
             Domain: "RSVP_CONFIRMATION",
             Data: {
                 Rehearsal: {
