@@ -110,7 +110,7 @@ function RSVPForm() {
                     className={styles.form}
                 >
                     <div className="text-center">
-                        <h5 className="text-muted">RSVP for the Wedding</h5>
+                        <h5 className="text-muted">Wedding</h5>
                     </div>
                     <Form.Group controlId="controlIdWeddingGuests">
                         <Form.Label>Number of guests attending</Form.Label>
@@ -134,6 +134,14 @@ function RSVPForm() {
                         <Form.Text className="text-muted">
                             The number of guests (including yourself) that will
                             be in attendance.
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group controlId="controlIdWeddingSongs">
+                        <Form.Label>Song requests</Form.Label>
+                        <Form.Control as="textarea" rows="3" />
+                        <Form.Text className="text-muted">
+                            Let us know which songs will keep you partying all
+                            night!
                         </Form.Text>
                     </Form.Group>
                     <div className="text-center mt-5">
@@ -165,6 +173,7 @@ function RSVPForm() {
                         </Form.Text>
                     </Form.Group>
                     <Button
+                        className="mt-5"
                         variant="primary"
                         type="submit"
                         size="lg"
