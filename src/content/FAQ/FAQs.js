@@ -1,6 +1,6 @@
 import React from "react"
 
-import { LANGUAGE } from "actions/constants"
+import {LANGUAGE} from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: [
@@ -36,8 +36,8 @@ export default {
             Answer: () => (
                 <>
                     The wedding will be formal. We recommend long or elegant
-                    cocktail dresses for ladies and suits for gents. No jeans
-                    please. For the Pica-pica party casual attire is preferred.
+                    cocktail dresses for ladies and suits for gents. White is reserved for the bride.
+                    For the Pica-pica party casual attire is preferred.
                 </>
             ),
         },
@@ -45,7 +45,7 @@ export default {
             Question: () => <>What is the weather like?</>,
             Answer: () => (
                 <>
-                    The weather during this time of year is usually a sunny and
+                    The weather during this time of year is usually sunny and
                     in the 80s during the day and 70s at night (ºF).
                 </>
             ),
@@ -89,12 +89,13 @@ export default {
             Answer: () => (
                 <>
                     Recomanem vestits de còctel llargs o elegants per a dones i
-                    "traje" per als homes. Per al Pica-pica vestits informals.
+                    "traje" per als homes. El color blanc està reservat per a la núvia.
+                    Per al Pica-pica vestits informals.
                 </>
             ),
         },
         {
-            Question: () => <>Quin temps ga?</>,
+            Question: () => <>Quin temps fa?</>,
             Answer: () => (
                 <>
                     Pos sol i caloreta! Durant el dia les temperatures poden
