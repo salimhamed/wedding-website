@@ -11,7 +11,7 @@ export const APP = {
         USER_ERROR: "SET_APP_USER_ERROR",
 
         // rsvp
-        RSVP_ALLOWED: "SET_APP_RSVP_ALLOWED",
+        RSVP: "SET_APP_RSVP",
     },
 }
 

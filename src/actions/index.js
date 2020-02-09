@@ -140,11 +140,20 @@ export const fetchUserRSVPInformation = async (email, dispatch) => {
             Domain: "RSVP",
         })
 
-        const rsvpData = get(Item, ["Allowed"], null)
+        const { Item: ConfirmationItem } = await getItemFromDynamo({
+            Email: email,
+            Domain: "RSVP_CONFIRMATION",
+        })
+
+        const allowed = get(Item, ["Data"], null)
+        const confirmed = get(ConfirmationItem, ["Data"], null)
 
         dispatch({
-            type: APP.SET.RSVP_ALLOWED,
-            payload: rsvpData,
+            type: APP.SET.RSVP,
+            payload: {
+                allowed,
+                confirmed,
+            },
         })
     } catch (error) {
         console.error(error.message)
@@ -160,8 +169,8 @@ export const putUserRSVPInformation = async (
     try {
         await putItemToDynamo({
             Email: email,
-            Domain: "RSVP",
-            Confirmed: {
+            Domain: "RSVP_CONFIRMATION",
+            Data: {
                 Rehearsal: {
                     ConfirmedGuests: rehearsalGuests,
                 },
