@@ -146,7 +146,10 @@ function RSVPForm() {
                                 <option
                                     label={idx === 0 ? `0 - Can't Attend` : idx}
                                     value={idx}
-                                />
+                                    key={idx}
+                                >
+                                    idx === 0 ? `0 - Can't Attend` : idx
+                                </option>
                             ))}
                         </Form.Control>
                         <Form.Text className="text-muted">
@@ -166,8 +169,12 @@ function RSVPForm() {
                             onBlur={handleBlur}
                             isInvalid={touched.needBus && errors.needBus}
                         >
-                            <option label={YES} value={YES} />
-                            <option label={NO} value={NO} />
+                            <option label={YES} value={YES}>
+                                {YES}
+                            </option>
+                            <option label={NO} value={NO}>
+                                {NO}
+                            </option>
                         </Form.Control>
                         <Form.Text className="text-muted">
                             We'll be providing bus transportation to/from the
@@ -186,12 +193,16 @@ function RSVPForm() {
                                 onBlur={handleBlur}
                                 isInvalid={touched.origin && errors.origin}
                             >
-                                <option label={TORTOSA} value={TORTOSA} />
-                                <option label={LAMPOLLA} value={LAMPOLLA} />
+                                <option label={TORTOSA} value={TORTOSA}>
+                                    {TORTOSA}
+                                </option>
+                                <option label={LAMPOLLA} value={LAMPOLLA}>
+                                    {LAMPOLLA}
+                                </option>
                                 <option
                                     label={`${OTHER} - Contact us if you want help arranging transportation`}
                                     value={OTHER}
-                                />
+                                >{`${OTHER} - Contact us if you want help arranging transportation`}</option>
                             </Form.Control>
                             <Form.Text className="text-muted">
                                 We're only planning on having bus transportation
