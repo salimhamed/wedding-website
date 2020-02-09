@@ -1,4 +1,5 @@
-import { APP } from "./constants"
+import get from "lodash/get"
+
 import {
     signUpWithCognito,
     signInWithCognito,
@@ -7,6 +8,8 @@ import {
     resendConfirmationEmailWithCognito,
     getItemFromDynamo,
 } from "services"
+
+import { APP } from "./constants"
 
 export const switchLanguage = (language, dispatch) => {
     dispatch({
@@ -131,16 +134,16 @@ export const signOut = async dispatch => {
 
 export const fetchUserRSVPInformation = async (email, dispatch) => {
     try {
-        const {
-            Item: { Data },
-        } = await getItemFromDynamo({
+        const { Item } = await getItemFromDynamo({
             Email: email,
             Domain: "RSVP",
         })
 
+        const rsvpData = get(Item, ["Data"], null)
+
         dispatch({
             type: APP.SET.RSVP,
-            payload: Data,
+            payload: rsvpData,
         })
     } catch (error) {
         console.error(error.message)

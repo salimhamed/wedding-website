@@ -4,19 +4,16 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import { Formik } from "formik"
+import isNull from "lodash/isNull"
+import get from "lodash/get"
 
 import { Store } from "store"
 import { fetchUserRSVPInformation } from "actions"
 
 import styles from "../Forms.module.scss"
 
-const YES = "yes"
-const NO = "no"
-
 const schema = object({
-    weddingAttending: string().required(),
     weddingGuests: number().required(),
-    rehearsalAttending: string().required(),
     rehearsalGuests: number().required(),
 })
 
@@ -26,6 +23,7 @@ function RSVPForm() {
     const {
         app: {
             user: { email },
+            rsvp,
         },
     } = state
 
@@ -37,16 +35,34 @@ function RSVPForm() {
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
+        console.log({ values })
     }
+
+    if (isNull(rsvp)) {
+        return (
+            <div>
+                Whoops, it looks like we don't have your email address. Email us
+                at hola@lledoisalim so we can update our records.
+            </div>
+        )
+    }
+
+    const weddingAllowedGuests = get(rsvp, ["Wedding", "AllowedGuests"])
+    const weddingConfirmedGuests = get(rsvp, ["Wedding", "ConfirmedGuests"], 0)
+
+    const rehearsalAllowedGuests = get(rsvp, ["Rehearsal", "AllowedGuests"])
+    const rehearsalConfirmedGuests = get(
+        rsvp,
+        ["Rehearsal", "ConfirmedGuests"],
+        0
+    )
 
     return (
         <Formik
             validationSchema={schema}
             initialValues={{
-                weddingAttending: "",
-                weddingGuests: 0,
-                rehearsalAttending: "",
-                rehearsalGuests: 0,
+                weddingGuests: weddingConfirmedGuests,
+                rehearsalGuests: rehearsalConfirmedGuests,
             }}
             onSubmit={submitForm}
         >
@@ -61,7 +77,7 @@ function RSVPForm() {
                 status,
             }) => (
                 <>
-                    <pre>{JSON.stringify({ values }, null, 2)}</pre>
+                    <pre>{JSON.stringify({ values, errors }, null, 2)}</pre>
                     <Form
                         noValidate
                         onSubmit={handleSubmit}
@@ -70,42 +86,12 @@ function RSVPForm() {
                         <div className="text-center">
                             <h5 className="text-muted">RSVP for the Wedding</h5>
                         </div>
-                        <Form.Group controlId="controlIdWeddingAttending">
-                            <Form.Check
-                                name="weddingAttending"
-                                label="Yes, we'll see you there!"
-                                value={YES}
-                                type="radio"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={
-                                    touched.weddingAttending &&
-                                    errors.weddingAttending
-                                }
-                            />
-                            <Form.Check
-                                name="weddingAttending"
-                                label="No, we can't make it."
-                                value={NO}
-                                type="radio"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={
-                                    touched.weddingAttending &&
-                                    errors.weddingAttending
-                                }
-                            />
-                            <Form.Text className="text-muted">
-                                Will you or members of your party be in
-                                attendance?
-                            </Form.Text>
-                        </Form.Group>
                         <Form.Group controlId="controlIdWeddingGuests">
-                            <Form.Label>Number of guests.</Form.Label>
+                            <Form.Label>Number of guests attending</Form.Label>
                             <Form.Control
                                 name="weddingGuests"
                                 type="number"
-                                max={4}
+                                max={weddingAllowedGuests}
                                 min={0}
                                 value={values.weddingGuests}
                                 onChange={handleChange}
@@ -117,48 +103,20 @@ function RSVPForm() {
                             />
                             <Form.Text className="text-muted">
                                 The number of guests (including yourself) that
-                                will be in attendance.
+                                will be in attendance, with a max of{" "}
+                                {weddingAllowedGuests}. Entering 0 means you
+                                can't make it.
                             </Form.Text>
                         </Form.Group>
                         <div className="text-center mt-5">
                             <h5 className="text-muted">Rehearsal Dinner</h5>
                         </div>
-                        <Form.Group controlId="controlIdRehearsalAttending">
-                            <Form.Check
-                                name="rehearsalAttending"
-                                label="Yes, we'll see you there!"
-                                value={YES}
-                                type="radio"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={
-                                    touched.rehearsalAttending &&
-                                    errors.rehearsalAttending
-                                }
-                            />
-                            <Form.Check
-                                name="rehearsalAttending"
-                                label="No, we can't make it."
-                                value={NO}
-                                type="radio"
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={
-                                    touched.rehearsalAttending &&
-                                    errors.rehearsalAttending
-                                }
-                            />
-                            <Form.Text className="text-muted">
-                                Will you or members of your party be in
-                                attendance?
-                            </Form.Text>
-                        </Form.Group>
                         <Form.Group controlId="controlIdRehearsalGuests">
-                            <Form.Label>Number of guests attending.</Form.Label>
+                            <Form.Label>Number of guests attending</Form.Label>
                             <Form.Control
                                 name="rehearsalGuests"
                                 type="number"
-                                max={4}
+                                max={rehearsalAllowedGuests}
                                 min={0}
                                 value={values.rehearsalGuests}
                                 onChange={handleChange}
@@ -169,8 +127,10 @@ function RSVPForm() {
                                 }
                             />
                             <Form.Text className="text-muted">
-                                The number of guests (including yourself)
-                                attending the rehearsal dinner. Max of x.
+                                The number of guests (including yourself) that
+                                will be in attendance, with a max of{" "}
+                                {rehearsalAllowedGuests}. Entering 0 means you
+                                can't make it.
                             </Form.Text>
                         </Form.Group>
                         <Button
