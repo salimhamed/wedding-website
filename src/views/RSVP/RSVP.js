@@ -5,7 +5,7 @@ import { selectLanguage } from "utilities/cookies"
 import { Store } from "store"
 import { title } from "content/RSVP"
 import { Header } from "components/Header"
-import headerImg from "photos/snow.png"
+import headerImg from "photos/orcas.png"
 
 import { RSVPForm } from "./Forms"
 
