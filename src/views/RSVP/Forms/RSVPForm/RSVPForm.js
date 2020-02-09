@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import { Formik } from "formik"
+import isUndefined from "lodash/isUndefined"
 import isNull from "lodash/isNull"
 import get from "lodash/get"
 
@@ -64,10 +65,7 @@ function RSVPForm() {
         "ConfirmedGuests",
     ])
 
-    const buttonText = {
-        initial: isNull(weddingConfirmedGuests) ? "Submit" : "Update",
-        submitting: isNull(weddingConfirmedGuests) ? "Submitting" : "Update",
-    }
+    const buttonText = isUndefined(weddingConfirmedGuests) ? "Submit RSVP" : "Update RSVP"
 
     return (
         <Formik
@@ -147,9 +145,7 @@ function RSVPForm() {
                         disabled={isSubmitting}
                         block
                     >
-                        {isSubmitting
-                            ? `${buttonText.submitting} RSVP...`
-                            : buttonText.initial}
+                        {buttonText}
                     </Button>
                     {status && (
                         <Alert variant="danger" className="mt-4">
