@@ -10,7 +10,7 @@ const getDocumentClient = () =>
             })
     )
 
-export const putItem = async Item => {
+export const putItemToDynamo = async Item => {
     if (!Item.UserId) {
         return null
     }
@@ -24,7 +24,7 @@ export const putItem = async Item => {
     return await client.put(params).promise()
 }
 
-export const getItem = async Key => {
+export const getItemFromDynamo = async Key => {
     const params = {
         TableName: process.env.REACT_APP_USER_TABLE,
         Key,

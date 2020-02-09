@@ -5,6 +5,7 @@ import {
     signOutWithCognito,
     currentAuthenticatedUserWithCognito,
     resendConfirmationEmailWithCognito,
+    getItemFromDynamo,
 } from "services"
 
 export const switchLanguage = (language, dispatch) => {
@@ -125,5 +126,23 @@ export const signOut = async dispatch => {
             type: APP.SET.USER_ERROR,
             payload: message,
         })
+    }
+}
+
+export const fetchUserRSVPInformation = async (email, dispatch) => {
+    try {
+        const {
+            Item: { Data },
+        } = await getItemFromDynamo({
+            Email: email,
+            Domain: "RSVP",
+        })
+
+        dispatch({
+            type: APP.SET.RSVP,
+            payload: Data,
+        })
+    } catch (error) {
+        console.error(error.message)
     }
 }

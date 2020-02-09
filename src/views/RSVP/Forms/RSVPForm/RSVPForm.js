@@ -1,33 +1,42 @@
-import React, { useContext } from "react"
-import { object, string } from "yup"
+import React, { useContext, useEffect } from "react"
+import { object, string, number } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import { Formik } from "formik"
 
 import { Store } from "store"
+import { fetchUserRSVPInformation } from "actions"
 
 import styles from "../Forms.module.scss"
-
-const schema = object({
-    name: string().required(),
-    email: string()
-        .email()
-        .required(),
-    password: string()
-        .min(6)
-        .required(),
-})
 
 const YES = "yes"
 const NO = "no"
 
+const schema = object({
+    weddingAttending: string().required(),
+    weddingGuests: number().required(),
+    rehearsalAttending: string().required(),
+    rehearsalGuests: number().required(),
+})
+
 function RSVPForm() {
-    const { dispatch } = useContext(Store)
+    const { state, dispatch } = useContext(Store)
+
+    const {
+        app: {
+            user: { email },
+        },
+    } = state
+
+    useEffect(() => {
+        if (email) {
+            fetchUserRSVPInformation(email, dispatch)
+        }
+    }, [email, dispatch])
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
-        console.log("submit!")
     }
 
     return (

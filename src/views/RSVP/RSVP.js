@@ -26,7 +26,7 @@ function RSVP() {
                         : SubHeading
                 }
             />
-            <RSVPForm />
+            {user.isAuthenticated && <RSVPForm />}
         </>
     )
 }
