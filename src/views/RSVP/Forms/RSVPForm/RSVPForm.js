@@ -9,6 +9,7 @@ import { Formik } from "formik"
 import isUndefined from "lodash/isUndefined"
 import isNull from "lodash/isNull"
 import get from "lodash/get"
+import range from "lodash/range"
 
 import { Store } from "store"
 import { fetchUserRSVPInformation, putUserRSVPInformation } from "actions"
@@ -115,20 +116,24 @@ function RSVPForm() {
                         <Form.Label>Number of guests attending</Form.Label>
                         <Form.Control
                             name="weddingGuests"
-                            type="number"
-                            max={weddingMaxGuests}
-                            min={0}
+                            as="select"
                             value={values.weddingGuests}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={
                                 touched.weddingGuests && errors.weddingGuests
                             }
-                        />
+                        >
+                            {range(0, weddingMaxGuests + 1).map(idx => (
+                                <option
+                                    label={idx === 0 ? `0 - Can't Attend` : idx}
+                                    value={idx}
+                                />
+                            ))}
+                        </Form.Control>
                         <Form.Text className="text-muted">
                             The number of guests (including yourself) that will
-                            be in attendance, with a max of {weddingMaxGuests}.
-                            Entering 0 means you can't make it.
+                            be in attendance.
                         </Form.Text>
                     </Form.Group>
                     <div className="text-center mt-5">
@@ -138,9 +143,7 @@ function RSVPForm() {
                         <Form.Label>Number of guests attending</Form.Label>
                         <Form.Control
                             name="rehearsalGuests"
-                            type="number"
-                            max={rehearsalMaxGuests}
-                            min={0}
+                            as="select"
                             value={values.rehearsalGuests}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -148,11 +151,17 @@ function RSVPForm() {
                                 touched.rehearsalGuests &&
                                 errors.rehearsalGuests
                             }
-                        />
+                        >
+                            {range(0, rehearsalMaxGuests + 1).map(idx => (
+                                <option
+                                    label={idx === 0 ? `0 - Can't Attend` : idx}
+                                    value={idx}
+                                />
+                            ))}
+                        </Form.Control>
                         <Form.Text className="text-muted">
                             The number of guests (including yourself) that will
-                            be in attendance, with a max of {rehearsalMaxGuests}
-                            . Entering 0 means you can't make it.
+                            be in attendance.
                         </Form.Text>
                     </Form.Group>
                     <Button
