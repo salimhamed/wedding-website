@@ -10,5 +10,18 @@
 
     :global(.dropdown-menu) {
         min-width: unset;
+
+        .email {
+            cursor: unset;
+            border-bottom: lighten($primary-color, 50%);
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            font-size: 11px;
+            padding-bottom: 8px;
+
+            &:hover {
+                background-color: unset;
+            }
+        }
     }
 }

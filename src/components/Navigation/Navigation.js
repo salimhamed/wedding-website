@@ -21,7 +21,7 @@ function Navigation({ history }) {
     const {
         app: {
             language,
-            user: { name, isAuthenticated },
+            user: { name, isAuthenticated, email },
         },
     } = state
 
@@ -108,14 +108,13 @@ function Navigation({ history }) {
                                 {name}
                             </Dropdown.Toggle>
                             <Dropdown.Menu alignRight>
-                                <Dropdown.Item
-                                    className={styles["dropdown-item"]}
-                                    onSelect={handleSignOut}
-                                >
+                                <Dropdown.Item className={styles.email}>
+                                    <strong>{email}</strong>
+                                </Dropdown.Item>
+                                <Dropdown.Item onSelect={handleSignOut}>
                                     <SignOutText />
                                 </Dropdown.Item>
                                 <Dropdown.Item
-                                    className={styles["dropdown-item"]}
                                     onSelect={() => history.push("/rsvp")}
                                 >
                                     <ManageRSVPText />
@@ -142,7 +141,6 @@ function Navigation({ history }) {
                         <Dropdown.Menu alignRight>
                             <Dropdown.Item
                                 eventKey={LANGUAGE.EN}
-                                className={styles["dropdown-item"]}
                                 onSelect={handleSelectLanguage}
                             >
                                 <ReactCountryFlag countryCode="US" svg />{" "}
@@ -150,7 +148,6 @@ function Navigation({ history }) {
                             </Dropdown.Item>
                             <Dropdown.Item
                                 eventKey={LANGUAGE.CAT}
-                                className={styles["dropdown-item"]}
                                 onSelect={handleSelectLanguage}
                             >
                                 <ReactCountryFlag countryCode="ES-CT" svg />{" "}
