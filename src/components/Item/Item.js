@@ -2,6 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
 
 import styles from "./Item.module.scss"
 
@@ -13,6 +14,7 @@ const Item = ({
     RightFirstContact = null,
     RightSecondContact = null,
     RightDetails = null,
+    RightActionButton = null,
 }) => {
     return (
         <Row className={styles.item}>
@@ -66,6 +68,9 @@ const Item = ({
                         <RightDetails />
                     </div>
                 )}
+                <Button variant="info" className={styles.button}>
+                    Info
+                </Button>
             </Col>
         </Row>
     )

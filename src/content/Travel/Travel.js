@@ -8,10 +8,12 @@ export default {
             Type: () => <>Terres de l'Ebre</>,
             Details: () => (
                 <>
-                    Les Terres de l'Ebre is located in the south-west of
-                    Catalonia, in the southern part of river Ebre. It is a
-                    UNESCO Biosphere Reserve since 2013. We recommend to stay
-                    either in Tortosa or L'Ampolla.
+                    <p>
+                        Les Terres de l'Ebre is located in the south-west of
+                        Catalonia, in the southern part of river Ebre. It is a
+                        UNESCO Biosphere Reserve since 2013. We recommend to
+                        stay either in Tortosa or L'Ampolla.
+                    </p>
                 </>
             ),
             link: "https://terresdelebre.travel/en",
@@ -91,12 +93,14 @@ export default {
             Type: () => <>Terres de l'Ebre</>,
             Details: () => (
                 <>
-                    Les Terres de l'Ebre es troba al sud-oest de Catalunya, al
-                    curs baix del riu Ebre. Al 2013, la UNESCO va declarar les
-                    Terres de l'Ebre com a espai natural i humà únic a tot el
-                    món, atorgant-li el reconeixement de Reserva Natural de la
-                    Biosfera. Us recomanem que us allotgeu a Tortosa o
-                    L'Ampolla.
+                    <p>
+                        Les Terres de l'Ebre es troba al sud-oest de Catalunya,
+                        al curs baix del riu Ebre. Al 2013, la UNESCO va
+                        declarar les Terres de l'Ebre com a espai natural i humà
+                        únic a tot el món, atorgant-li el reconeixement de
+                        Reserva Natural de la Biosfera. Us recomanem que us
+                        allotgeu a Tortosa o L'Ampolla.
+                    </p>
                 </>
             ),
             link: "https://terresdelebre.travel",

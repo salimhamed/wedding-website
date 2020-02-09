@@ -67,6 +67,18 @@
             .details {
                 font-family: $primary-font-family;
             }
+            .button {
+                width: 100px;
+                &:global(.btn-info),
+                &:global(.btn-info:visited) {
+                    background-color: lighten($primary-color, 20%);
+                    border-color: $primary-color;
+                }
+                &:global(.btn-info:hover),
+                &:global(.btn-info:active) {
+                    background-color: $primary-color;
+                }
+            }
         }
     }
 }
