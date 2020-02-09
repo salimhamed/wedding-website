@@ -8,10 +8,7 @@ import headerImg from "photos/orcas.png"
 function RSVP() {
     const { state } = useContext(Store)
     const {
-        app: {
-            language,
-            user: { isAuthenticated },
-        },
+        app: { language, user },
     } = state
 
     const { Heading, SubHeading, SubHeadingAuthenticated } = title[language]
@@ -22,7 +19,11 @@ function RSVP() {
                 imageUrl={headerImg}
                 Heading={Heading}
                 SubHeading={
-                    isAuthenticated ? SubHeadingAuthenticated : SubHeading
+                    user.isAuthenticated ? (
+                        () => <SubHeadingAuthenticated user={user} />
+                    ) : (
+                        SubHeading
+                    )
                 }
             />
         </>
