@@ -25,8 +25,6 @@ function Navigation() {
         },
     } = state
 
-    console.log({ isAuthenticated, name })
-
     const handleSelectLanguage = language => switchLanguage(language, dispatch)
 
     const handleSignOut = () => signOut(dispatch)

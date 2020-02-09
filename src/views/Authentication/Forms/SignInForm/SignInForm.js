@@ -33,7 +33,6 @@ function SignInForm({ history }) {
     ] = useState(isConfirmationEmailSent)
 
     const submitForm = (values, actions) => {
-        console.log("submitting")
         const { setSubmitting, setStatus } = actions
         signIn(values, setSubmitting, setStatus, history, dispatch)
     }
