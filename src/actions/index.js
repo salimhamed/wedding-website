@@ -177,7 +177,7 @@ export const putUserRSVPInformation = async (
                 },
                 Wedding: {
                     ConfirmedGuests: weddingGuests,
-                    Songs: songs,
+                    ...(songs ? { Songs: songs } : {}),
                     NeedBus: needBus,
                     Origin: origin,
                 },
