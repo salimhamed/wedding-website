@@ -85,81 +85,73 @@ function RSVPForm() {
                 errors,
                 status,
             }) => (
-                <>
-                    <pre>{JSON.stringify({ values, errors }, null, 2)}</pre>
-                    <Form
-                        noValidate
-                        onSubmit={handleSubmit}
-                        className={styles.form}
+                <Form
+                    noValidate
+                    onSubmit={handleSubmit}
+                    className={styles.form}
+                >
+                    <div className="text-center">
+                        <h5 className="text-muted">RSVP for the Wedding</h5>
+                    </div>
+                    <Form.Group controlId="controlIdWeddingGuests">
+                        <Form.Label>Number of guests attending</Form.Label>
+                        <Form.Control
+                            name="weddingGuests"
+                            type="number"
+                            max={weddingMaxGuests}
+                            min={0}
+                            value={values.weddingGuests}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={
+                                touched.weddingGuests && errors.weddingGuests
+                            }
+                        />
+                        <Form.Text className="text-muted">
+                            The number of guests (including yourself) that will
+                            be in attendance, with a max of {weddingMaxGuests}.
+                            Entering 0 means you can't make it.
+                        </Form.Text>
+                    </Form.Group>
+                    <div className="text-center mt-5">
+                        <h5 className="text-muted">Rehearsal Dinner</h5>
+                    </div>
+                    <Form.Group controlId="controlIdRehearsalGuests">
+                        <Form.Label>Number of guests attending</Form.Label>
+                        <Form.Control
+                            name="rehearsalGuests"
+                            type="number"
+                            max={rehearsalMaxGuests}
+                            min={0}
+                            value={values.rehearsalGuests}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={
+                                touched.rehearsalGuests &&
+                                errors.rehearsalGuests
+                            }
+                        />
+                        <Form.Text className="text-muted">
+                            The number of guests (including yourself) that will
+                            be in attendance, with a max of {rehearsalMaxGuests}
+                            . Entering 0 means you can't make it.
+                        </Form.Text>
+                    </Form.Group>
+                    <Button
+                        variant="primary"
+                        type="submit"
+                        size="lg"
+                        disabled={isSubmitting}
+                        block
                     >
-                        <div className="text-center">
-                            <h5 className="text-muted">RSVP for the Wedding</h5>
-                        </div>
-                        <Form.Group controlId="controlIdWeddingGuests">
-                            <Form.Label>Number of guests attending</Form.Label>
-                            <Form.Control
-                                name="weddingGuests"
-                                type="number"
-                                max={weddingMaxGuests}
-                                min={0}
-                                value={values.weddingGuests}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={
-                                    touched.weddingGuests &&
-                                    errors.weddingGuests
-                                }
-                            />
-                            <Form.Text className="text-muted">
-                                The number of guests (including yourself) that
-                                will be in attendance, with a max of{" "}
-                                {weddingMaxGuests}. Entering 0 means you can't
-                                make it.
-                            </Form.Text>
-                        </Form.Group>
-                        <div className="text-center mt-5">
-                            <h5 className="text-muted">Rehearsal Dinner</h5>
-                        </div>
-                        <Form.Group controlId="controlIdRehearsalGuests">
-                            <Form.Label>Number of guests attending</Form.Label>
-                            <Form.Control
-                                name="rehearsalGuests"
-                                type="number"
-                                max={rehearsalMaxGuests}
-                                min={0}
-                                value={values.rehearsalGuests}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                                isInvalid={
-                                    touched.rehearsalGuests &&
-                                    errors.rehearsalGuests
-                                }
-                            />
-                            <Form.Text className="text-muted">
-                                The number of guests (including yourself) that
-                                will be in attendance, with a max of{" "}
-                                {rehearsalMaxGuests}. Entering 0 means you can't
-                                make it.
-                            </Form.Text>
-                        </Form.Group>
-                        <Button
-                            variant="primary"
-                            type="submit"
-                            size="lg"
-                            disabled={isSubmitting}
-                            block
-                        >
-                            {isSubmitting
-                                ? "Confirming RSVP..."
-                                : "Confirm RSVP"}
-                        </Button>
-                        {status && (
-                            <Alert variant="danger" className="mt-4">
-                                {status}
-                            </Alert>
-                        )}
-                    </Form>
-                </>
+                        {isSubmitting ? "Updating RSVP..." : "Update RSVP"}
+                    </Button>
+                    {status && (
+                        <Alert variant="danger" className="mt-4">
+                            {status}
+                        </Alert>
+                    )}
+                </Form>
             )}
         </Formik>
     )
