@@ -8,18 +8,15 @@ export default {
         SubHeading: () => (
             <>
                 If you have any other questions other than what we’ve listed
-                here, please reach out to our wedding planner, Annie, at
-                555-555-5555.
+                here, please reach out to hola@lledoisalim.com.
             </>
         ),
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>Questions?</>,
+        Heading: () => <>Preguntes?</>,
         SubHeading: () => (
             <>
-                If you have any other questions other than what we’ve listed
-                here, please reach out to our wedding planner, Annie, at
-                555-555-5555.
+                Si teniu alguna pregunta, si us plau, escriviu-nos a hola@lledoisalim.com.
             </>
         ),
     },
