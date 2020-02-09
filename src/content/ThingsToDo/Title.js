@@ -8,7 +8,8 @@ export default {
         SubHeading: () => (
             <>
                 We’re so excited to share a few of our favorite places in the
-                area with you.
+                area with you. If you wish to explore them, we recommend renting
+                a car from Barcelona's airport.
             </>
         ),
         link: "https://terresdelebre.travel/en",

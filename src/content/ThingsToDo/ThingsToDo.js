@@ -9,7 +9,7 @@ export default {
             Details: () => (
                 <>
                     <p>
-                        The Natural Park of the Ebro Delta offers visitors a
+                        The Natural Park of the Ebre Delta offers visitors a
                         wide range of itineraries to discover the most
                         interesting places in the Delta, on foot, by bicycle,
                         canoe, boat or horseback. You can discover its
@@ -50,7 +50,7 @@ export default {
                         is now the capital of the Baix Ebre region. In fact,
                         historians believe that it may had been the enigmatic
                         and important city of Hibera. If that was indeed the
-                        case, the Ebro (Iber) river and the entire peninsula
+                        case, the Ebre (Iber) river and the entire peninsula
                         were named after the city. As proof of its splendid
                         past, which saw Romans, Muslims, Jews and Christians
                         pass through, Tortosa boasts the impressive Suda Castle,
@@ -85,7 +85,7 @@ export default {
                 <>
                     <p>
                         Twelfth century Templar fortress, built on a hill that
-                        controls throughout the Ebro river that passes by his
+                        controls throughout the Ebre river that passes by his
                         feet and dominates the town of Miravet. In good
                         condition, is one of the great examples of its kind in
                         Western Europe. You can visit different rooms as the
@@ -140,7 +140,7 @@ export default {
                 "https://terresdelebre.travel/en/activities-what-to-do/green-spaces/other-natural-spaces/coves-meravelles",
         },
         {
-            Title: () => <>The wine cathedral</>,
+            Title: () => <>The Wine Cathedral</>,
             Details: () => (
                 <>
                     <p>
@@ -215,7 +215,7 @@ export default {
             link: "https://www.tortosaturisme.cat/",
         },
         {
-            Title: () => <>L'Ampolla and L'Ametlla de Mar</>,
+            Title: () => <>L'Ampolla o L'Ametlla de Mar</>,
             Details: () => (
                 <>
                     <p>
@@ -293,7 +293,7 @@ export default {
                 "https://terresdelebre.travel/que-fer/espais-naturals/altres-espais-naturals/coves-meravelles",
         },
         {
-            Title: () => <>The wine cathedral</>,
+            Title: () => <>La Catedral del Vi</>,
             Details: () => (
                 <>
                     <p>
