@@ -5,7 +5,7 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Title: () => <>Welcome &ldquo;pica-pica&ldquo;</>,
+            Title: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
             Date: () => <>Friday, August 7, 2020</>,
             Time: () => <>4:00 PM to 7:00 PM</>,
             Location: () => <>La Barraca</>,
