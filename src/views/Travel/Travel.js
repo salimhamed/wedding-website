@@ -25,7 +25,7 @@ function Travel() {
             />
             <Container fluid>
                 {travelItems.map(
-                    ({ Type, Title, Details, Address, Phone }, idx) => (
+                    ({ Type, Title, Details, Address, Phone, link }, idx) => (
                         <Item
                             key={idx}
                             LeftMainTitle={Type}
@@ -33,6 +33,7 @@ function Travel() {
                             RightFirstContact={Address}
                             RightSecondContact={Phone}
                             RightDetails={Details}
+                            infoLink={link}
                         />
                     )
                 )}

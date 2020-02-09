@@ -14,7 +14,7 @@ const Item = ({
     RightFirstContact = null,
     RightSecondContact = null,
     RightDetails = null,
-    RightActionButton = null,
+    infoLink = null,
 }) => {
     return (
         <Row className={styles.item}>
@@ -68,9 +68,17 @@ const Item = ({
                         <RightDetails />
                     </div>
                 )}
-                <Button variant="info" className={styles.button}>
-                    Info
-                </Button>
+                {infoLink && (
+                    <Button
+                        variant="info"
+                        className={styles.button}
+                        href={infoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Info
+                    </Button>
+                )}
             </Col>
         </Row>
     )
