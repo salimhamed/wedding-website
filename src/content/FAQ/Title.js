@@ -8,7 +8,8 @@ export default {
         SubHeading: () => (
             <>
                 If you have any other questions other than what we’ve listed
-                here, please reach out to hola@lledoisalim.com.
+                here, please reach out to{" "}
+                <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>.
             </>
         ),
     },
@@ -17,7 +18,7 @@ export default {
         SubHeading: () => (
             <>
                 Si teniu alguna pregunta, si us plau, escriviu-nos a
-                hola@lledoisalim.com.
+                <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>.
             </>
         ),
     },

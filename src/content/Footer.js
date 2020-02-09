@@ -12,7 +12,7 @@ export default {
                 </p>
                 <p>
                     Contact us at{" "}
-                    <a href="mailto:hola@lledoisalim">hola@lledoisalim</a>
+                    <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>
                 </p>
             </>
         ),
@@ -24,8 +24,8 @@ export default {
                     <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />
                 </p>
                 <p>
-                    Contact us at{" "}
-                    <a href="mailto:hola@lledoisalim">hola@lledoisalim</a>
+                    Contacteu-nos a{" "}
+                    <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>
                 </p>
             </>
         ),
