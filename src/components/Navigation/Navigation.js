@@ -9,7 +9,7 @@ import ReactCountryFlag from "react-country-flag"
 import classNames from "classnames"
 
 import { LANGUAGE } from "actions/constants"
-import { switchLanguage } from "actions"
+import { switchLanguage, signOut } from "actions"
 import { Store } from "store"
 import { navigation } from "content"
 
@@ -27,7 +27,7 @@ function Navigation() {
 
     const handleSelectLanguage = language => switchLanguage(language, dispatch)
 
-    const handleSignOut = () => console.log("sign out!")
+    const handleSignOut = () => signOut(dispatch)
 
     const languageCodes = {
         [LANGUAGE.CAT]: "ES-CT",

@@ -2,6 +2,7 @@ import { APP } from "./constants"
 import {
     signUpWithCognito,
     signInWithCognito,
+    signOutWithCognito,
     resendConfirmationEmailWithCognito,
 } from "services"
 
@@ -11,6 +12,8 @@ export const switchLanguage = (language, dispatch) => {
         payload: language,
     })
 }
+
+export const initializeApp = async () => console.log()
 
 export const signUp = async (
     { name, email, password },
@@ -92,4 +95,19 @@ export const signIn = async (
         })
     }
     setSubmitting(false)
+}
+
+export const signOut = async dispatch => {
+    try {
+        await signOutWithCognito()
+        dispatch({
+            type: APP.SET.USER_SIGN_OUT,
+        })
+    } catch (error) {
+        const { message } = error
+        dispatch({
+            type: APP.SET.USER_ERROR,
+            payload: message,
+        })
+    }
 }

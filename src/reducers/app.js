@@ -19,5 +19,12 @@ export default (state, action) => ({
         set(["app", "user", "isAuthenticated"], true),
         set(["app", "user", "isConfirmationEmailSent"], false)
     )(state),
+    [APP.SET.USER_SIGN_OUT]: flow(
+        set(["app", "user", "username"], null),
+        set(["app", "user", "email"], null),
+        set(["app", "user", "name"], null),
+        set(["app", "user", "isAuthenticated"], false),
+        set(["app", "user", "isConfirmationEmailSent"], false)
+    )(state),
     [APP.SET.USER_ERROR]: set(["app", "user", "error"], action.payload, state),
 })
