@@ -17,9 +17,9 @@ export default {
         Heading: () => <>Registre</>,
         SubHeading: () => (
             <span>
-                La vostra asistència és més que suficient i no esperem cap regal.
-                Però, si voleu contribuir a la nostra vida de casats aviat
-                penjarem la nostra llista de noces.
+                La vostra asistència és més que suficient i no esperem cap
+                regal. Però, si voleu contribuir a la nostra vida de casats
+                aviat penjarem la nostra llista de noces.
             </span>
         ),
     },

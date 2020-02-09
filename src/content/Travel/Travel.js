@@ -153,9 +153,9 @@ export default {
             Details: () => (
                 <>
                     <p>
-                        Us suggerim que us quedeu a Tortosa (d'on és la Lledó)
-                        o a L'Ampolla (si voleu estar al costat de la platja).
-                        El Pica-pica de Benvinguda serà a L'Ampolla; el dia del
+                        Us suggerim que us quedeu a Tortosa (d'on és la Lledó) o
+                        a L'Ampolla (si voleu estar al costat de la platja). El
+                        Pica-pica de Benvinguda serà a L'Ampolla; el dia del
                         casament, hi haurà autobusos desde Tortosa i L'Ampolla a
                         Les Moles. A L'Ampolla, Les Oliveres i Hotel Cap Roig
                         són bones opcions (però necessitaríeu cotxe per arribar
