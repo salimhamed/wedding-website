@@ -12,13 +12,6 @@ import {
 
 import { APP } from "./constants"
 
-export const switchLanguage = (language, dispatch) => {
-    dispatch({
-        type: APP.SET.LANGUAGE,
-        payload: language,
-    })
-}
-
 export const initializeApp = async dispatch => {
     const CognitoUser = await currentAuthenticatedUserWithCognito()
 
