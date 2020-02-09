@@ -12,7 +12,9 @@ export default {
                 </p>
                 <p>
                     Contact us at{" "}
-                    <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>
+                    <a href="mailto:hola@lledoisalim.com">
+                        hola@lledoisalim.com
+                    </a>
                 </p>
             </>
         ),
@@ -25,7 +27,9 @@ export default {
                 </p>
                 <p>
                     Contacteu-nos a{" "}
-                    <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>
+                    <a href="mailto:hola@lledoisalim.com">
+                        hola@lledoisalim.com
+                    </a>
                 </p>
             </>
         ),
