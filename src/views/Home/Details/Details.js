@@ -1,10 +1,10 @@
 import React from "react"
 import { useCookies } from "react-cookie"
-
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 
+import { selectLanguage } from "utilities/cookies"
 import { details } from "content/Home"
 
 import styles from "./Details.module.scss"
@@ -12,7 +12,7 @@ import styles from "./Details.module.scss"
 function Details() {
     const [cookies] = useCookies(["language"])
 
-    const { Title, Date, Location, hashtag } = details[cookies.language]
+    const { Title, Date, Location, hashtag } = details[selectLanguage(cookies)]
     return (
         <section>
             <Container>

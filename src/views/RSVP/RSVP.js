@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { useCookies } from "react-cookie"
 
+import { selectLanguage } from "utilities/cookies"
 import { Store } from "store"
 import { title } from "content/RSVP"
 import { Header } from "components/Header"
@@ -17,7 +18,7 @@ function RSVP() {
     } = state
 
     const { Heading, SubHeading, SubHeadingAuthenticated } = title[
-        cookies.language
+        selectLanguage(cookies)
     ]
 
     return (

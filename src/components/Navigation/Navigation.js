@@ -9,6 +9,7 @@ import Dropdown from "react-bootstrap/Dropdown"
 import ReactCountryFlag from "react-country-flag"
 import classNames from "classnames"
 
+import { selectLanguage } from "utilities/cookies"
 import { LANGUAGE } from "actions/constants"
 import { signOut } from "actions"
 import { Store } from "store"
@@ -46,7 +47,7 @@ function Navigation({ history }) {
         signOut: SignOutText,
         signIn: SignInText,
         manageRsvp: ManageRSVPText,
-    } = navigation[cookies.language]
+    } = navigation[selectLanguage(cookies)]
 
     return (
         <Navbar
@@ -135,10 +136,10 @@ function Navigation({ history }) {
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
                             <ReactCountryFlag
-                                countryCode={languageCodes[cookies.language]}
+                                countryCode={languageCodes[selectLanguage(cookies)]}
                                 svg
                             />{" "}
-                            {cookies.language}
+                            {selectLanguage(cookies)}
                         </Dropdown.Toggle>
                         <Dropdown.Menu alignRight>
                             <Dropdown.Item

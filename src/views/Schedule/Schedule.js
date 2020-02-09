@@ -2,6 +2,7 @@ import React from "react"
 import { useCookies } from "react-cookie"
 import Container from "react-bootstrap/Container"
 
+import { selectLanguage } from "utilities/cookies"
 import { schedule, title } from "content/Schedule"
 import { Header } from "components/Header"
 import { Item } from "components/Item"
@@ -10,7 +11,7 @@ import headerImg from "photos/spain_octopus.jpg"
 function Schedule() {
     const [cookies] = useCookies(["language"])
 
-    const { Heading, SubHeading } = title[cookies.language]
+    const { Heading, SubHeading } = title[selectLanguage(cookies)]
     const scheduleItems = schedule[cookies.language]
 
     return (
