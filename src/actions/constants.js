@@ -1,8 +1,5 @@
 export const APP = {
     SET: {
-        // language
-        LANGUAGE: "SET_APP_LANGUAGE",
-
         // user
         INITIALIZE_USER: "SET_APP_INITIALIZE_USER",
         USER_SIGN_UP: "SET_APP_USER_SIGN_UP",

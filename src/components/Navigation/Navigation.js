@@ -1,4 +1,5 @@
 import React, { useContext } from "react"
+import { useCookies } from "react-cookie"
 import { NavLink as RouterNavLink, withRouter } from "react-router-dom"
 import Navbar from "react-bootstrap/Navbar"
 import NavLink from "react-bootstrap/NavLink"
@@ -8,24 +9,26 @@ import Dropdown from "react-bootstrap/Dropdown"
 import ReactCountryFlag from "react-country-flag"
 import classNames from "classnames"
 
+import { selectLanguage } from "utilities/cookies"
 import { LANGUAGE } from "actions/constants"
-import { switchLanguage, signOut } from "actions"
+import { signOut } from "actions"
 import { Store } from "store"
 import { navigation } from "content"
 
 import styles from "./Navigation.module.scss"
 
 function Navigation({ history }) {
+    const [cookies, setCookie] = useCookies(["language"])
     const { state, dispatch } = useContext(Store)
 
     const {
         app: {
-            language,
             user: { name, isAuthenticated, email },
         },
     } = state
 
-    const handleSelectLanguage = language => switchLanguage(language, dispatch)
+    const handleSelectLanguage = lang =>
+        setCookie("language", lang, { path: "/" })
 
     const handleSignOut = () => signOut(dispatch)
 
@@ -44,7 +47,7 @@ function Navigation({ history }) {
         signOut: SignOutText,
         signIn: SignInText,
         manageRsvp: ManageRSVPText,
-    } = navigation[language]
+    } = navigation[selectLanguage(cookies)]
 
     return (
         <Navbar
@@ -133,10 +136,12 @@ function Navigation({ history }) {
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
                             <ReactCountryFlag
-                                countryCode={languageCodes[language]}
+                                countryCode={
+                                    languageCodes[selectLanguage(cookies)]
+                                }
                                 svg
                             />{" "}
-                            {language}
+                            {selectLanguage(cookies)}
                         </Dropdown.Toggle>
                         <Dropdown.Menu alignRight>
                             <Dropdown.Item

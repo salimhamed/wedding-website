@@ -1,20 +1,17 @@
-import React, { useContext } from "react"
-
+import React from "react"
+import { useCookies } from "react-cookie"
 import Container from "react-bootstrap/Container"
 import Jumbotron from "react-bootstrap/Jumbotron"
 
+import { selectLanguage } from "utilities/cookies"
 import { headers } from "content/Home"
-import { Store } from "store"
 
 import styles from "./Header.module.scss"
 
 function Header() {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const HeaderContent = headers[language]
+    const HeaderContent = headers[selectLanguage(cookies)]
 
     return (
         <Jumbotron fluid className={styles.header}>

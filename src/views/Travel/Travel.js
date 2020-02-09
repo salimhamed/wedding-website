@@ -1,20 +1,18 @@
-import React, { useContext } from "react"
+import React from "react"
 import Container from "react-bootstrap/Container"
+import { useCookies } from "react-cookie"
 
-import { Store } from "store"
+import { selectLanguage } from "utilities/cookies"
 import { title, travel } from "content/Travel"
 import { Header } from "components/Header"
 import { Item } from "components/Item"
 import headerImg from "photos/airplane.jpg"
 
 function Travel() {
-    const { state } = useContext(Store)
-    const {
-        app: { language },
-    } = state
+    const [cookies] = useCookies(["language"])
 
-    const { Heading, SubHeading } = title[language]
-    const travelItems = travel[language]
+    const { Heading, SubHeading } = title[selectLanguage(cookies)]
+    const travelItems = travel[selectLanguage(cookies)]
 
     return (
         <>

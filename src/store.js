@@ -1,14 +1,12 @@
 import React from "react"
 
 import combineReducers from "reducers"
-import { LANGUAGE } from "actions/constants"
 import reducerLogger from "utilities/reducerLogger"
 
 export const Store = React.createContext({})
 
 const initialState = {
     app: {
-        language: LANGUAGE.EN,
         user: {
             username: null,
             email: null,
