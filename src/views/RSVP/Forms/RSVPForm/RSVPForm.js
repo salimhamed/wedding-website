@@ -148,7 +148,7 @@ function RSVPForm() {
                                     value={idx}
                                     key={idx}
                                 >
-                                    idx === 0 ? `0 - Can't Attend` : idx
+                                    {idx === 0 ? `0 - Can't Attend` : idx}
                                 </option>
                             ))}
                         </Form.Control>
@@ -250,7 +250,9 @@ function RSVPForm() {
                                 <option
                                     label={idx === 0 ? `0 - Can't Attend` : idx}
                                     value={idx}
-                                />
+                                >
+                                    {idx === 0 ? `0 - Can't Attend` : idx}
+                                </option>
                             ))}
                         </Form.Control>
                         <Form.Text className="text-muted">
