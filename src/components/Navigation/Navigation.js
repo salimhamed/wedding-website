@@ -19,10 +19,15 @@ function Navigation() {
     const { state, dispatch } = useContext(Store)
 
     const {
-        app: { language },
+        app: {
+            language,
+            user: { name, isAuthenticated },
+        },
     } = state
 
     const handleSelectLanguage = language => switchLanguage(language, dispatch)
+
+    const handleSignOut = () => console.log("sign out!")
 
     const languageCodes = {
         [LANGUAGE.CAT]: "ES-CT",
@@ -35,6 +40,7 @@ function Navigation() {
         thingsToDo: ThingsToDoNavText,
         faq: FAQNavText,
         registry: RegistryNavText,
+        signOut: SignOutText,
     } = navigation[language]
 
     return (
@@ -86,6 +92,21 @@ function Navigation() {
                     </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
+                    {isAuthenticated && (
+                        <Dropdown as={NavItem}>
+                            <Dropdown.Toggle as={NavLink}>
+                                {name}
+                            </Dropdown.Toggle>
+                            <Dropdown.Menu alignRight>
+                                <Dropdown.Item
+                                    className={styles["dropdown-item"]}
+                                    onSelect={handleSignOut()}
+                                >
+                                    <SignOutText />
+                                </Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                    )}
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
                             <ReactCountryFlag

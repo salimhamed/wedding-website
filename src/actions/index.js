@@ -66,7 +66,7 @@ export const signIn = async (
         } = CognitoUser
 
         dispatch({
-            type: APP.SET.USER_SIGN_UP,
+            type: APP.SET.USER_SIGN_IN,
             payload: {
                 username,
                 name,
