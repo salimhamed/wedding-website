@@ -53,25 +53,28 @@ function RSVPForm() {
     }
 
     const weddingMaxGuests = get(allowed, ["Wedding", "MaxGuests"])
-    const weddingConfirmedGuests = get(
-        confirmed,
-        ["Wedding", "ConfirmedGuests"],
-        0
-    )
+    const weddingConfirmedGuests = get(confirmed, [
+        "Wedding",
+        "ConfirmedGuests",
+    ])
 
     const rehearsalMaxGuests = get(allowed, ["Rehearsal", "MaxGuests"])
-    const rehearsalConfirmedGuests = get(
-        confirmed,
-        ["Rehearsal", "ConfirmedGuests"],
-        0
-    )
+    const rehearsalConfirmedGuests = get(confirmed, [
+        "Rehearsal",
+        "ConfirmedGuests",
+    ])
+
+    const buttonText = {
+        initial: isNull(weddingConfirmedGuests) ? "Submit" : "Update",
+        submitting: isNull(weddingConfirmedGuests) ? "Submitting" : "Update",
+    }
 
     return (
         <Formik
             validationSchema={schema}
             initialValues={{
-                weddingGuests: weddingConfirmedGuests,
-                rehearsalGuests: rehearsalConfirmedGuests,
+                weddingGuests: weddingConfirmedGuests || 0,
+                rehearsalGuests: rehearsalConfirmedGuests || 0,
             }}
             onSubmit={submitForm}
         >
@@ -144,7 +147,9 @@ function RSVPForm() {
                         disabled={isSubmitting}
                         block
                     >
-                        {isSubmitting ? "Updating RSVP..." : "Update RSVP"}
+                        {isSubmitting
+                            ? `${buttonText.submitting} RSVP...`
+                            : buttonText.initial}
                     </Button>
                     {status && (
                         <Alert variant="danger" className="mt-4">

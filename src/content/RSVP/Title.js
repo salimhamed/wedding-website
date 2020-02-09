@@ -9,7 +9,7 @@ export default {
         SubHeadingAuthenticated: ({ user }) => (
             <span>
                 Hi <strong>{user.name}</strong>! We can't wait to see you in
-                Catalonia! Use the form below to confirm your RSVP.
+                Catalonia! Use the form below to manage your RSVP.
             </span>
         ),
         SubHeading: () => (
