@@ -10,10 +10,7 @@ export default (state, action) => ({
         set(["app", "user", "username"], get(action, ["payload", "username"])),
         set(["app", "user", "email"], get(action, ["payload", "email"])),
         set(["app", "user", "name"], get(action, ["payload", "name"])),
-        set(
-            ["app", "user", "isConfirmationEmailSent"],
-            get(action, ["payload", "isConfirmationEmailSent"])
-        )
+        set(["app", "user", "isConfirmationEmailSent"], true)
     )(state),
     [APP.SET.USER_SIGN_IN]: flow(
         set(["app", "user", "username"], get(action, ["payload", "username"])),

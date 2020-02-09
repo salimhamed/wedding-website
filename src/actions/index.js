@@ -35,7 +35,6 @@ export const signUp = async (
                 username,
                 name,
                 email,
-                isConfirmationEmailSent: true,
             },
         })
 
@@ -74,6 +73,8 @@ export const signIn = async (
                 email,
             },
         })
+
+        history.push("/")
     } catch (error) {
         const { code } = error
         let { message } = error

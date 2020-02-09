@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { object, string } from "yup"
 import { Formik } from "formik"
 import Form from "react-bootstrap/Form"
@@ -23,9 +23,14 @@ function SignInForm({ history }) {
 
     const {
         app: {
-            user: { email },
+            user: { email, isConfirmationEmailSent },
         },
     } = state
+
+    const [
+        showConfirmationEmailAlert,
+        setShowConfirmationEmailAlert,
+    ] = useState(isConfirmationEmailSent)
 
     const submitForm = (values, actions) => {
         console.log("submitting")
@@ -57,9 +62,20 @@ function SignInForm({ history }) {
                     onSubmit={handleSubmit}
                     className={styles.form}
                 >
+                    {isConfirmationEmailSent && (
+                        <Alert
+                            variant="success"
+                            className="mb-4"
+                            onClose={() => setShowConfirmationEmailAlert(false)}
+                            show={showConfirmationEmailAlert}
+                            dismissible
+                        >
+                            Check your email for a link to confirm your account.
+                            You must confirm your account before logging in.
+                        </Alert>
+                    )}
                     <div className="text-center">
                         <h4 className="text-muted">Please Sign In</h4>
-                        <pre>{JSON.stringify({ values, errors })}</pre>
                     </div>
                     <Form.Group controlId="controlIdEmail">
                         <Form.Control
