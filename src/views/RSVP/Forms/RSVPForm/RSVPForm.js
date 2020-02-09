@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { object, number } from "yup"
+import { object, number, string } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
@@ -19,6 +19,7 @@ import styles from "../Forms.module.scss"
 const schema = object({
     weddingGuests: number().required(),
     rehearsalGuests: number().required(),
+    songs: string(),
 })
 
 function RSVPForm() {
@@ -74,6 +75,7 @@ function RSVPForm() {
         "Wedding",
         "ConfirmedGuests",
     ])
+    const weddingSongs = get(confirmed, ["Wedding", "Songs"])
 
     const rehearsalMaxGuests = get(allowed, ["Rehearsal", "MaxGuests"])
     const rehearsalConfirmedGuests = get(confirmed, [
@@ -91,6 +93,7 @@ function RSVPForm() {
             initialValues={{
                 weddingGuests: weddingConfirmedGuests || 0,
                 rehearsalGuests: rehearsalConfirmedGuests || 0,
+                songs: weddingSongs || "",
             }}
             onSubmit={submitForm}
         >
@@ -138,7 +141,15 @@ function RSVPForm() {
                     </Form.Group>
                     <Form.Group controlId="controlIdWeddingSongs">
                         <Form.Label>Song requests</Form.Label>
-                        <Form.Control as="textarea" rows="3" />
+                        <Form.Control
+                            name="songs"
+                            as="textarea"
+                            rows="3"
+                            value={values.songs}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={touched.songs && errors.songs}
+                        />
                         <Form.Text className="text-muted">
                             Let us know which songs will keep you partying all
                             night!
