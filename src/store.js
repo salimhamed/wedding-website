@@ -17,7 +17,10 @@ const initialState = {
             isConfirmationEmailSent: false,
             isAuthenticated: false,
         },
-        rsvp: null,
+        rsvp: {
+            allowed: null,
+            confirmed: null,
+        },
     },
 }
 

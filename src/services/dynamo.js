@@ -11,10 +11,6 @@ const getDocumentClient = () =>
     )
 
 export const putItemToDynamo = async Item => {
-    if (!Item.UserId) {
-        return null
-    }
-
     const params = {
         TableName: process.env.REACT_APP_USER_TABLE,
         Item,

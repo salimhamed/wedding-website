@@ -7,6 +7,7 @@ import {
     currentAuthenticatedUserWithCognito,
     resendConfirmationEmailWithCognito,
     getItemFromDynamo,
+    putItemToDynamo,
 } from "services"
 
 import { APP } from "./constants"
@@ -139,13 +140,40 @@ export const fetchUserRSVPInformation = async (email, dispatch) => {
             Domain: "RSVP",
         })
 
-        const rsvpData = get(Item, ["Data"], null)
+        const rsvpData = get(Item, ["Allowed"], null)
 
         dispatch({
-            type: APP.SET.RSVP,
+            type: APP.SET.RSVP_ALLOWED,
             payload: rsvpData,
         })
     } catch (error) {
         console.error(error.message)
     }
+}
+
+export const putUserRSVPInformation = async (
+    { email, weddingGuests, rehearsalGuests },
+    setSubmitting,
+    setStatus,
+    dispatch
+) => {
+    try {
+        await putItemToDynamo({
+            Email: email,
+            Domain: "RSVP",
+            Confirmed: {
+                Rehearsal: {
+                    ConfirmedGuests: rehearsalGuests,
+                },
+                Wedding: {
+                    ConfirmedGuests: weddingGuests,
+                },
+            },
+        })
+        fetchUserRSVPInformation(email, dispatch)
+    } catch (error) {
+        const { message } = error
+        setStatus(message)
+    }
+    setSubmitting(false)
 }

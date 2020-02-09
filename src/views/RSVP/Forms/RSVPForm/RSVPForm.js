@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { object, string, number } from "yup"
+import { object, number } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
@@ -8,7 +8,7 @@ import isNull from "lodash/isNull"
 import get from "lodash/get"
 
 import { Store } from "store"
-import { fetchUserRSVPInformation } from "actions"
+import { fetchUserRSVPInformation, putUserRSVPInformation } from "actions"
 
 import styles from "../Forms.module.scss"
 
@@ -23,7 +23,7 @@ function RSVPForm() {
     const {
         app: {
             user: { email },
-            rsvp,
+            rsvp: { allowed, confirmed },
         },
     } = state
 
@@ -35,10 +35,15 @@ function RSVPForm() {
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
-        console.log({ values })
+        putUserRSVPInformation(
+            { email, ...values },
+            setSubmitting,
+            setStatus,
+            dispatch
+        )
     }
 
-    if (isNull(rsvp)) {
+    if (isNull(allowed)) {
         return (
             <div>
                 Whoops, it looks like we don't have your email address. Email us
@@ -47,12 +52,16 @@ function RSVPForm() {
         )
     }
 
-    const weddingAllowedGuests = get(rsvp, ["Wedding", "AllowedGuests"])
-    const weddingConfirmedGuests = get(rsvp, ["Wedding", "ConfirmedGuests"], 0)
+    const weddingMaxGuests = get(allowed, ["Wedding", "MaxGuests"])
+    const weddingConfirmedGuests = get(
+        confirmed,
+        ["Wedding", "ConfirmedGuests"],
+        0
+    )
 
-    const rehearsalAllowedGuests = get(rsvp, ["Rehearsal", "AllowedGuests"])
+    const rehearsalMaxGuests = get(allowed, ["Rehearsal", "MaxGuests"])
     const rehearsalConfirmedGuests = get(
-        rsvp,
+        confirmed,
         ["Rehearsal", "ConfirmedGuests"],
         0
     )
@@ -91,7 +100,7 @@ function RSVPForm() {
                             <Form.Control
                                 name="weddingGuests"
                                 type="number"
-                                max={weddingAllowedGuests}
+                                max={weddingMaxGuests}
                                 min={0}
                                 value={values.weddingGuests}
                                 onChange={handleChange}
@@ -104,8 +113,8 @@ function RSVPForm() {
                             <Form.Text className="text-muted">
                                 The number of guests (including yourself) that
                                 will be in attendance, with a max of{" "}
-                                {weddingAllowedGuests}. Entering 0 means you
-                                can't make it.
+                                {weddingMaxGuests}. Entering 0 means you can't
+                                make it.
                             </Form.Text>
                         </Form.Group>
                         <div className="text-center mt-5">
@@ -116,7 +125,7 @@ function RSVPForm() {
                             <Form.Control
                                 name="rehearsalGuests"
                                 type="number"
-                                max={rehearsalAllowedGuests}
+                                max={rehearsalMaxGuests}
                                 min={0}
                                 value={values.rehearsalGuests}
                                 onChange={handleChange}
@@ -129,8 +138,8 @@ function RSVPForm() {
                             <Form.Text className="text-muted">
                                 The number of guests (including yourself) that
                                 will be in attendance, with a max of{" "}
-                                {rehearsalAllowedGuests}. Entering 0 means you
-                                can't make it.
+                                {rehearsalMaxGuests}. Entering 0 means you can't
+                                make it.
                             </Form.Text>
                         </Form.Group>
                         <Button

@@ -33,5 +33,9 @@ export default (state, action) => ({
         set(["app", "user", "isConfirmationEmailSent"], false)
     )(state),
     [APP.SET.USER_ERROR]: set(["app", "user", "error"], action.payload, state),
-    [APP.SET.RSVP]: flow(set(["app", "rsvp"], action.payload))(state),
+    [APP.SET.RSVP_ALLOWED]: set(
+        ["app", "rsvp", "allowed"],
+        action.payload,
+        state
+    ),
 })
