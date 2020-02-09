@@ -58,7 +58,7 @@ export default {
     ],
     [LANGUAGE.CAT]: [
         {
-            Title: () => <>Pica-pica de benvinguda</>,
+            Title: () => <>Pica-pica de Benvinguda</>,
             Date: () => <>Divendres, 7 d'agost de 2020</>,
             Time: () => <>de 16h a 19h</>,
             Location: () => <>La Barraca</>,
@@ -102,7 +102,7 @@ export default {
                         per Jeroni Castell i Carmen Sauch, el restaurant està
                         situat en la que va ser la primera pedrera d'Ulldecona,
                         on es feien les pedres per als molins, anomenades
-                        \"moles\" (i té una estrella Michelin!).
+                        "moles" (i té una estrella Michelin!).
                     </p>
                 </>
             ),
