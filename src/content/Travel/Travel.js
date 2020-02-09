@@ -74,7 +74,7 @@ export default {
                         hometown) or L'Ampolla (if you want to stay by the
                         beach). The Welcome Pica-pica will be in L'Ampolla, and
                         there will be buses from both Tortosa and L'Ampolla to
-                        Les Moles on the day of the weeding. In L'Ampolla Les
+                        Les Moles on the day of the weeding. In L'Ampolla, Les
                         Oliveres and Hotel Cap Roig are good options; however,
                         you will need car transportation (5 min drive) to the
                         Welcome Pica-pica. In Spain, booking.com is usually
@@ -154,12 +154,12 @@ export default {
                 <>
                     <p>
                         Us suggerim que us quedeu a Tortosa (d'on és la Lledó)
-                        of a L'Ampolla (si voleu estar al costat de la platja).
+                        o a L'Ampolla (si voleu estar al costat de la platja).
                         El Pica-pica de Benvinguda serà a L'Ampolla; el dia del
                         casament, hi haurà autobusos desde Tortosa i L'Ampolla a
                         Les Moles. A L'Ampolla, Les Oliveres i Hotel Cap Roig
                         són bones opcions (però necessitaríeu cotxe per arribar
-                        al lloc del pica-pica). Podeu trobar altres opcions per
+                        al lloc del Pica-pica). Podeu trobar altres opcions per
                         booking.com.
                     </p>
                 </>
