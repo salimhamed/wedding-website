@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { object, number } from "yup"
+import { object, number, string } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
@@ -9,6 +9,7 @@ import { Formik } from "formik"
 import isUndefined from "lodash/isUndefined"
 import isNull from "lodash/isNull"
 import get from "lodash/get"
+import range from "lodash/range"
 
 import { Store } from "store"
 import { fetchUserRSVPInformation, putUserRSVPInformation } from "actions"
@@ -18,6 +19,7 @@ import styles from "../Forms.module.scss"
 const schema = object({
     weddingGuests: number().required(),
     rehearsalGuests: number().required(),
+    songs: string(),
 })
 
 function RSVPForm() {
@@ -73,6 +75,7 @@ function RSVPForm() {
         "Wedding",
         "ConfirmedGuests",
     ])
+    const weddingSongs = get(confirmed, ["Wedding", "Songs"])
 
     const rehearsalMaxGuests = get(allowed, ["Rehearsal", "MaxGuests"])
     const rehearsalConfirmedGuests = get(confirmed, [
@@ -90,6 +93,7 @@ function RSVPForm() {
             initialValues={{
                 weddingGuests: weddingConfirmedGuests || 0,
                 rehearsalGuests: rehearsalConfirmedGuests || 0,
+                songs: weddingSongs || "",
             }}
             onSubmit={submitForm}
         >
@@ -109,26 +113,46 @@ function RSVPForm() {
                     className={styles.form}
                 >
                     <div className="text-center">
-                        <h5 className="text-muted">RSVP for the Wedding</h5>
+                        <h5 className="text-muted">Wedding</h5>
                     </div>
                     <Form.Group controlId="controlIdWeddingGuests">
                         <Form.Label>Number of guests attending</Form.Label>
                         <Form.Control
                             name="weddingGuests"
-                            type="number"
-                            max={weddingMaxGuests}
-                            min={0}
+                            as="select"
                             value={values.weddingGuests}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={
                                 touched.weddingGuests && errors.weddingGuests
                             }
-                        />
+                        >
+                            {range(0, weddingMaxGuests + 1).map(idx => (
+                                <option
+                                    label={idx === 0 ? `0 - Can't Attend` : idx}
+                                    value={idx}
+                                />
+                            ))}
+                        </Form.Control>
                         <Form.Text className="text-muted">
                             The number of guests (including yourself) that will
-                            be in attendance, with a max of {weddingMaxGuests}.
-                            Entering 0 means you can't make it.
+                            be in attendance.
+                        </Form.Text>
+                    </Form.Group>
+                    <Form.Group controlId="controlIdWeddingSongs">
+                        <Form.Label>Song requests</Form.Label>
+                        <Form.Control
+                            name="songs"
+                            as="textarea"
+                            rows="3"
+                            value={values.songs}
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            isInvalid={touched.songs && errors.songs}
+                        />
+                        <Form.Text className="text-muted">
+                            Let us know which songs will keep you partying all
+                            night!
                         </Form.Text>
                     </Form.Group>
                     <div className="text-center mt-5">
@@ -138,9 +162,7 @@ function RSVPForm() {
                         <Form.Label>Number of guests attending</Form.Label>
                         <Form.Control
                             name="rehearsalGuests"
-                            type="number"
-                            max={rehearsalMaxGuests}
-                            min={0}
+                            as="select"
                             value={values.rehearsalGuests}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -148,14 +170,21 @@ function RSVPForm() {
                                 touched.rehearsalGuests &&
                                 errors.rehearsalGuests
                             }
-                        />
+                        >
+                            {range(0, rehearsalMaxGuests + 1).map(idx => (
+                                <option
+                                    label={idx === 0 ? `0 - Can't Attend` : idx}
+                                    value={idx}
+                                />
+                            ))}
+                        </Form.Control>
                         <Form.Text className="text-muted">
                             The number of guests (including yourself) that will
-                            be in attendance, with a max of {rehearsalMaxGuests}
-                            . Entering 0 means you can't make it.
+                            be in attendance.
                         </Form.Text>
                     </Form.Group>
                     <Button
+                        className="mt-5"
                         variant="primary"
                         type="submit"
                         size="lg"
