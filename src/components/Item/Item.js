@@ -2,6 +2,7 @@ import React from "react"
 import classNames from "classnames"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import Button from "react-bootstrap/Button"
 
 import styles from "./Item.module.scss"
 
@@ -13,6 +14,7 @@ const Item = ({
     RightFirstContact = null,
     RightSecondContact = null,
     RightDetails = null,
+    infoLink = null,
 }) => {
     return (
         <Row className={styles.item}>
@@ -65,6 +67,17 @@ const Item = ({
                     <div className={styles.details}>
                         <RightDetails />
                     </div>
+                )}
+                {infoLink && (
+                    <Button
+                        variant="info"
+                        className={styles.button}
+                        href={infoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Info
+                    </Button>
                 )}
             </Col>
         </Row>

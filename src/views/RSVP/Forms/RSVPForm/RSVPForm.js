@@ -59,8 +59,8 @@ function RSVPForm() {
                         Whoops, it looks like we don't have your email address.
                         Email us at{" "}
                         <strong>
-                            <a href="mailto:hola@lledoisalim">
-                                hola@lledoisalim
+                            <a href="mailto:hola@lledoisalim.com">
+                                hola@lledoisalim.com
                             </a>
                         </strong>{" "}
                         so we can update our records.
