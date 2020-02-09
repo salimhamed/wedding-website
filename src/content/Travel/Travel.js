@@ -76,7 +76,7 @@ export default {
                         hometown) or L'Ampolla (if you want to stay by the
                         beach). The Welcome Pica-pica will be in L'Ampolla, and
                         there will be buses from both Tortosa and L'Ampolla to
-                        Les Moles on the day of the weeding. In L'Ampolla, Les
+                        Les Moles on the day of the wedding. In L'Ampolla, Les
                         Oliveres and Hotel Cap Roig are good options; however,
                         you will need car transportation (5 min drive) to the
                         Welcome Pica-pica. In Spain, booking.com is usually
