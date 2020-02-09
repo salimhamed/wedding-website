@@ -136,7 +136,9 @@ function Navigation({ history }) {
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
                             <ReactCountryFlag
-                                countryCode={languageCodes[selectLanguage(cookies)]}
+                                countryCode={
+                                    languageCodes[selectLanguage(cookies)]
+                                }
                                 svg
                             />{" "}
                             {selectLanguage(cookies)}
