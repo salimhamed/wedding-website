@@ -20,7 +20,7 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        Heading: () => <>RSVP</>,
+        Heading: () => <>RSUP</>,
         SubHeadingAuthenticated: ({ user }) => (
             <span>
                 Hola {user.name}! Quines ganes tenim de veure-us! Fes servir el

@@ -41,6 +41,6 @@ export default {
             </>
         ),
         emailPlaceholder: "Email",
-        passwordPlaceholder: "Password",
+        passwordPlaceholder: "Contrasenya",
     },
 }

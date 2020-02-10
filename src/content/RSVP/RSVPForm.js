@@ -26,7 +26,7 @@ export default {
         otherLabelExtra: "Reach out if you need help arranging transportation",
         WeddingFormHeader: () => <>Wedding</>,
         NumberOfGuestsLabel: () => <>Number of guests attending</>,
-        zeroLabel: "0 - Can't Attend",
+        zeroLabel: "Can't Attend",
         NumberOfGuestsHelp: () => (
             <>
                 The number of guests in your party (including yourself) that
@@ -86,9 +86,9 @@ export default {
         otherLabelExtra: "Feu-nos saber si necessiteu ajuda trobant transport.",
         WeddingFormHeader: () => <>Casament</>,
         NumberOfGuestsLabel: () => <>Número de convidats</>,
-        zeroLabel: "0 - No podem venir",
+        zeroLabel: "No podem venir",
         NumberOfGuestsHelp: () => (
-            <>Número de convidats (incluinte a tu) que vindran.</>
+            <>Número de convidats (incloen-te a tu) que vindran.</>
         ),
         TransportationLabel: () => (
             <>Necessiteu transport a/de el lloc del casament?</>
@@ -115,7 +115,7 @@ export default {
         DinnerFormHeader: () => <>Pica-pica de Benvinguda</>,
         DinnerGuestsLabel: () => <>Número de convidats</>,
         DinnerGuestsHelp: () => (
-            <>Número de convidats (incluinte a tu) que vindran.</>
+            <>Número de convidats (incloen-te a tu) que vindran.</>
         ),
         AlertRSVPUpdated: () => <>Gràcies pel vostre RSUP!</>,
     },
