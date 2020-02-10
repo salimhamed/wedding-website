@@ -1,13 +1,15 @@
 import React, { useContext, useState } from "react"
+import { useCookies } from "react-cookie"
 import { object, string } from "yup"
 import { Formik } from "formik"
 import Form from "react-bootstrap/Form"
-import { Link } from "react-router-dom"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 
+import { selectLanguage } from "utilities/cookies"
 import { Store } from "store"
 import { signIn } from "actions"
+import { signInForm } from "content/Authentication"
 
 import styles from "../Forms.module.scss"
 
@@ -20,12 +22,23 @@ const schema = object({
 
 function SignInForm({ history }) {
     const { state, dispatch } = useContext(Store)
+    const [cookies] = useCookies(["language"])
 
     const {
         app: {
             user: { email, isConfirmationEmailSent },
         },
     } = state
+
+    const {
+        EmailConfirmationAlert,
+        Header,
+        SubmitButton,
+        SubmitButtonLoading,
+        NoAccountPrompt,
+        emailPlaceholder,
+        passwordPlaceholder,
+    } = signInForm[selectLanguage(cookies)]
 
     const [
         showConfirmationEmailAlert,
@@ -69,18 +82,19 @@ function SignInForm({ history }) {
                             show={showConfirmationEmailAlert}
                             dismissible
                         >
-                            Check your email for a link to confirm your account.
-                            You must confirm your account before logging in.
+                            <EmailConfirmationAlert />
                         </Alert>
                     )}
                     <div className="text-center">
-                        <h4 className="text-muted">Please Sign In</h4>
+                        <h4 className="text-muted">
+                            <Header />
+                        </h4>
                     </div>
                     <Form.Group controlId="controlIdEmail">
                         <Form.Control
                             name="email"
                             type="email"
-                            placeholder="Email"
+                            placeholder={emailPlaceholder}
                             value={values.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -94,7 +108,7 @@ function SignInForm({ history }) {
                         <Form.Control
                             name="password"
                             type="password"
-                            placeholder="Password"
+                            placeholder={passwordPlaceholder}
                             value={values.password}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -111,7 +125,11 @@ function SignInForm({ history }) {
                         disabled={isSubmitting}
                         block
                     >
-                        {isSubmitting ? "Signing In..." : "Sign In"}
+                        {isSubmitting ? (
+                            <SubmitButtonLoading />
+                        ) : (
+                            <SubmitButton />
+                        )}
                     </Button>
                     {status && (
                         <Alert variant="danger" className="mt-4">
@@ -120,8 +138,7 @@ function SignInForm({ history }) {
                     )}
                     <div className={styles.links}>
                         <p>
-                            Don't have an account?{" "}
-                            <Link to="/auth/signup">Sign up here.</Link>
+                            <NoAccountPrompt />
                         </p>
                     </div>
                 </Form>
