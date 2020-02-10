@@ -24,21 +24,20 @@ export default {
         ),
     },
     [LANGUAGE.CAT]: {
-        Header: () => <>Please Sign Up</>,
+        Header: () => <>Per favor, registreu-vos</>,
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
         EmailHelp: () => (
             <>
-                Register with the same email address that received the email
-                invitation.
+                Registreu-vos amb el mateix email on heu rebut la invitació.
             </>
         ),
         passwordPlaceholder: "Password",
-        SubmitButton: () => <>Sign Up</>,
-        SubmitButtonLoading: () => <>Signing Up...</>,
+        SubmitButton: () => <>Registreu-vos</>,
+        SubmitButtonLoading: () => <>Registrant-vos...</>,
         HaveAccountPrompt: () => (
             <>
-                Already have an account? <Link to="/auth">Sign in here.</Link>
+                Ja teniu un compte? <Link to="/auth">Inicieu la sessió aquí.</Link>
             </>
         ),
     },
