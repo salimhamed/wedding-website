@@ -67,62 +67,57 @@ export default {
     [LANGUAGE.CAT]: {
         AlertNoEmail: () => (
             <>
-                Whoops, it looks like we don't have your email address. Email us
-                at{" "}
+                Uups, sembla que no tenim el vostre email. Envieu-nos un email
+                a{" "}
                 <strong>
                     <a href="mailto:hola@lledoisalim.com">
                         hola@lledoisalim.com
                     </a>
                 </strong>{" "}
-                so we can update our records.
+                i actualitzarem el nostre registre.
             </>
         ),
-        submitButtonText: "Submit RSVP",
-        updateButtonText: "Update RSVP",
-        yesLabel: "Yes",
+        submitButtonText: "Envia RSUP",
+        updateButtonText: "Actualitza RSUP",
+        yesLabel: "Sí",
         noLabel: "No",
         lampollaLabel: "L'Ampolla",
         tortosaLabel: "Tortosa",
-        otherLabel: "Other",
-        otherLabelExtra: "Reach out if you need help arranging transportation",
-        WeddingFormHeader: () => <>Wedding</>,
-        NumberOfGuestsLabel: () => <>Number of guests attending</>,
-        zeroLabel: "0 - Can't Attend",
+        otherLabel: "Altres",
+        otherLabelExtra: "Feu-nos saber si necessiteu ajuda trobant transport.",
+        WeddingFormHeader: () => <>Casament</>,
+        NumberOfGuestsLabel: () => <>Número de convidats</>,
+        zeroLabel: "0 - No podem venir",
         NumberOfGuestsHelp: () => (
             <>
-                The number of guests in your party (including yourself) that
-                will be in attendance.
+                Número de convidats (incluinte a tu) que vindran.
             </>
         ),
         TransportationLabel: () => (
-            <>Would you like bus transportation to/from the venue?</>
+            <>Necessiteu transport a/de el lloc del casament?</>
         ),
         TransportationHelp: () => (
             <>
-                We'll be providing bus transportation to/from the venue. Let us
-                know if you want to reserve spots for your group!
+                Hi haurà autobús a/de el lloc del casament. Digueu-nos si nececessiteu reservar seients per al vostre grup!
             </>
         ),
-        OriginLabel: () => <>Where is your origin?</>,
+        OriginLabel: () => <>Des d'on?</>,
         OriginHelp: () => (
             <>
-                We're only planning on having bus transportation from L'Ampolla
-                and Tortosa. Reach out if you need help arranging transportation
-                from other locations.
+                Només hi haurà autobús des de L'Ampolla i Tortosa. Feu-nos saber si necessiteu ajuda trobant transport.
             </>
         ),
-        SongsLabel: () => <>Song requests</>,
+        SongsLabel: () => <>Voleu demanar una cançó?</>,
         SongsHelp: () => (
-            <>Let us know which songs will keep you partying all night!</>
+            <>Feu-nos saber quines cançons us mantindran de festa tota la nit!</>
         ),
-        DinnerFormHeader: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
-        DinnerGuestsLabel: () => <>Number of guests attending</>,
+        DinnerFormHeader: () => <>Pica-pica de Benvinguda</>,
+        DinnerGuestsLabel: () => <>Número de convidats</>,
         DinnerGuestsHelp: () => (
             <>
-                The number of guests (including yourself) that will be in
-                attendance.
+                Número de convidats (incluinte a tu) que vindran.
             </>
         ),
-        AlertRSVPUpdated: () => <>Thanks for your RSVP!</>,
+        AlertRSVPUpdated: () => <>Gràcies pel vostre RSUP!</>,
     },
 }
