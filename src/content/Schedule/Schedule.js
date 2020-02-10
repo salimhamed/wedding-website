@@ -32,7 +32,7 @@ export default {
         {
             Title: () => <>Wedding</>,
             Date: () => <>Saturday, August 8, 2020</>,
-            Time: () => <>6:00 PM to 6:00 AM (+1)</>,
+            Time: () => <>6:30 PM to 6:00 AM (+1)</>,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp?i=en",
             Address: () => (
@@ -84,7 +84,7 @@ export default {
         {
             Title: () => <>Casament</>,
             Date: () => <>Dissabte, 8 d'agost de 2020</>,
-            Time: () => <>de 18h a 6h (+1)</>,
+            Time: () => <>de 18.30h a 6h (+1)</>,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp",
             Address: () => (

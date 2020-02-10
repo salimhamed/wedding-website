@@ -66,7 +66,7 @@ export default {
         },
         {
             Type: () => <>Lodging for Wedding</>,
-            Title: () => <>Tortosa or L' Ampolla</>,
+            Title: () => <>Tortosa/L' Ampolla</>,
             Address: null,
             Phone: null,
             Details: () => (
