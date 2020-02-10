@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
+import { useCookies } from "react-cookie"
 import { object, number, string } from "yup"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
@@ -11,8 +12,10 @@ import isNull from "lodash/isNull"
 import get from "lodash/get"
 import range from "lodash/range"
 
+import { selectLanguage } from "utilities/cookies"
 import { Store } from "store"
 import { fetchUserRSVPInformation, putUserRSVPInformation } from "actions"
+import { rsvpForm } from "content/RSVP"
 
 import styles from "../Forms.module.scss"
 
@@ -33,6 +36,7 @@ const OTHER = "Other"
 
 function RSVPForm() {
     const { state, dispatch } = useContext(Store)
+    const [cookies] = useCookies(["language"])
 
     const [showConfirmation, setShowConfirmation] = useState(false)
 
@@ -42,6 +46,32 @@ function RSVPForm() {
             rsvp: { allowed, confirmed },
         },
     } = state
+
+    const {
+        AlertNoEmail,
+        submitButtonText,
+        updateButtonText,
+        yesLabel,
+        noLabel,
+        lampollaLabel,
+        tortosaLabel,
+        otherLabel,
+        otherLabelExtra,
+        WeddingFormHeader,
+        NumberOfGuestsLabel,
+        zeroLabel,
+        NumberOfGuestsHelp,
+        TransportationLabel,
+        TransportationHelp,
+        OriginLabel,
+        OriginHelp,
+        SongsLabel,
+        SongsHelp,
+        DinnerFormHeader,
+        DinnerGuestsLabel,
+        DinnerGuestsHelp,
+        AlertRSVPUpdated,
+    } = rsvpForm[selectLanguage(cookies)]
 
     useEffect(() => {
         if (email) {
@@ -65,14 +95,7 @@ function RSVPForm() {
             <Container>
                 <Col className={styles.intro}>
                     <Alert variant="info">
-                        Whoops, it looks like we don't have your email address.
-                        Email us at{" "}
-                        <strong>
-                            <a href="mailto:hola@lledoisalim.com">
-                                hola@lledoisalim.com
-                            </a>
-                        </strong>{" "}
-                        so we can update our records.
+                        <AlertNoEmail />
                     </Alert>
                 </Col>
             </Container>
@@ -97,8 +120,8 @@ function RSVPForm() {
     ])
 
     const buttonText = isUndefined(weddingConfirmedGuests)
-        ? "Submit RSVP"
-        : "Update RSVP"
+        ? submitButtonText
+        : updateButtonText
 
     return (
         <Formik
@@ -128,10 +151,14 @@ function RSVPForm() {
                     className={styles.form}
                 >
                     <div className="text-center">
-                        <h5 className="text-muted">Wedding</h5>
+                        <h5 className="text-muted">
+                            <WeddingFormHeader />
+                        </h5>
                     </div>
                     <Form.Group controlId="controlIdWeddingGuests">
-                        <Form.Label>Number of guests attending</Form.Label>
+                        <Form.Label>
+                            <NumberOfGuestsLabel />
+                        </Form.Label>
                         <Form.Control
                             name="weddingGuests"
                             as="select"
@@ -144,22 +171,21 @@ function RSVPForm() {
                         >
                             {range(0, weddingMaxGuests + 1).map(idx => (
                                 <option
-                                    label={idx === 0 ? `0 - Can't Attend` : idx}
+                                    label={idx === 0 ? zeroLabel : idx}
                                     value={idx}
                                     key={idx}
                                 >
-                                    {idx === 0 ? `0 - Can't Attend` : idx}
+                                    {idx === 0 ? zeroLabel : idx}
                                 </option>
                             ))}
                         </Form.Control>
                         <Form.Text className="text-muted">
-                            The number of guests (including yourself) that will
-                            be in attendance.
+                            <NumberOfGuestsHelp />
                         </Form.Text>
                     </Form.Group>
                     <Form.Group controlId="controlIdNeedBus">
                         <Form.Label>
-                            Would you like bus transportation to/from the venue?
+                            <TransportationLabel />
                         </Form.Label>
                         <Form.Control
                             name="needBus"
@@ -169,22 +195,22 @@ function RSVPForm() {
                             onBlur={handleBlur}
                             isInvalid={touched.needBus && errors.needBus}
                         >
-                            <option label={YES} value={YES}>
-                                {YES}
+                            <option label={yesLabel} value={YES}>
+                                {yesLabel}
                             </option>
-                            <option label={NO} value={NO}>
-                                {NO}
+                            <option label={noLabel} value={NO}>
+                                {noLabel}
                             </option>
                         </Form.Control>
                         <Form.Text className="text-muted">
-                            We'll be providing bus transportation to/from the
-                            venue. Let us know if you'd like to reserve a spot
-                            for your group!
+                            <TransportationHelp />
                         </Form.Text>
                     </Form.Group>
                     {values.needBus === YES && (
                         <Form.Group controlId="controlIdOrigin">
-                            <Form.Label>Where is your origin?</Form.Label>
+                            <Form.Label>
+                                <OriginLabel />
+                            </Form.Label>
                             <Form.Control
                                 name="origin"
                                 as="select"
@@ -193,27 +219,26 @@ function RSVPForm() {
                                 onBlur={handleBlur}
                                 isInvalid={touched.origin && errors.origin}
                             >
-                                <option label={TORTOSA} value={TORTOSA}>
-                                    {TORTOSA}
+                                <option label={tortosaLabel} value={TORTOSA}>
+                                    {tortosaLabel}
                                 </option>
-                                <option label={LAMPOLLA} value={LAMPOLLA}>
-                                    {LAMPOLLA}
+                                <option label={lampollaLabel} value={LAMPOLLA}>
+                                    {lampollaLabel}
                                 </option>
                                 <option
-                                    label={`${OTHER} - Contact us if you want help arranging transportation`}
+                                    label={`${otherLabel} - ${otherLabelExtra}`}
                                     value={OTHER}
-                                >{`${OTHER} - Contact us if you want help arranging transportation`}</option>
+                                >{`${otherLabel} - ${otherLabelExtra}`}</option>
                             </Form.Control>
                             <Form.Text className="text-muted">
-                                We're only planning on having bus transportation
-                                from L'Ampolla and Tortosa. Reach out if you
-                                need help arranging transportation from other
-                                locations.
+                                <OriginHelp />
                             </Form.Text>
                         </Form.Group>
                     )}
                     <Form.Group controlId="controlIdWeddingSongs">
-                        <Form.Label>Song requests</Form.Label>
+                        <Form.Label>
+                            <SongsLabel />
+                        </Form.Label>
                         <Form.Control
                             name="songs"
                             as="textarea"
@@ -224,17 +249,18 @@ function RSVPForm() {
                             isInvalid={touched.songs && errors.songs}
                         />
                         <Form.Text className="text-muted">
-                            Let us know which songs will keep you partying all
-                            night!
+                            <SongsHelp />
                         </Form.Text>
                     </Form.Group>
                     <div className="text-center mt-5">
                         <h5 className="text-muted">
-                            Welcome &ldquo;Pica-pica&ldquo;
+                            <DinnerFormHeader />
                         </h5>
                     </div>
                     <Form.Group controlId="controlIdRehearsalGuests">
-                        <Form.Label>Number of guests attending</Form.Label>
+                        <Form.Label>
+                            <DinnerGuestsLabel />
+                        </Form.Label>
                         <Form.Control
                             name="rehearsalGuests"
                             as="select"
@@ -248,16 +274,15 @@ function RSVPForm() {
                         >
                             {range(0, rehearsalMaxGuests + 1).map(idx => (
                                 <option
-                                    label={idx === 0 ? `0 - Can't Attend` : idx}
+                                    label={idx === 0 ? `0 - ${zeroLabel}` : idx}
                                     value={idx}
                                 >
-                                    {idx === 0 ? `0 - Can't Attend` : idx}
+                                    {idx === 0 ? `0 - ${zeroLabel}` : idx}
                                 </option>
                             ))}
                         </Form.Control>
                         <Form.Text className="text-muted">
-                            The number of guests (including yourself) that will
-                            be in attendance.
+                            <DinnerGuestsHelp />
                         </Form.Text>
                     </Form.Group>
                     <Button
@@ -281,7 +306,7 @@ function RSVPForm() {
                         onClose={() => setShowConfirmation(false)}
                         show={showConfirmation}
                     >
-                        Thanks for your RSVP!
+                        <AlertRSVPUpdated />
                     </Alert>
                 </Form>
             )}

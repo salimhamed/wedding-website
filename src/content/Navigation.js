@@ -20,9 +20,9 @@ export default {
         thingsToDo: () => <span>Què Fer</span>,
         faq: () => <span>Preguntes</span>,
         registry: () => <span>Registre</span>,
-        rsvp: () => <span>RSVP</span>,
-        signOut: () => <span>Sign Out</span>,
-        signIn: () => <span>Sign In</span>,
-        manageRsvp: () => <span>Manage RSVP</span>,
+        rsvp: () => <span>RSUP</span>,
+        signOut: () => <span>Registra't</span>,
+        signIn: () => <span>Inicia Sessió</span>,
+        manageRsvp: () => <span>Gestiona RSUP</span>,
     },
 }

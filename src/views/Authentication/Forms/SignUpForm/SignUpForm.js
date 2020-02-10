@@ -1,13 +1,15 @@
 import React, { useContext } from "react"
+import { useCookies } from "react-cookie"
 import { object, string } from "yup"
-import { Link } from "react-router-dom"
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import Alert from "react-bootstrap/Alert"
 import { Formik } from "formik"
 
+import { selectLanguage } from "utilities/cookies"
 import { signUp } from "actions"
 import { Store } from "store"
+import { signUpForm } from "content/Authentication"
 
 import styles from "../Forms.module.scss"
 
@@ -23,11 +25,23 @@ const schema = object({
 
 function SignUpForm({ history }) {
     const { dispatch } = useContext(Store)
+    const [cookies] = useCookies(["language"])
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
         signUp(values, setSubmitting, setStatus, history, dispatch)
     }
+
+    const {
+        Header,
+        namePlaceholder,
+        emailPlaceholder,
+        EmailHelp,
+        passwordPlaceholder,
+        SubmitButton,
+        SubmitButtonLoading,
+        HaveAccountPrompt,
+    } = signUpForm[selectLanguage(cookies)]
 
     return (
         <Formik
@@ -55,12 +69,14 @@ function SignUpForm({ history }) {
                     className={styles.form}
                 >
                     <div className="text-center">
-                        <h4 className="text-muted">Please Sign Up</h4>
+                        <h4 className="text-muted">
+                            <Header />
+                        </h4>
                     </div>
                     <Form.Group controlId="controlIdName">
                         <Form.Control
                             name="name"
-                            placeholder="Name"
+                            placeholder={namePlaceholder}
                             value={values.name}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -74,15 +90,14 @@ function SignUpForm({ history }) {
                         <Form.Control
                             name="email"
                             type="email"
-                            placeholder="Email"
+                            placeholder={emailPlaceholder}
                             value={values.email}
                             onChange={handleChange}
                             onBlur={handleBlur}
                             isInvalid={touched.email && errors.email}
                         />
                         <Form.Text className="text-muted">
-                            Register with the same email address that received
-                            the email invitation.
+                            <EmailHelp />
                         </Form.Text>
                         <Form.Control.Feedback type="invalid">
                             {errors.email}
@@ -92,7 +107,7 @@ function SignUpForm({ history }) {
                         <Form.Control
                             name="password"
                             type="password"
-                            placeholder="Password"
+                            placeholder={passwordPlaceholder}
                             value={values.password}
                             onChange={handleChange}
                             onBlur={handleBlur}
@@ -109,7 +124,11 @@ function SignUpForm({ history }) {
                         disabled={isSubmitting}
                         block
                     >
-                        {isSubmitting ? "Signing Up..." : "Sign Up"}
+                        {isSubmitting ? (
+                            <SubmitButtonLoading />
+                        ) : (
+                            <SubmitButton />
+                        )}
                     </Button>
                     {status && (
                         <Alert variant="danger" className="mt-4">
@@ -118,8 +137,7 @@ function SignUpForm({ history }) {
                     )}
                     <div className={styles.links}>
                         <p>
-                            Already have an account?{" "}
-                            <Link to="/auth">Sign in here.</Link>
+                            <HaveAccountPrompt />
                         </p>
                     </div>
                 </Form>
