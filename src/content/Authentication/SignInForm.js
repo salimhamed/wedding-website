@@ -36,7 +36,7 @@ export default {
         NoAccountPrompt: () => (
             <>
                 No teniu compte?{" "}
-                <Link to="/auth/signup">Registre-vos aquí.</Link>
+                <Link to="/auth/signup">Registreu-vos aquí.</Link>
             </>
         ),
         emailPlaceholder: "Email",
