@@ -25,12 +25,12 @@ export default {
     },
     [LANGUAGE.CAT]: {
         Header: () => <>Per favor, registreu-vos</>,
-        namePlaceholder: "Name",
+        namePlaceholder: "Nom",
         emailPlaceholder: "Email",
         EmailHelp: () => (
             <>Registreu-vos amb el mateix email on heu rebut la invitació.</>
         ),
-        passwordPlaceholder: "Password",
+        passwordPlaceholder: "Contrasenya",
         SubmitButton: () => <>Registreu-vos</>,
         SubmitButtonLoading: () => <>Registrant-vos...</>,
         HaveAccountPrompt: () => (
