@@ -30,8 +30,8 @@ export default {
         SubHeading: () => (
             <span>
                 <Link to="/auth">Inicieu la sessió</Link> per confirmar-nos la
-                vostra asistència. No teniu un compte?
-                <Link to="/auth/signup"> Registreu-vos</Link>!
+                vostra asistència. No teniu un compte?{" "}
+                <Link to="/auth/signup">Registreu-vos</Link>!
             </span>
         ),
     },
