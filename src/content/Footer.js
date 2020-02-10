@@ -16,7 +16,9 @@ export default {
                     .
                 </p>
                 <p>
-                    <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />{" "}
+                    <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+                </p>
+                <p>
                     <a
                         href="https://github.com/salimhamed/wedding-website"
                         target="_blank"
@@ -24,7 +26,7 @@ export default {
                     >
                         Source code
                     </a>{" "}
-                    available on <Octicon icon={MarkGithub} />.
+                    available on <Octicon icon={MarkGithub} size={11} />
                 </p>
             </>
         ),
@@ -40,7 +42,9 @@ export default {
                     .
                 </p>
                 <p>
-                    <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />{" "}
+                    <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />
+                </p>
+                <p>
                     <a
                         href="https://github.com/salimhamed/wedding-website"
                         target="_blank"
@@ -48,7 +52,7 @@ export default {
                     >
                         Codi font
                     </a>{" "}
-                    disponible a <Octicon icon={MarkGithub} />.
+                    disponible a <Octicon icon={MarkGithub} size={11} />
                 </p>
             </>
         ),
