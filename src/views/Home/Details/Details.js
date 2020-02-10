@@ -12,7 +12,9 @@ import styles from "./Details.module.scss"
 function Details() {
     const [cookies] = useCookies(["language"])
 
-    const { Title, Date, Location, hashtag } = details[selectLanguage(cookies)]
+    const { Title, Date, Location, hashtag, locationLink } = details[
+        selectLanguage(cookies)
+    ]
     return (
         <section>
             <Container>
@@ -25,7 +27,13 @@ function Details() {
                             <Date />
                         </h1>
                         <h2 className={styles.location}>
-                            <Location />
+                            <a
+                                href={locationLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Location />
+                            </a>
                         </h2>
                         <h3 className={styles.hashtag}>
                             <a

@@ -1,4 +1,4 @@
-@import "../../../theme";
+@import "src/theme";
 
 .details {
     .announcement {
@@ -17,6 +17,12 @@
     .location {
         font-family: $primary-cursive-font-family;
         font-weight: 100;
+        a:link,
+        a:visited,
+        a:hover,
+        a:link {
+            color: black;
+        }
     }
 
     .hashtag {
