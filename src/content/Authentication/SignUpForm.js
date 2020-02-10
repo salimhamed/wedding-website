@@ -28,16 +28,15 @@ export default {
         namePlaceholder: "Name",
         emailPlaceholder: "Email",
         EmailHelp: () => (
-            <>
-                Registreu-vos amb el mateix email on heu rebut la invitació.
-            </>
+            <>Registreu-vos amb el mateix email on heu rebut la invitació.</>
         ),
         passwordPlaceholder: "Password",
         SubmitButton: () => <>Registreu-vos</>,
         SubmitButtonLoading: () => <>Registrant-vos...</>,
         HaveAccountPrompt: () => (
             <>
-                Ja teniu un compte? <Link to="/auth">Inicieu la sessió aquí.</Link>
+                Ja teniu un compte?{" "}
+                <Link to="/auth">Inicieu la sessió aquí.</Link>
             </>
         ),
     },

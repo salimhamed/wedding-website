@@ -67,8 +67,7 @@ export default {
     [LANGUAGE.CAT]: {
         AlertNoEmail: () => (
             <>
-                Uups, sembla que no tenim el vostre email. Envieu-nos un email
-                a{" "}
+                Uups, sembla que no tenim el vostre email. Envieu-nos un email a{" "}
                 <strong>
                     <a href="mailto:hola@lledoisalim.com">
                         hola@lledoisalim.com
@@ -89,34 +88,34 @@ export default {
         NumberOfGuestsLabel: () => <>Número de convidats</>,
         zeroLabel: "0 - No podem venir",
         NumberOfGuestsHelp: () => (
-            <>
-                Número de convidats (incluinte a tu) que vindran.
-            </>
+            <>Número de convidats (incluinte a tu) que vindran.</>
         ),
         TransportationLabel: () => (
             <>Necessiteu transport a/de el lloc del casament?</>
         ),
         TransportationHelp: () => (
             <>
-                Hi haurà autobús a/de el lloc del casament. Digueu-nos si nececessiteu reservar seients per al vostre grup!
+                Hi haurà autobús a/de el lloc del casament. Digueu-nos si
+                nececessiteu reservar seients per al vostre grup!
             </>
         ),
         OriginLabel: () => <>Des d'on?</>,
         OriginHelp: () => (
             <>
-                Només hi haurà autobús des de L'Ampolla i Tortosa. Feu-nos saber si necessiteu ajuda trobant transport.
+                Només hi haurà autobús des de L'Ampolla i Tortosa. Feu-nos saber
+                si necessiteu ajuda trobant transport.
             </>
         ),
         SongsLabel: () => <>Voleu demanar una cançó?</>,
         SongsHelp: () => (
-            <>Feu-nos saber quines cançons us mantindran de festa tota la nit!</>
+            <>
+                Feu-nos saber quines cançons us mantindran de festa tota la nit!
+            </>
         ),
         DinnerFormHeader: () => <>Pica-pica de Benvinguda</>,
         DinnerGuestsLabel: () => <>Número de convidats</>,
         DinnerGuestsHelp: () => (
-            <>
-                Número de convidats (incluinte a tu) que vindran.
-            </>
+            <>Número de convidats (incluinte a tu) que vindran.</>
         ),
         AlertRSVPUpdated: () => <>Gràcies pel vostre RSUP!</>,
     },

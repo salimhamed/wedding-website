@@ -1,7 +1,7 @@
 import React from "react"
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
 
-import {LANGUAGE} from "actions/constants"
+import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
@@ -26,8 +26,9 @@ export default {
     [LANGUAGE.CAT]: {
         EmailConfirmationAlert: () => (
             <>
-                Aneu al vostre email i comproveu si hi ha un enllaç per confirmar el vostre compte. Cal que
-                confirmeu el compte abans d’iniciar la sessió.
+                Aneu al vostre email i comproveu si hi ha un enllaç per
+                confirmar el vostre compte. Cal que confirmeu el compte abans
+                d’iniciar la sessió.
             </>
         ),
         Header: () => <>Per favor, inicieu la sessió</>,
