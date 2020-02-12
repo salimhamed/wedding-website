@@ -94,8 +94,8 @@ export default {
                         you will need car transportation (5 min drive) to the
                         Welcome Pica-pica. The Parador, in Tortosa, is located
                         in the spectacular Zuda Castle, overlooking the city
-                        from high above. In Spain, booking.com is usually
-                        better than airbnb.com.
+                        from high above. In Spain, booking.com is usually better
+                        than airbnb.com.
                     </p>
                 </>
             ),
@@ -192,9 +192,8 @@ export default {
                         Les Moles. A L'Ampolla, Les Oliveres i Hotel Cap Roig
                         són bones opcions (però necessitaríeu cotxe per arribar
                         al lloc del Pica-pica). El Parador, a Tortosa, està
-                        situat a l’espectacular castell de la Suda, amb vistes
-                        a la ciutat. Podeu trobar altres opcions per
-                        booking.com.
+                        situat a l’espectacular castell de la Suda, amb vistes a
+                        la ciutat. Podeu trobar altres opcions per booking.com.
                     </p>
                 </>
             ),
