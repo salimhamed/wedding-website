@@ -144,7 +144,7 @@ export default {
                 </>
             ),
             link:
-                "https://www.barcelona-airport.com/eng/car-hire.php#/searchcars",
+                "https://www.barcelona-airport.com/cat/lloguer-cotxes-aeroport-barcelona.php#/searchcars",
         },
         {
             Type: () => <>Tren</>,
