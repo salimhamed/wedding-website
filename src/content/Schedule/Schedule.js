@@ -7,7 +7,7 @@ export default {
         {
             Title: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
             Date: () => <>Friday, August 7, 2020</>,
-            Time: () => <>4:00 PM to 7:00 PM</>,
+            Time: () => <>5:00 PM to 8:00 PM</>,
             Location: () => <>La Barraca</>,
             locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
@@ -60,7 +60,7 @@ export default {
         {
             Title: () => <>Pica-pica de Benvinguda</>,
             Date: () => <>Divendres, 7 d'agost de 2020</>,
-            Time: () => <>de 16h a 19h</>,
+            Time: () => <>de 17h a 20h</>,
             Location: () => <>La Barraca</>,
             locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
