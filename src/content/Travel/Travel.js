@@ -32,6 +32,19 @@ export default {
                 "https://www.google.com/flights?lite=0#flt=SEA./m/01f62.2020-08-01*/m/01f62.SEA.2020-08-10;c:USD;e:1;sd:1;t:f",
         },
         {
+            Type: () => <>Car</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>We recommend to rent a car from Barcelona Airport.</p>
+                </>
+            ),
+            link:
+                "https://www.barcelona-airport.com/eng/car-hire.php#/searchcars",
+        },
+        {
             Type: () => <>Train</>,
             Title: () => <>Tortosa/L'Ampolla</>,
             Address: null,
@@ -79,8 +92,10 @@ export default {
                         Les Moles on the day of the wedding. In L'Ampolla, Les
                         Oliveres and Hotel Cap Roig are good options; however,
                         you will need car transportation (5 min drive) to the
-                        Welcome Pica-pica. In Spain, booking.com is usually
-                        better than airbnb.com.
+                        Welcome Pica-pica. The Parador, in Tortosa, is located
+                        in the spectacular Zuda Castle, overlooking the city
+                        from high above. In Spain, booking.com is usually better
+                        than airbnb.com.
                     </p>
                 </>
             ),
@@ -117,6 +132,19 @@ export default {
             ),
             link:
                 "https://www.google.com/flights?lite=0#flt=SEA./m/01f62.2020-08-01*/m/01f62.SEA.2020-08-10;c:USD;e:1;sd:1;t:f",
+        },
+        {
+            Type: () => <>Cotxe</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>Podeu llogar cotxe des de l'aeroport de Barcelona.</p>
+                </>
+            ),
+            link:
+                "https://www.barcelona-airport.com/cat/lloguer-cotxes-aeroport-barcelona.php#/searchcars",
         },
         {
             Type: () => <>Tren</>,
@@ -163,8 +191,9 @@ export default {
                         casament, hi haurà autobusos desde Tortosa i L'Ampolla a
                         Les Moles. A L'Ampolla, Les Oliveres i Hotel Cap Roig
                         són bones opcions (però necessitaríeu cotxe per arribar
-                        al lloc del Pica-pica). Podeu trobar altres opcions per
-                        booking.com.
+                        al lloc del Pica-pica). El Parador, a Tortosa, està
+                        situat a l’espectacular castell de la Suda, amb vistes a
+                        la ciutat. Podeu trobar altres opcions per booking.com.
                     </p>
                 </>
             ),

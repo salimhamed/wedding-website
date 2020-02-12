@@ -17,7 +17,7 @@ export default {
         Heading: () => <>Preguntes?</>,
         SubHeading: () => (
             <>
-                Si teniu alguna pregunta, si us plau, escriviu-nos a
+                Si teniu alguna pregunta, si us plau, escriviu-nos a{" "}
                 <a href="mailto:hola@lledoisalim.com">hola@lledoisalim.com</a>.
             </>
         ),
