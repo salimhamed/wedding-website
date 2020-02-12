@@ -32,6 +32,19 @@ export default {
                 "https://www.google.com/flights?lite=0#flt=SEA./m/01f62.2020-08-01*/m/01f62.SEA.2020-08-10;c:USD;e:1;sd:1;t:f",
         },
         {
+            Type: () => <>Car</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>We recommend to rent a car from Barcelona Airport.</p>
+                </>
+            ),
+            link:
+                "https://www.barcelona-airport.com/eng/car-hire.php#/searchcars",
+        },
+        {
             Type: () => <>Train</>,
             Title: () => <>Tortosa/L'Ampolla</>,
             Address: null,
@@ -119,6 +132,19 @@ export default {
             ),
             link:
                 "https://www.google.com/flights?lite=0#flt=SEA./m/01f62.2020-08-01*/m/01f62.SEA.2020-08-10;c:USD;e:1;sd:1;t:f",
+        },
+        {
+            Type: () => <>Cotxe</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>Podeu llogar cotxe des de l'aeroport de Barcelona.</p>
+                </>
+            ),
+            link:
+                "https://www.barcelona-airport.com/eng/car-hire.php#/searchcars",
         },
         {
             Type: () => <>Tren</>,
