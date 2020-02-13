@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import { useCookies } from "react-cookie"
 import { object, string } from "yup"
 import { Formik } from "formik"
@@ -26,12 +26,11 @@ function SignInForm({ history }) {
 
     const {
         app: {
-            user: { email, isConfirmationEmailSent },
+            user: { email },
         },
     } = state
 
     const {
-        EmailConfirmationAlert,
         Header,
         SubmitButton,
         SubmitButtonLoading,
@@ -39,11 +38,6 @@ function SignInForm({ history }) {
         emailPlaceholder,
         passwordPlaceholder,
     } = signInForm[selectLanguage(cookies)]
-
-    const [
-        showConfirmationEmailAlert,
-        setShowConfirmationEmailAlert,
-    ] = useState(isConfirmationEmailSent)
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
@@ -74,17 +68,6 @@ function SignInForm({ history }) {
                     onSubmit={handleSubmit}
                     className={styles.form}
                 >
-                    {isConfirmationEmailSent && (
-                        <Alert
-                            variant="success"
-                            className="mb-4"
-                            onClose={() => setShowConfirmationEmailAlert(false)}
-                            show={showConfirmationEmailAlert}
-                            dismissible
-                        >
-                            <EmailConfirmationAlert />
-                        </Alert>
-                    )}
                     <div className="text-center">
                         <h4 className="text-muted">
                             <Header />

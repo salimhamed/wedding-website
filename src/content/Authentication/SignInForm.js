@@ -5,12 +5,6 @@ import { LANGUAGE } from "actions/constants"
 
 export default {
     [LANGUAGE.EN]: {
-        EmailConfirmationAlert: () => (
-            <>
-                Check your email for a link to confirm your account. You must
-                confirm your account before logging in.
-            </>
-        ),
         Header: () => <>Please Sign In</>,
         SubmitButton: () => <>Sign In</>,
         SubmitButtonLoading: () => <>Signing In...</>,
@@ -24,13 +18,6 @@ export default {
         passwordPlaceholder: "Password",
     },
     [LANGUAGE.CAT]: {
-        EmailConfirmationAlert: () => (
-            <>
-                Aneu al vostre email i comproveu si hi ha un enllaç per
-                confirmar el vostre compte. Cal que confirmeu el compte abans
-                d’iniciar la sessió.
-            </>
-        ),
         Header: () => <>Per favor, inicieu la sessió</>,
         SubmitButton: () => <>Inicia sessió</>,
         SubmitButtonLoading: () => <>Iniciant sessió...</>,
