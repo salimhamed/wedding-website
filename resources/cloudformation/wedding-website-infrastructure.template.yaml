@@ -156,6 +156,69 @@ Resources:
         authenticated: !GetAtt AuthenticatedIamRole.Arn
         unauthenticated: !GetAtt UnauthenticatedIamRole.Arn
 
+  PresignupLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt PreSignUpLambdaFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: cognito-idp.amazonaws.com
+      SourceArn: !Sub "arn:aws:cognito-idp:${AWS::Region}:${AWS::AccountId}:userpool/${UserPool}"
+
+  PresignupLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Action:
+              - sts:AssumeRole
+            Principal:
+              Service: lambda.amazonaws.com
+      Policies:
+        - PolicyName: CognitoAutoApproveUser
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - logs:CreateLogGroup
+                  - logs:CreateLogStream
+                  - logs:PutLogEvents
+                Resource: "arn:aws:logs:*:*:*"
+              - Effect: Allow
+                Action:
+                  - cognito-idp:AdminConfirmSignUp
+                Resource: "*"
+
+  PreSignUpLambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      Description: !Sub "Automatically verifies a user in Cognito immediately after signup."
+      Role: !GetAtt PresignupLambdaRole.Arn
+      Timeout: 20
+      Handler: index.lambda_handler
+      Runtime: python3.7
+      MemorySize: 128
+      Tags:
+        - Key: ServiceName
+          Value: !Ref ServiceName
+      Code:
+        ZipFile: |
+          import logging
+
+          logger = logging.getLogger()
+          logger.setLevel(logging.INFO)
+
+          def lambda_handler(event, context):
+              logger.info("Received the following event: %s", event)
+              response = event.copy()
+              response['response'] = {
+                  'autoConfirmUser': True,
+                  'autoVerifyEmail': True,
+              }
+              return response
+
 
 Outputs:
   UserPool:
