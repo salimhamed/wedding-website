@@ -5,7 +5,6 @@ import {
     signInWithCognito,
     signOutWithCognito,
     currentAuthenticatedUserWithCognito,
-    resendConfirmationEmailWithCognito,
     getItemFromDynamo,
     putItemToDynamo,
 } from "services"
@@ -48,6 +47,8 @@ export const signUp = async (
             },
         })
 
+        await signInWithCognito(username, password)
+
         dispatch({
             type: APP.SET.USER_SIGN_UP,
             payload: {
@@ -57,7 +58,7 @@ export const signUp = async (
             },
         })
 
-        history.push("/auth")
+        history.push("/rsvp")
     } catch (error) {
         const { message } = error
         setStatus(message)
@@ -93,14 +94,7 @@ export const signIn = async (
             },
         })
     } catch (error) {
-        const { code } = error
         let { message } = error
-
-        if (code === "UserNotConfirmedException") {
-            resendConfirmationEmailWithCognito(providedEmail)
-            message =
-                "You haven't confirmed your email. We just sent you an email with a link to confirm your account"
-        }
 
         setStatus(message)
         dispatch({
