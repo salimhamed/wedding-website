@@ -50,15 +50,13 @@ export const signUp = async (
         await signInWithCognito(username, password)
 
         dispatch({
-            type: APP.SET.USER_SIGN_UP,
+            type: APP.SET.USER_SIGN_IN,
             payload: {
                 username,
                 name,
                 email,
             },
         })
-
-        history.push("/rsvp")
     } catch (error) {
         const { message } = error
         setStatus(message)
