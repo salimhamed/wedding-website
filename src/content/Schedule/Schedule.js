@@ -6,7 +6,7 @@ export default {
     [LANGUAGE.EN]: [
         {
             Title: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
-            Date: () => <>Friday, August 7, 2020</>,
+            Date: () => <>Friday, June 18, 2021</>,
             Time: () => <>5:00 PM to 8:00 PM</>,
             Location: () => <>La Barraca</>,
             locationLink:
@@ -31,7 +31,7 @@ export default {
         },
         {
             Title: () => <>Wedding</>,
-            Date: () => <>Saturday, August 8, 2020</>,
+            Date: () => <>Saturday, June 19, 2021</>,
             Time: () => <>6:30 PM to 6:00 AM (+1)</>,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp?i=en",
@@ -59,7 +59,7 @@ export default {
     [LANGUAGE.CAT]: [
         {
             Title: () => <>Pica-pica de Benvinguda</>,
-            Date: () => <>Divendres, 7 d'agost de 2020</>,
+            Date: () => <>Divendres, 18 de juny de 2021</>,
             Time: () => <>de 17h a 20h</>,
             Location: () => <>La Barraca</>,
             locationLink:
@@ -83,7 +83,7 @@ export default {
         },
         {
             Title: () => <>Casament</>,
-            Date: () => <>Dissabte, 8 d'agost de 2020</>,
+            Date: () => <>Dissabte, 19 de juny de 2021</>,
             Time: () => <>de 18.30h a 6h (+1)</>,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp",
