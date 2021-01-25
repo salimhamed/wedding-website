@@ -6,8 +6,8 @@ export default {
     [LANGUAGE.EN]: [
         {
             Title: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
-            Date: () => <>Friday, June 18, 2021</>,
-            Time: () => <>5:00 PM to 8:00 PM</>,
+            Date: () => <>TBD</>,
+            Time: () => null,
             Location: () => <>La Barraca</>,
             locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
@@ -31,8 +31,8 @@ export default {
         },
         {
             Title: () => <>Wedding</>,
-            Date: () => <>Saturday, June 19, 2021</>,
-            Time: () => <>6:30 PM to 6:00 AM (+1)</>,
+            Date: () => <>TBD</>,
+            Time: () => null,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp?i=en",
             Address: () => (
@@ -59,8 +59,8 @@ export default {
     [LANGUAGE.CAT]: [
         {
             Title: () => <>Pica-pica de Benvinguda</>,
-            Date: () => <>Divendres, 18 de juny de 2021</>,
-            Time: () => <>de 17h a 20h</>,
+            Date: () => <>TBD</>,
+            Time: () => null,
             Location: () => <>La Barraca</>,
             locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
@@ -83,8 +83,8 @@ export default {
         },
         {
             Title: () => <>Casament</>,
-            Date: () => <>Dissabte, 19 de juny de 2021</>,
-            Time: () => <>de 18.30h a 6h (+1)</>,
+            Date: () => <>TBD</>,
+            Time: () => null,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp",
             Address: () => (
