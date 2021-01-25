@@ -7,7 +7,7 @@ export default {
         {
             Title: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
             Date: () => <>TBD</>,
-            Time: () => <></>,
+            Time: () => null,
             Location: () => <>La Barraca</>,
             locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
@@ -32,7 +32,7 @@ export default {
         {
             Title: () => <>Wedding</>,
             Date: () => <>TBD</>,
-            Time: () => <></>,
+            Time: () => null,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp?i=en",
             Address: () => (
@@ -60,7 +60,7 @@ export default {
         {
             Title: () => <>Pica-pica de Benvinguda</>,
             Date: () => <>TBD</>,
-            Time: () => <></>,
+            Time: () => null,
             Location: () => <>La Barraca</>,
             locationLink:
                 "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
@@ -84,7 +84,7 @@ export default {
         {
             Title: () => <>Casament</>,
             Date: () => <>TBD</>,
-            Time: () => <></>,
+            Time: () => null,
             Location: () => <>Les Moles</>,
             locationLink: "http://www.lesmoles.com/index.asp",
             Address: () => (
