@@ -8,7 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
-    "aws-sdk": "^2.614.0",
+    "aws-sdk": "^2.814.0",
     "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "formik": "^2.1.4",
