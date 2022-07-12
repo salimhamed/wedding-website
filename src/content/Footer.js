@@ -10,17 +10,17 @@ export default {
             <>
                 <p>
                     Contact us at{" "}
-                    <a href="mailto:hola@lledoisalim.com">
-                        hola@lledoisalim.com
+                    <a href="acuedd@gmail.com">
+                        acuedd@gmail.com
                     </a>
                     .
                 </p>
                 <p>
-                    <Emoji text="Made with 💚 in Seattle by Salim and Lledó." />
+                    <Emoji text="Made with 💚 in Guatemala by Edu and Andre." />
                 </p>
                 <p>
                     <a
-                        href="https://github.com/salimhamed/wedding-website"
+                        href="https://github.com/acuedd/wedding-website"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -35,24 +35,24 @@ export default {
         Content: () => (
             <>
                 <p>
-                    Contacteu-nos a{" "}
-                    <a href="mailto:hola@lledoisalim.com">
-                        hola@lledoisalim.com
+                    Contáctanos a{" "}
+                    <a href="mailto:acuedd@gmail.com">
+                        acuedd@gmail.com
                     </a>
                     .
                 </p>
                 <p>
-                    <Emoji text="Fet amb 💚 des de Seattle per Salim i Lledó." />
+                    <Emoji text="Hecho con 💚 desde Guatemala por Edu y Andre." />
                 </p>
                 <p>
                     <a
-                        href="https://github.com/salimhamed/wedding-website"
+                        href="https://github.com/acuedd/wedding-website"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        Codi font
+                        Código fuente
                     </a>{" "}
-                    disponible a <Octicon icon={MarkGithub} size={11} />
+                    disponible en <Octicon icon={MarkGithub} size={11} />
                 </p>
             </>
         ),

@@ -2,39 +2,39 @@ import React from "react"
 
 import { LANGUAGE } from "actions/constants"
 
-const hashtag = "lledoisalim"
+const hashtag = "#EduyAndre"
 
 export default {
     [LANGUAGE.EN]: {
-        Title: () => <span>Salim and Lledó are getting married!</span>,
+        Title: () => <span>Andrea and Edward are getting married!</span>,
         Date: () => (
             <div className="d-flex flex-column">
                 <div>
                     <span style={{ textDecoration: "line-through" }}>
-                        06/19/2021
+                        10/09/2022
                     </span>
                 </div>
                 <div>Love is patient...</div>
             </div>
         ),
-        Location: () => <span>Terres de l&apos;Ebre, Catalonia</span>,
-        locationLink: "https://goo.gl/maps/93vJLAEHGgZwUvET9",
+        Location: () => <span>Jardínes del lago&apos;Panajachel, Sololá</span>,
+        locationLink: "https://g.page/jardinesdellago?share",
         hashtag,
     },
     [LANGUAGE.CAT]: {
-        Title: () => <span>El Salim i la Lledó es casen!</span>,
+        Title: () => <span>Andrea y Edward nos casamos!</span>,
         Date: () => (
             <div className="d-flex flex-column">
                 <div>
                     <span style={{ textDecoration: "line-through" }}>
-                        19/06/2021
+                        10/09/2022
                     </span>
                 </div>
-                <div>L'amor és pacient...</div>
+                <div>El amor es paciente...</div>
             </div>
         ),
-        Location: () => <span>Terres de l&apos;Ebre, Catalunya</span>,
-        locationLink: "https://goo.gl/maps/93vJLAEHGgZwUvET9",
+        Location: () => <span>Jardínes del lago&apos;Panajachel, Sololá</span>,
+        locationLink: "https://g.page/jardinesdellago?share",
         hashtag,
     },
 }

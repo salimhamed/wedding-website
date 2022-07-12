@@ -60,7 +60,7 @@ function Navigation({ history }) {
                 to="/"
                 className={classNames("navbar-brand", styles.brand)}
             >
-                S & L
+                A & E
             </RouterNavLink>
             <Navbar.Toggle />
             <Navbar.Collapse>
@@ -105,34 +105,6 @@ function Navigation({ history }) {
                     </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
-                    {isAuthenticated ? (
-                        <Dropdown as={NavItem}>
-                            <Dropdown.Toggle as={NavLink}>
-                                {name}
-                            </Dropdown.Toggle>
-                            <Dropdown.Menu alignRight>
-                                <Dropdown.Item className={styles.email}>
-                                    <strong>{email}</strong>
-                                </Dropdown.Item>
-                                <Dropdown.Item onSelect={handleSignOut}>
-                                    <SignOutText />
-                                </Dropdown.Item>
-                                <Dropdown.Item
-                                    onSelect={() => history.push("/rsvp")}
-                                >
-                                    <ManageRSVPText />
-                                </Dropdown.Item>
-                            </Dropdown.Menu>
-                        </Dropdown>
-                    ) : (
-                        <RouterNavLink
-                            to="/auth"
-                            className="nav-link"
-                            role="button"
-                        >
-                            <SignInText />
-                        </RouterNavLink>
-                    )}
                     <Dropdown as={NavItem}>
                         <Dropdown.Toggle as={NavLink}>
                             <ReactCountryFlag

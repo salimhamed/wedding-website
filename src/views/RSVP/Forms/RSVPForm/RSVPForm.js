@@ -75,19 +75,19 @@ function RSVPForm() {
 
     useEffect(() => {
         if (email) {
-            fetchUserRSVPInformation(email, dispatch)
+            //fetchUserRSVPInformation(email, dispatch)
         }
     }, [email, dispatch])
 
     const submitForm = (values, actions) => {
         const { setSubmitting, setStatus } = actions
-        putUserRSVPInformation(
+        /*putUserRSVPInformation(
             { email, ...values },
             setSubmitting,
             setStatus,
             setShowConfirmation,
             dispatch
-        )
+        )*/
     }
 
     if (isNull(allowed)) {
