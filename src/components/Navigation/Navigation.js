@@ -11,26 +11,26 @@ import classNames from "classnames"
 
 import { selectLanguage } from "utilities/cookies"
 import { LANGUAGE } from "actions/constants"
-import { signOut } from "actions"
-import { Store } from "store"
+//import { signOut } from "actions"
+//import { Store } from "store"
 import { navigation } from "content"
 
 import styles from "./Navigation.module.scss"
 
 function Navigation({ history }) {
     const [cookies, setCookie] = useCookies(["language"])
-    const { state, dispatch } = useContext(Store)
+    //const { state, dispatch } = useContext(Store)
 
-    const {
+    /*const {
         app: {
             user: { name, isAuthenticated, email },
         },
-    } = state
+    } = state*/
 
     const handleSelectLanguage = lang =>
         setCookie("language", lang, { path: "/" })
 
-    const handleSignOut = () => signOut(dispatch)
+    //const handleSignOut = () => signOut(dispatch)
 
     const languageCodes = {
         [LANGUAGE.CAT]: "ES-CT",

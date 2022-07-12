@@ -12,7 +12,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 //import { Authentication } from "views/Authentication"
 import { AppLayout } from "views/AppLayout"
-import { initializeApp } from "actions"
+//import { initializeApp } from "actions"
 import { LANGUAGE } from "actions/constants"
 
 import { StoreProvider, Store } from "./store"
