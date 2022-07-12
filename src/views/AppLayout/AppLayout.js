@@ -9,9 +9,12 @@ import { Schedule } from "views/Schedule"
 import { Travel } from "views/Travel"
 import { ThingsToDo } from "views/ThingsToDo"
 import { FAQ } from "views/FAQ"
-import { Registry } from "views/Registry"
-import { RSVP } from "views/RSVP"
+// import { Registry } from "views/Registry"
+// import { RSVP } from "views/RSVP"
 
+
+// <Route exact path={"/registry"} component={Registry} />
+// <Route exact path={"/rsvp"} component={RSVP} />
 const AppLayout = () => (
     <>
         <main className="mb-4">
@@ -22,8 +25,6 @@ const AppLayout = () => (
                 <Route exact path={"/travel"} component={Travel} />
                 <Route exact path={"/things-to-do"} component={ThingsToDo} />
                 <Route exact path={"/faq"} component={FAQ} />
-                <Route exact path={"/registry"} component={Registry} />
-                <Route exact path={"/rsvp"} component={RSVP} />
             </Switch>
         </main>
         <Footer />

@@ -42,12 +42,29 @@ function Navigation({ history }) {
         travel: TravelNavText,
         thingsToDo: ThingsToDoNavText,
         faq: FAQNavText,
-        registry: RegistryNavText,
+    } = navigation[selectLanguage(cookies)]
+
+    /*
+    registry: RegistryNavText,
         rsvp: RSVPNavText,
         signOut: SignOutText,
         signIn: SignInText,
         manageRsvp: ManageRSVPText,
-    } = navigation[selectLanguage(cookies)]
+        
+    <RouterNavLink
+        to="/registry"
+        className="nav-link"
+        role="button"
+    >
+        <RegistryNavText />
+    </RouterNavLink>
+    <RouterNavLink
+        to="/rsvp"
+        className="nav-link"
+        role="button"
+    >
+        <RSVPNavText />
+    </RouterNavLink>*/
 
     return (
         <Navbar
@@ -88,20 +105,6 @@ function Navigation({ history }) {
                     </RouterNavLink>
                     <RouterNavLink to="/faq" className="nav-link" role="button">
                         <FAQNavText />
-                    </RouterNavLink>
-                    <RouterNavLink
-                        to="/registry"
-                        className="nav-link"
-                        role="button"
-                    >
-                        <RegistryNavText />
-                    </RouterNavLink>
-                    <RouterNavLink
-                        to="/rsvp"
-                        className="nav-link"
-                        role="button"
-                    >
-                        <RSVPNavText />
                     </RouterNavLink>
                 </Nav>
                 <Nav className="ml-auto">
