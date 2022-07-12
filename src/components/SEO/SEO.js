@@ -6,7 +6,7 @@ import { getPublicURL } from "utilities/pages"
 import imageUrl from "photos/orcas_thumb.png"
 
 const SEO = ({
-    title = "Lledó and Salim",
+    title = "Andre y Edu",
     description = "We're getting married!",
     image = imageUrl,
     article = false,
