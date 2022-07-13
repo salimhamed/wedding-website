@@ -1,0 +1,33 @@
+@import "src/theme";
+
+.details {
+    .announcement {
+        font-family: $primary-cursive-font-family;
+        font-weight: 100;
+    }
+
+    .date {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        font-family: $primary-font-family;
+        font-size: 3.1em;
+        font-weight: 100;
+    }
+
+    .location {
+        font-family: $primary-cursive-font-family;
+        font-weight: 100;
+        a:link,
+        a:visited,
+        a:hover,
+        a:link {
+            color: black;
+        }
+    }
+
+    .hashtag {
+        font-family: $primary-font-family;
+        font-weight: 300;
+        font-size: 1.1em;
+    }
+}
