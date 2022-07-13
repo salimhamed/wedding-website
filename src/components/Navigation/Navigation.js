@@ -67,6 +67,7 @@ function Navigation({ history }) {
         <RSVPNavText />
     </RouterNavLink>*/
 
+    console.log(selectLanguage)
     return (
         <Navbar
             variant="dark"
