@@ -5,16 +5,15 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Question: () => <>Is Chicago coming?</>,
+            Question: () => <>Is Lake Atitlán coming?</>,
             Answer: () => <>O-B-V-I-O-U-S-L-Y.</>,
         },
         {
             Question: () => <>Is there a bus to and from the wedding site?</>,
             Answer: () => (
                 <>
-                    Yes, because we want you to be able to party your face off.
-                    There will be buses from Tortosa and L'Ampolla to Les Moles.
-                    Schedule will be posted soon.
+                    Yes, If you will use the bus, so drop you off near of the hotel but you will walk at least 300 meters.
+                    Just please check your schedule to find tickets to come back to your house.
                 </>
             ),
         },
@@ -22,12 +21,7 @@ export default {
             Question: () => <>What languages do the guests speak?</>,
             Answer: () => (
                 <>
-                    Half of the people speak Catalan and Spanish (some of them
-                    also know English). There will be people visiting from
-                    Lebanon that speak Arabic and English. Guests from the
-                    States speak English and maybe other languages.
-                    Communication goes beyond language, so we're sure everyone
-                    is going to have a blast regardless!
+                    Almost speack spanish, and at least 40% speadk kiché.
                 </>
             ),
         },
@@ -37,8 +31,7 @@ export default {
                 <>
                     The wedding will be formal. We recommend long or elegant
                     cocktail dresses for ladies and suits for gents. White is
-                    reserved for the bride. For the Pica-pica party casual
-                    attire is preferred.
+                    reserved for the bride. and if your rather, also you can dress colores like wine gold.
                 </>
             ),
         },
@@ -46,62 +39,52 @@ export default {
             Question: () => <>What is the weather like?</>,
             Answer: () => (
                 <>
-                    The weather during this time of year is usually sunny and in
-                    the 80s during the day and 70s at night (ºF).
+                    The weather during this time of year is usually cloudy, fresh and probably could raining.
+                    During the day could be 24 degrees centigrades and in the sunset could reach to 14 degrees centigrades.
                 </>
             ),
         },
     ],
-    [LANGUAGE.CAT]: [
+    [LANGUAGE.ES]: [
         {
-            Question: () => <>Chicago ve?</>,
-            Answer: () => <>Pos claro!</>,
+            Question: () => <>¿Lake Atitlán proximamente?</>,
+            Answer: () => <>O-B-I-A-M-E-N-T-E.</>,
         },
         {
-            Question: () => (
-                <>
-                    Hi ha autobús que ens porti i ens reculli del lloc del
-                    casament?
-                </>
-            ),
+            Question: () => <>Hay servicio de bus hacia el lugar de la boda?</>,
             Answer: () => (
                 <>
-                    Sí, perquè volem que ho pugueu donar tot! Hi haurà autobusos
-                    des de Tortosa i l’Ampolla fins a Les Moles. Publicarem els
-                    horaris aviat.
+                    Si, Si utilizas el autobus, entonces te dejará cerca del hotel, pero caminarás al menos 300 metors.
+                    Solo revisa tu calendario para encontrar tickets para regresar a tu casa.
                 </>
             ),
         },
         {
-            Question: () => <>Quins idiomes parlen els convidats?</>,
+            Question: () => <>¿Qué idioma hablan los invitados?</>,
             Answer: () => (
                 <>
-                    La meitat de la gent parla català i castellà (alguns també
-                    saben anglès). Hi haurà gent que ens visita des del Líban i
-                    parlen àrab i anglès. Els convidats dels Estats Units parlen
-                    anglès i potser altres idiomes. La comunicació va més enllà
-                    de la llengua, així que estem segurs que ens ho pasarem tots
-                    molt bé!
+                    La mayoría hablan español y almenos un 40% también pueden hablar kiché.
                 </>
             ),
         },
         {
-            Question: () => <>Quina es la vestimenta recomanada?</>,
+            Question: () => <>¿Cual es el código de vestimenta?</>,
             Answer: () => (
                 <>
-                    Recomanem vestits de còctel llargs o elegants per a dones i
-                    "traje" per als homes. El color blanc està reservat per a la
-                    núvia. Per al Pica-pica vestits informals.
+                    La boda será formal. Te recomendamos vestido largo o elegante de cocktail para las damas
+                    y traje para los caballeros.
+                    El blanco es reservado para la novia.
+                    Si prefieres también puedes usar los colores como el vino y dorado.
                 </>
             ),
         },
         {
-            Question: () => <>Quin temps fa?</>,
+            Question: () => <>¿Cual es el clima?</>,
             Answer: () => (
                 <>
-                    Pos sol i caloreta! Durant el dia les temperatures poden
-                    arribar als 30 ºC (20 llargs segur). Per la nit refresca una
-                    mica (20 i pocs).
+                    Para esta fecha el tiempo normalmente es nublado, fresco y pordría llover.
+                    Durante el día puede alcanzar los 24 grados centígrados y por al atardecer puede
+                    alcanzar los 14 grados centígrados.
                 </>
             ),
         },

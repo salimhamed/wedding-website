@@ -72,7 +72,7 @@ export default {
     ],
     [LANGUAGE.ES]: [
         {
-            Title: () => <>Santander Street</>,
+            Title: () => <>Calle Santander</>,
             Details: () => (
                 <>
                     <p>
@@ -85,7 +85,7 @@ export default {
                 "https://www.minube.com/rincon/calle-santander-panajachel-a3621645",
         },
         {
-            Title: () => <>Public beach</>,
+            Title: () => <>Playa pública</>,
             Details: () => (
                 <>
                     <p>

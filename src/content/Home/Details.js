@@ -2,7 +2,7 @@ import React from "react"
 
 import { LANGUAGE } from "actions/constants"
 
-const hashtag = "#EduyAndre"
+const hashtag = "EduyAndre"
 
 export default {
     [LANGUAGE.EN]: {

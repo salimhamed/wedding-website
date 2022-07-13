@@ -9,8 +9,8 @@ export default {
                 Whoops, it looks like we don't have your email address. Email us
                 at{" "}
                 <strong>
-                    <a href="mailto:hola@lledoisalim.com">
-                        hola@lledoisalim.com
+                    <a href="mailto:edwardandrea.aculux@gmail.com">
+                        edwardandrea.aculux@gmail.com
                     </a>
                 </strong>{" "}
                 so we can update our records.
@@ -64,13 +64,13 @@ export default {
         ),
         AlertRSVPUpdated: () => <>Thanks for your RSVP!</>,
     },
-    [LANGUAGE.CAT]: {
+    [LANGUAGE.ES]: {
         AlertNoEmail: () => (
             <>
                 Uups, sembla que no tenim el vostre email. Envieu-nos un email a{" "}
                 <strong>
-                    <a href="mailto:hola@lledoisalim.com">
-                        hola@lledoisalim.com
+                    <a href="mailto:edwardandrea.aculux@gmail.com">
+                        edwardandrea.aculux@gmail.com
                     </a>
                 </strong>{" "}
                 i actualitzarem el nostre registre.
