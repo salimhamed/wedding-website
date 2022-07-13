@@ -5,7 +5,7 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Title: () => <>Una Historia de amor</>,
+            Title: () => <>A love story</>,
             Details: () => (
                 <>
                     <span>
