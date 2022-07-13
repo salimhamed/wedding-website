@@ -30,7 +30,7 @@ const App = () => {
     const { dispatch } = useContext(Store)
 
     const [cookies, setCookie] = useCookies(["language"])
-    const language = get(cookies, ["language"], null)
+    const language = get(cookies, ["language"], LANGUAGE.ES)
 
     useEffect(() => {
         //initializeApp(dispatch)
