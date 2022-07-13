@@ -21,7 +21,7 @@ export default {
         locationLink: "https://g.page/jardinesdellago?share",
         hashtag,
     },
-    [LANGUAGE.CAT]: {
+    [LANGUAGE.ES]: {
         Title: () => <span>Andrea y Edward nos casamos!</span>,
         Date: () => (
             <div className="d-flex flex-column">
