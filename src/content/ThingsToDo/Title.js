@@ -20,7 +20,7 @@ export default {
         SubHeading: () => (
             <>
                 Estamos emocionados de compartir contigo algunos de nuestros lugares favoritos en el área.
-                Si tu deseas explorarlos, te recomendamos disfrutar el publito mágico de Panajachel or viajar
+                Si tu deseas explorarlos, te recomendamos disfrutar el pueblito mágico de Panajachel o viajar
                 hacia otro pueblito mágico por medio de lancha.
                 Al anochecer, si planeas estar cerca del agua, te recomendamos usar repelente de mosquitos.
             </>
