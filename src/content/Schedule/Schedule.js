@@ -5,16 +5,16 @@ import { LANGUAGE } from "actions/constants"
 export default {
     [LANGUAGE.EN]: [
         {
-            Title: () => <>Welcome &ldquo;Pica-pica&ldquo;</>,
-            Date: () => <>TBD</>,
-            Time: () => null,
-            Location: () => <>La Barraca</>,
+            Title: () => <>Welcome &ldquo;Panajachel&ldquo;</>,
+            Date: () => <>09/10/2022</>,
+            Time: () => "10 a.m.",
+            Location: () => <>Panajachel</>,
             locationLink:
-                "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
+                "https://www.tripadvisor.com/Tourism-g292008-Panajachel_Lake_Atitlan_Solola_Department_Western_Highlands-Vacations.html",
             Address: () => (
                 <>
-                    <p>Passeig de l'Arenal, s/n</p>
-                    <p>43895 L'Ampolla, Catalonia, Spain</p>
+                    <p>Lake Atitlan</p>
+                    <p>Panajachel, Sololá, Guatemala</p>
                 </>
             ),
             mapLink:
@@ -22,35 +22,53 @@ export default {
             Details: () => (
                 <>
                     <p>
-                        There will be a few light bites in addition to drinks by
-                        the Mediterranean. Stop by whenever works for you
-                        between the indicated hours!
+                        You can come early and enjoy the most beutiful lake in the world!
                     </p>
                 </>
             ),
         },
         {
             Title: () => <>Wedding</>,
-            Date: () => <>TBD</>,
-            Time: () => null,
-            Location: () => <>Les Moles</>,
-            locationLink: "http://www.lesmoles.com/index.asp?i=en",
+            Date: () => <>09/10/2022</>,
+            Time: () => "11 a.m.",
+            Location: () => <>Jardínes del lago</>,
+            locationLink: "https://www.tripadvisor.com/Hotel_Review-g292008-d1959008-Reviews-Jardines_del_Lago-Panajachel_Lake_Atitlan_Solola_Department_Western_Highlands.html",
             Address: () => (
                 <>
-                    <p>Carretera de la Sénia, Km. 2</p>
-                    <p>43550 Ulldecona, Catalonia, Spain</p>
+                    <p>Calle Monterrey, </p>
+                    <p>Panajachel 07010, Sololá, Guatemala</p>
                 </>
             ),
             mapLink:
-                "https://www.google.com/maps/place/Les+Moles/@40.6038903,0.4204865,15z/data=!4m5!3m4!1s0x0:0xc7db2358e345721f!8m2!3d40.6038903!4d0.4204865",
+                "https://g.page/jardinesdellago?share",
             Details: () => (
                 <>
                     <p>
-                        The ceremony, dinner and party will take place at Les
-                        Moles, a family - run business that partly occupies an
-                        old farm that takes its names from the mill stones
-                        carved out of the local quarry (and it has a Michelin
-                        star!).
+                        The ceremony, lunch and party will take place at Jardínes del lago,
+                        a beautiful hotel with a beautiful landscape to Lake Atitlán.
+                    </p>
+                </>
+            ),
+        },
+        {
+            Title: () => <>Reception & Lunch</>,
+            Date: () => <>09/10/2022</>,
+            Time: () => "1:30 p.m.",
+            Location: () => <>Jardínes del lago</>,
+            locationLink: "https://www.tripadvisor.com/Hotel_Review-g292008-d1959008-Reviews-Jardines_del_Lago-Panajachel_Lake_Atitlan_Solola_Department_Western_Highlands.html",
+            Address: () => (
+                <>
+                    <p>Calle Monterrey, </p>
+                    <p>Panajachel 07010, Sololá, Guatemala</p>
+                </>
+            ),
+            mapLink:
+                "https://g.page/jardinesdellago?share",
+            Details: () => (
+                <>
+                    <p>
+                        The reception and lunch will take place at Jardínes del lago,
+                        after a photo session so please be patient until we finish to fill our instagram lol.
                     </p>
                 </>
             ),
@@ -58,16 +76,16 @@ export default {
     ],
     [LANGUAGE.CAT]: [
         {
-            Title: () => <>Pica-pica de Benvinguda</>,
-            Date: () => <>TBD</>,
-            Time: () => null,
-            Location: () => <>La Barraca</>,
+            Title: () => <>Bienvenidos a &ldquo;Panajachel&ldquo;</>,
+            Date: () => <>09/10/2022</>,
+            Time: () => "10 a.m.",
+            Location: () => <>Panajachel</>,
             locationLink:
-                "https://www.tripadvisor.com/Restaurant_Review-g670769-d6540538-Reviews-Restaurant_La_Barraca-L_Ampolla_Terres_de_l_Ebre_Province_of_Tarragona_Catalonia.html",
+                "https://www.tripadvisor.com/Tourism-g292008-Panajachel_Lake_Atitlan_Solola_Department_Western_Highlands-Vacations.html",
             Address: () => (
                 <>
-                    <p>Passeig de l'Arenal, s/n</p>
-                    <p>43895 L'Ampolla, Catalunya</p>
+                    <p>Lago Atitlan</p>
+                    <p>Panajachel, Sololá, Guatemala</p>
                 </>
             ),
             mapLink:
@@ -75,34 +93,54 @@ export default {
             Details: () => (
                 <>
                     <p>
-                        Hi haurà pica-pica i begudes al costat del Mediterrani.
-                        Passeu-vos quan us vagi bé entre les hores indicades!
+                        Puedes venir antes y disfrutar del lago más hermoso del mundo.
                     </p>
                 </>
             ),
         },
         {
-            Title: () => <>Casament</>,
-            Date: () => <>TBD</>,
-            Time: () => null,
-            Location: () => <>Les Moles</>,
-            locationLink: "http://www.lesmoles.com/index.asp",
+            Title: () => <>La boda</>,
+            Date: () => <>09/10/2022</>,
+            Time: () => "11 a.m.",
+            Location: () => <>Jardínes del lago</>,
+            locationLink: "https://www.tripadvisor.com/Hotel_Review-g292008-d1959008-Reviews-Jardines_del_Lago-Panajachel_Lake_Atitlan_Solola_Department_Western_Highlands.html",
             Address: () => (
                 <>
-                    <p>Carretera de la Sénia, Km. 2</p>
-                    <p>43550 Ulldecona, Catalunya</p>
+                    <p>Calle Monterrey, </p>
+                    <p>Panajachel 07010, Sololá, Guatemala</p>
                 </>
             ),
             mapLink:
-                "https://www.google.com/maps/place/Les+Moles/@40.6038903,0.4204865,15z/data=!4m5!3m4!1s0x0:0xc7db2358e345721f!8m2!3d40.6038903!4d0.4204865",
+                "https://g.page/jardinesdellago?share",
             Details: () => (
                 <>
                     <p>
-                        La cerimònia, sopar i festa seran a Les Moles. Regentat
-                        per Jeroni Castell i Carmen Sauch, el restaurant està
-                        situat en la que va ser la primera pedrera d'Ulldecona,
-                        on es feien les pedres per als molins, anomenades
-                        "moles" (i té una estrella Michelin!).
+                        La ceremonia tomará lugar en Jardínes del lago, un precioso hotel
+                        con un paisaje hermoso del lago de Atitlán donde podrás disfrutar y descansar.
+                    </p>
+                </>
+            ),
+        },
+        {
+            Title: () => <>Reception & Lunch</>,
+            Date: () => <>09/10/2022</>,
+            Time: () => "1:30 p.m.",
+            Location: () => <>Jardínes del lago</>,
+            locationLink: "https://www.tripadvisor.com/Hotel_Review-g292008-d1959008-Reviews-Jardines_del_Lago-Panajachel_Lake_Atitlan_Solola_Department_Western_Highlands.html",
+            Address: () => (
+                <>
+                    <p>Calle Monterrey, </p>
+                    <p>Panajachel 07010, Sololá, Guatemala</p>
+                </>
+            ),
+            mapLink:
+                "https://g.page/jardinesdellago?share",
+            Details: () => (
+                <>
+                    <p>
+                        La recepción y el almuerzo tomará lugar también en Jardínes del Lago
+                        luego de una sesión de fotos de los novios, así que por favor, se paciente hasta que
+                        tengamos las suficientes para nuestro instragram. lol.
                     </p>
                 </>
             ),

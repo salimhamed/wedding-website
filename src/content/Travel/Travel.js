@@ -3,33 +3,18 @@ import React from "react"
 import { LANGUAGE } from "actions/constants"
 
 export default {
-    [LANGUAGE.EN]: [
+    [LANGUAGE.ES]: [
         {
-            Type: () => <>Terres de l'Ebre</>,
+            Type: () => <>Jardínes del lago</>,
             Details: () => (
                 <>
                     <p>
-                        Les Terres de l'Ebre is located in the south-west of
-                        Catalonia, in the southern part of river Ebre. It is a
-                        UNESCO Biosphere Reserve since 2013. We recommend to
-                        stay either in Tortosa or L'Ampolla.
+                        Jardínes del lago esta ubicado en frente del lago más hermoso del mundo.
+                        Aquí you tendrás acceso directo al lago.
                     </p>
                 </>
             ),
-            link: "https://terresdelebre.travel/en",
-        },
-        {
-            Type: () => <>Flight</>,
-            Title: () => <>BCN</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
-                    <p>Barcelona is the best place to fly into.</p>
-                </>
-            ),
-            link:
-                "https://www.google.com/flights?lite=0#flt=SEA./m/01f62.2020-08-01*/m/01f62.SEA.2020-08-10;c:USD;e:1;sd:1;t:f",
+            link: "https://www.facebook.com/jardinesdellago/",
         },
         {
             Type: () => <>Car</>,
@@ -38,167 +23,105 @@ export default {
             Phone: null,
             Details: () => (
                 <>
-                    <p>We recommend to rent a car from Barcelona Airport.</p>
-                </>
-            ),
-            link:
-                "https://www.barcelona-airport.com/eng/car-hire.php#/searchcars",
-        },
-        {
-            Type: () => <>Train</>,
-            Title: () => <>Tortosa/L'Ampolla</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
                     <p>
-                        Renfe is the state-owned company which operates freight
-                        and passenger trains in Spain. There are trains from the
-                        airport to the city of Barcelona, and from there to
-                        Tortosa and L'Ampolla.
+                        Te recomendamos rentar un vehículo desde Ciudad de Guatemala o venir en tu propio auto.
                     </p>
                 </>
             ),
-            link: "http://www.renfe.com/EN/viajeros/index.html",
         },
         {
             Type: () => <>Bus</>,
-            Title: () => <>Tortosa/L'Ampolla</>,
+            Title: () => <>Panajachel</>,
             Address: null,
             Phone: null,
             Details: () => (
                 <>
                     <p>
-                        Hife is a bus company with headquarters in Tortosa.
-                        There are buses from the airport to Tortosa and
-                        L'Ampolla.
+                        Transportes Rabolí es una compañia de autobuses para llegar a Panajachel.
+                        Tú puedes tomarlo en difentes lugares de la ciudad, inclusive durante el camino.
+                        Si tu vienes desde la ciudad tu puedes tomar uno en la zona 1 o tomarlo en "la 4 de febrero"
+                        en Mixco, Guatemala.
+                        Si tu vienes desde Santa Cruz del quiché, tu puedes tomar primero uno hacia "Los Encuentros" y entonces tomar
+                        otro hacia Panajachel.
                     </p>
                 </>
             ),
-            link: "http://hife.es/en-GB",
+            link: "https://connectedhorizons.co.uk/es/2018/01/11/colectivo-de-guatemala-city-a-panajachel/",
+        },
+        {
+            Type: () => <>Hospedaje para la boda</>,
+            Title: () => <>Jardínes del lago u otro hotel</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>
+                        Te recomendamos tu estadía en el hotel Jardínes del lago (si quieres estar en frente de la playa).
+                        También tienes otras opciones en Panajachel e incluso puedes contratar un airbnb.
+                    </p>
+                </>
+            ),
+            link:
+                "https://www.booking.com/searchresults.en-gb.html?label=gog235jc-1BCAMoXkINcGFuYWphY2hlbC1ndEgzWANoXogBAZgBCbgBB8gBDNgBAegBAYgCAagCA7gC99e4lgbAAgHSAiRjM2NjMDU2OC1jNGNlLTQwNGEtYWJhMC02MTJhMmVhMjg2YzPYAgXgAgE&sid=bf241762d97f50c2702011dd6aa7d1cf&aid=356980&lang=en-gb&sb=1&sb_lp=1&src_elem=sb&error_url=https%3A%2F%2Fwww.booking.com%2Fcity%2Fgt%2Fpanajachel-gt.en-gb.html%3Faid%3D356980%26label%3Dgog235jc-1BCAMoXkINcGFuYWphY2hlbC1ndEgzWANoXogBAZgBCbgBB8gBDNgBAegBAYgCAagCA7gC99e4lgbAAgHSAiRjM2NjMDU2OC1jNGNlLTQwNGEtYWJhMC02MTJhMmVhMjg2YzPYAgXgAgE%26sid%3Dbf241762d97f50c2702011dd6aa7d1cf%26&ss=Panajachel&is_ski_area=0&ssne=Panajachel&ssne_untouched=Panajachel&city=-1139621&checkin_year=2022&checkin_month=9&checkin_monthday=10&checkout_year=2022&checkout_month=9&checkout_monthday=11&group_adults=2&group_children=0&no_rooms=1&b_h4u_keep_filters=&from_sf=1&order=review_score_and_price",
+        },
+    ],
+    [LANGUAGE.EN]: [
+        {
+            Type: () => <>Jardínes del lago</>,
+            Details: () => (
+                <>
+                    <p>
+                        Jardínes del lago is located in front of the most beautiful
+                        lake in the world. Here you will have a direct access to lake.
+                    </p>
+                </>
+            ),
+            link: "https://www.facebook.com/jardinesdellago/",
+        },
+        {
+            Type: () => <>Car</>,
+            Title: () => <>BCN</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>We recommend to rent a car from Guatemala City or come with your own car.</p>
+                </>
+            ),
+        },
+        {
+            Type: () => <>Bus</>,
+            Title: () => <>Panajachel</>,
+            Address: null,
+            Phone: null,
+            Details: () => (
+                <>
+                    <p>
+                        Transportes Rabolí is a bus company to go to Panajachel.
+                        You can take a bus in differents places of the city, inclusive in middle of the road.
+                        If you come from the city you can go to zona 1, or take one in the place "4 de febraro" in Mixco, Guatemala.
+                        If you come from Santa Cruz del quiché, you can take a first bus to "Los encuentros" and then take other one
+                        to Panajachel.
+                    </p>
+                </>
+            ),
+            link: "https://connectedhorizons.co.uk/2018/01/11/chicken-bus-guatemala-city-panajachel/",
         },
         {
             Type: () => <>Lodging for Wedding</>,
-            Title: () => <>Tortosa/L' Ampolla</>,
+            Title: () => <>Jardínes del lago or other hotel</>,
             Address: null,
             Phone: null,
             Details: () => (
                 <>
                     <p>
-                        We recommend to stay either in Tortosa (Lledó's
-                        hometown) or L'Ampolla (if you want to stay by the
-                        beach). The Welcome Pica-pica will be in L'Ampolla, and
-                        there will be buses from both Tortosa and L'Ampolla to
-                        Les Moles on the day of the wedding. In L'Ampolla, Les
-                        Oliveres and Hotel Cap Roig are good options; however,
-                        you will need car transportation (5 min drive) to the
-                        Welcome Pica-pica. The Parador, in Tortosa, is located
-                        in the spectacular Zuda Castle, overlooking the city
-                        from high above. In Spain, booking.com is usually better
-                        than airbnb.com.
+                        We recommend to stay either in Jardínes del lago (if you want to stay by the
+                        beach). Also you have other different options in Panajachel, and you can get an airbnb too.
                     </p>
                 </>
             ),
             link:
-                "https://www.booking.com/index.ca.html?label=gen173nr-1BCAEoggI46AdIM1gEaLQCiAEBmAEEuAEHyAEN2AEB6AEBiAIBqAIDuAKd2ffxBcACAQ;sid=9a89e727464401b3616fc4b7b66218c9;keep_landing=1&sb_price_type=total&",
-        },
-    ],
-    [LANGUAGE.CAT]: [
-        {
-            Type: () => <>Terres de l'Ebre</>,
-            Details: () => (
-                <>
-                    <p>
-                        Les Terres de l'Ebre es troba al sud-oest de Catalunya,
-                        al curs baix del riu Ebre. Al 2013, la UNESCO va
-                        declarar les Terres de l'Ebre com a espai natural i humà
-                        únic a tot el món, atorgant-li el reconeixement de
-                        Reserva Natural de la Biosfera. Us recomanem que us
-                        allotgeu a Tortosa o L'Ampolla.
-                    </p>
-                </>
-            ),
-            link: "https://terresdelebre.travel",
-        },
-        {
-            Type: () => <>Vol</>,
-            Title: () => <>BCN</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
-                    <p>L'aeroport de Barcelona és el que queda més proper.</p>
-                </>
-            ),
-            link:
-                "https://www.google.com/flights?lite=0#flt=SEA./m/01f62.2020-08-01*/m/01f62.SEA.2020-08-10;c:USD;e:1;sd:1;t:f",
-        },
-        {
-            Type: () => <>Cotxe</>,
-            Title: () => <>BCN</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
-                    <p>Podeu llogar cotxe des de l'aeroport de Barcelona.</p>
-                </>
-            ),
-            link:
-                "https://www.barcelona-airport.com/cat/lloguer-cotxes-aeroport-barcelona.php#/searchcars",
-        },
-        {
-            Type: () => <>Tren</>,
-            Title: () => <>Tortosa/L'Ampolla</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
-                    <p>
-                        Renfe (Rogamos Empujen Nuestros Ferrocarriles
-                        Estropeados) us pot portar des de diferent parts de
-                        l'Estat Espanyol a Tortosa o L'Ampolla.
-                    </p>
-                </>
-            ),
-            link: "http://www.renfe.com/CA/viajeros/index.html",
-        },
-        {
-            Type: () => <>Autobús</>,
-            Title: () => <>Tortosa/L'Ampolla</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
-                    <p>
-                        Hife és una altra bona opció, amd autobús directe a
-                        Tortosa i L'Ampolla.
-                    </p>
-                </>
-            ),
-            link: "http://hife.es",
-        },
-        {
-            Type: () => <>Allotjament</>,
-            Title: () => <>Tortosa/L' Ampolla</>,
-            Address: null,
-            Phone: null,
-            Details: () => (
-                <>
-                    <p>
-                        Us suggerim que us quedeu a Tortosa (d'on és la Lledó) o
-                        a L'Ampolla (si voleu estar al costat de la platja). El
-                        Pica-pica de Benvinguda serà a L'Ampolla; el dia del
-                        casament, hi haurà autobusos desde Tortosa i L'Ampolla a
-                        Les Moles. A L'Ampolla, Les Oliveres i Hotel Cap Roig
-                        són bones opcions (però necessitaríeu cotxe per arribar
-                        al lloc del Pica-pica). El Parador, a Tortosa, està
-                        situat a l’espectacular castell de la Suda, amb vistes a
-                        la ciutat. Podeu trobar altres opcions per booking.com.
-                    </p>
-                </>
-            ),
-            link:
-                "https://www.booking.com/index.ca.html?label=gen173nr-1BCAEoggI46AdIM1gEaLQCiAEBmAEEuAEHyAEN2AEB6AEBiAIBqAIDuAKd2ffxBcACAQ;sid=9a89e727464401b3616fc4b7b66218c9;keep_landing=1&sb_price_type=total&",
+                "https://www.booking.com/searchresults.en-gb.html?label=gog235jc-1BCAMoXkINcGFuYWphY2hlbC1ndEgzWANoXogBAZgBCbgBB8gBDNgBAegBAYgCAagCA7gC99e4lgbAAgHSAiRjM2NjMDU2OC1jNGNlLTQwNGEtYWJhMC02MTJhMmVhMjg2YzPYAgXgAgE&sid=bf241762d97f50c2702011dd6aa7d1cf&aid=356980&lang=en-gb&sb=1&sb_lp=1&src_elem=sb&error_url=https%3A%2F%2Fwww.booking.com%2Fcity%2Fgt%2Fpanajachel-gt.en-gb.html%3Faid%3D356980%26label%3Dgog235jc-1BCAMoXkINcGFuYWphY2hlbC1ndEgzWANoXogBAZgBCbgBB8gBDNgBAegBAYgCAagCA7gC99e4lgbAAgHSAiRjM2NjMDU2OC1jNGNlLTQwNGEtYWJhMC02MTJhMmVhMjg2YzPYAgXgAgE%26sid%3Dbf241762d97f50c2702011dd6aa7d1cf%26&ss=Panajachel&is_ski_area=0&ssne=Panajachel&ssne_untouched=Panajachel&city=-1139621&checkin_year=2022&checkin_month=9&checkin_monthday=10&checkout_year=2022&checkout_month=9&checkout_monthday=11&group_adults=2&group_children=0&no_rooms=1&b_h4u_keep_filters=&from_sf=1&order=review_score_and_price",
         },
     ],
 }

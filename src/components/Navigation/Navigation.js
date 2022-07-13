@@ -33,8 +33,9 @@ function Navigation({ history }) {
     //const handleSignOut = () => signOut(dispatch)
 
     const languageCodes = {
-        [LANGUAGE.CAT]: "ES-CT",
-        [LANGUAGE.EN]: "US",
+        [LANGUAGE.ES]: "ES",
+        [LANGUAGE.CAT]: "ES",
+        [LANGUAGE.EN]: "US"
     }
 
     const {
@@ -120,18 +121,18 @@ function Navigation({ history }) {
                         </Dropdown.Toggle>
                         <Dropdown.Menu alignRight>
                             <Dropdown.Item
+                                eventKey={LANGUAGE.ES}
+                                onSelect={handleSelectLanguage}
+                            >
+                                <ReactCountryFlag countryCode="ES" svg />{" "}
+                                {LANGUAGE.ES}
+                            </Dropdown.Item>
+                            <Dropdown.Item
                                 eventKey={LANGUAGE.EN}
                                 onSelect={handleSelectLanguage}
                             >
                                 <ReactCountryFlag countryCode="US" svg />{" "}
                                 {LANGUAGE.EN}
-                            </Dropdown.Item>
-                            <Dropdown.Item
-                                eventKey={LANGUAGE.CAT}
-                                onSelect={handleSelectLanguage}
-                            >
-                                <ReactCountryFlag countryCode="ES-CT" svg />{" "}
-                                {LANGUAGE.CAT}
                             </Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>
