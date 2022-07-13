@@ -11,7 +11,7 @@ export default {
             <div className="d-flex flex-column">
                 <div>
                     <span style={{ textDecoration: "line-through" }}>
-                        10/09/2022
+                        09/10/2022
                     </span>
                 </div>
                 <div>Love is patient...</div>

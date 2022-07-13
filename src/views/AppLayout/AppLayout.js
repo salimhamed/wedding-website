@@ -5,6 +5,7 @@ import { Navigation } from "components/Navigation"
 import { Footer } from "components/Footer"
 
 import { Home } from "views/Home"
+import { HowWeMet } from "views/HowWeMet"
 import { Schedule } from "views/Schedule"
 import { Travel } from "views/Travel"
 import { ThingsToDo } from "views/ThingsToDo"
@@ -21,6 +22,7 @@ const AppLayout = () => (
             <Navigation />
             <Switch>
                 <Route exact path={"/"} component={Home} />
+                <Route exact path={"/how-we-met"} component={HowWeMet} />
                 <Route exact path={"/schedule"} component={Schedule} />
                 <Route exact path={"/travel"} component={Travel} />
                 <Route exact path={"/things-to-do"} component={ThingsToDo} />

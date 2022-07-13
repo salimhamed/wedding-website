@@ -1,6 +1,7 @@
 import React from "react"
 
 import { LANGUAGE } from "actions/constants"
+import imageColor from "../../photos/Colors.jpeg"
 
 export default {
     [LANGUAGE.EN]: [
@@ -32,6 +33,7 @@ export default {
                     The wedding will be formal. We recommend long or elegant
                     cocktail dresses for ladies and suits for gents. White is
                     reserved for the bride. and if your rather, also you can dress colores like wine gold.
+                    <img src={imageColor} alt="color" />
                 </>
             ),
         },
@@ -75,6 +77,7 @@ export default {
                     y traje para los caballeros.
                     El blanco es reservado para la novia.
                     Si prefieres también puedes usar los colores como el vino y dorado.
+                    <img src={imageColor} alt="color" />
                 </>
             ),
         },

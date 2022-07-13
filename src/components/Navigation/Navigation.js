@@ -43,6 +43,7 @@ function Navigation({ history }) {
         travel: TravelNavText,
         thingsToDo: ThingsToDoNavText,
         faq: FAQNavText,
+        howWeMet: HowWeMetNavText,
     } = navigation[selectLanguage(cookies)]
 
     /*
@@ -67,7 +68,6 @@ function Navigation({ history }) {
         <RSVPNavText />
     </RouterNavLink>*/
 
-    console.log(selectLanguage)
     return (
         <Navbar
             variant="dark"
@@ -84,6 +84,13 @@ function Navigation({ history }) {
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
+                    <RouterNavLink
+                        to="/how-we-met"
+                        className="nav-link"
+                        role="button"
+                    >
+                        <HowWeMetNavText />
+                    </RouterNavLink>
                     <RouterNavLink
                         to="/schedule"
                         className="nav-link"
