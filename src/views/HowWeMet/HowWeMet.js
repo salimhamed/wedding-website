@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import { useCookies } from "react-cookie"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import Gallery from "react-photo-gallery";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 
 import { selectLanguage } from "utilities/cookies"
 import { howwemet, title } from "content/HowWeMet"
@@ -112,9 +114,9 @@ function HowWeMet() {
     const { Heading, SubHeading } = title[selectLanguage(cookies)]
     const howWeMetItems = howwemet[selectLanguage(cookies)]
     const photos = getPhotos();
-    console.log(photos)
-    const BasicRows = () => <Gallery photos={photos} />;
 
+    const [isOpen, setIsOpen] = useState(0);
+    const [photoIndex, setPhotoIndex] = useState(0);
     return (
         <section>
             <Header
@@ -135,8 +137,27 @@ function HowWeMet() {
                         </Col>
                     </Row>
                 ))}
-
-                < BasicRows />
+                <Gallery photos={photos} onClick={() => setIsOpen(1)} />
+                {!!isOpen && (
+                    <Lightbox
+                        mainSrc={photos[photoIndex].src}
+                        nextSrc={photos[(photoIndex + 1) % photos.length].src}
+                        prevSrc={
+                            photos[
+                                (photoIndex + photos.length - 1) % photos.length
+                            ].src
+                        }
+                        onCloseRequest={() => setIsOpen(false)}
+                        onMovePrevRequest={() =>
+                            setPhotoIndex(
+                                (photoIndex + photos.length - 1) % photos.length
+                            )
+                        }
+                        onMoveNextRequest={() =>
+                            setPhotoIndex((photoIndex + 1) % photos.length)
+                        }
+                    />
+                )}
             </Container>
         </section>
     )
