@@ -20,7 +20,7 @@ export default {
         Heading: () => <>Como llegar!</>,
         SubHeading: () => (
             <>
-                Nos casaremos en una región llamada Panajache, uno de los lugares más
+                Nos casaremos en una región llamada Panajachel, uno de los lugares más
                 populares en el lago Atitlán.
                 Aquí hay un poco de información y si tu quieres disfrutar el área, te recomendamos
                 ir en vehículo propio o rentado.

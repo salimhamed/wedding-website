@@ -10,7 +10,7 @@ export default {
                 <>
                     <p>
                         Jardínes del lago esta ubicado en frente del lago más hermoso del mundo.
-                        Aquí you tendrás acceso directo al lago.
+                        Aquí tu tendrás acceso directo al lago.
                     </p>
                 </>
             ),
@@ -37,8 +37,8 @@ export default {
             Details: () => (
                 <>
                     <p>
-                        Transportes Rabolí es una compañia de autobuses para llegar a Panajachel.
-                        Tú puedes tomarlo en difentes lugares de la ciudad, inclusive durante el camino.
+                        Transportes Rebulí es una compañia de autobuses para llegar a Panajachel.
+                        Tú puedes tomarlo en diferentes lugares de la ciudad, inclusive durante el camino.
                         Si tu vienes desde la ciudad tu puedes tomar uno en la zona 1 o tomarlo en "la 4 de febrero"
                         en Mixco, Guatemala.
                         Si tu vienes desde Santa Cruz del quiché, tu puedes tomar primero uno hacia "Los Encuentros" y entonces tomar
@@ -50,7 +50,7 @@ export default {
         },
         {
             Type: () => <>Hospedaje para la boda</>,
-            Title: () => <>Jardínes del lago u otro hotel</>,
+            Title: () => <>Hoteles en el área</>,
             Address: null,
             Phone: null,
             Details: () => (

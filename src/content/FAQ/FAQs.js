@@ -49,8 +49,8 @@ export default {
     ],
     [LANGUAGE.ES]: [
         {
-            Question: () => <>¿Lake Atitlán proximamente?</>,
-            Answer: () => <>O-B-I-A-M-E-N-T-E.</>,
+            Question: () => <>¿Lago Atitlán proximamente?</>,
+            Answer: () => <>O-B-V-I-A-M-E-N-T-E.</>,
         },
         {
             Question: () => <>Hay servicio de bus hacia el lugar de la boda?</>,

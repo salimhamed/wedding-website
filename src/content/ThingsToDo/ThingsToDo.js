@@ -115,8 +115,8 @@ export default {
             Details: () => (
                 <>
                     <p>
-                        Otro hermoso y mágico publo del lago, también puedes ir al colorido mirador para tener
-                        diferentes ángulos del lago para obtner esa foto que deseas para tu instagram.
+                        Otro hermoso y mágico pueblo del lago, también puedes ir al colorido mirador para tener
+                        diferentes ángulos del lago para obtener esa foto que deseas para tu instagram.
                     </p>
                 </>
             ),
