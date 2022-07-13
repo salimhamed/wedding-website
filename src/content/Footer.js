@@ -10,8 +10,8 @@ export default {
             <>
                 <p>
                     Contact us at{" "}
-                    <a href="acuedd@gmail.com">
-                        acuedd@gmail.com
+                    <a href="edwardandrea.aculux@gmail.com">
+                        edwardandrea.aculux@gmail.com
                     </a>
                     .
                 </p>
@@ -36,8 +36,8 @@ export default {
             <>
                 <p>
                     Contáctanos a{" "}
-                    <a href="mailto:acuedd@gmail.com">
-                        acuedd@gmail.com
+                    <a href="mailto:edwardandrea.aculux@gmail.com">
+                        edwardandrea.aculux@gmail.com
                     </a>
                     .
                 </p>

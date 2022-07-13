@@ -23,9 +23,9 @@ function FAQ() {
             />
             <Container fluid>
                 {faqItems.map(({ Question, Answer }, idx) => (
-                    <div style={{ marginBottom: 100 }}>
+                    <div style={{ marginBottom: 100 }} key={"faq" + idx}>
                         <Item
-                            key={idx}
+                            key={"faqitem" + idx.toString()}
                             LeftMainTitle={Question}
                             RightDetails={Answer}
                         />
