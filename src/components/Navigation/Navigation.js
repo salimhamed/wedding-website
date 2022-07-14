@@ -1,9 +1,8 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
+import { Container, Offcanvas, Navbar, Nav, Image } from "react-bootstrap"
 import { useCookies } from "react-cookie"
 import { NavLink as RouterNavLink, withRouter } from "react-router-dom"
-import Navbar from "react-bootstrap/Navbar"
 import NavLink from "react-bootstrap/NavLink"
-import Nav from "react-bootstrap/Nav"
 import NavItem from "react-bootstrap/NavItem"
 import Dropdown from "react-bootstrap/Dropdown"
 import ReactCountryFlag from "react-country-flag"
@@ -19,6 +18,14 @@ import styles from "./Navigation.module.scss"
 
 function Navigation({ history }) {
     const [cookies, setCookie] = useCookies(["language"])
+    const [show, setShow] = useState(false)
+
+    const offsetValue = -56;
+
+    const toggleOffCanvas = () => {
+        setShow((show) => !show)
+        console.log(show)
+    }
     //const { state, dispatch } = useContext(Store)
 
     /*const {
@@ -67,13 +74,15 @@ function Navigation({ history }) {
     >
         <RSVPNavText />
     </RouterNavLink>*/
-
+    const colapse = true;
     return (
         <Navbar
             variant="dark"
             expand="lg"
             sticky="top"
             className={styles.navigation}
+            onToggle={toggleOffCanvas}
+            expanded={show ? "show" : ""}
         >
             <RouterNavLink
                 to="/"
@@ -84,35 +93,23 @@ function Navigation({ history }) {
             <Navbar.Toggle />
             <Navbar.Collapse>
                 <Nav>
-                    <RouterNavLink
-                        to="/how-we-met"
-                        className="nav-link"
-                        role="button"
+                    <RouterNavLink to="/how-we-met" className="nav-link" role="button" onClick={toggleOffCanvas}
                     >
                         <HowWeMetNavText />
                     </RouterNavLink>
-                    <RouterNavLink
-                        to="/schedule"
-                        className="nav-link"
-                        role="button"
+                    <RouterNavLink to="/schedule" className="nav-link" role="button" onClick={toggleOffCanvas}
                     >
                         <ScheduleNavText />
                     </RouterNavLink>
-                    <RouterNavLink
-                        to="/travel"
-                        className="nav-link"
-                        role="button"
+                    <RouterNavLink to="/travel" className="nav-link" role="button" onClick={toggleOffCanvas}
                     >
                         <TravelNavText />
                     </RouterNavLink>
-                    <RouterNavLink
-                        to="/things-to-do"
-                        className="nav-link"
-                        role="button"
+                    <RouterNavLink to="/things-to-do" className="nav-link" role="button" onClick={toggleOffCanvas}
                     >
                         <ThingsToDoNavText />
                     </RouterNavLink>
-                    <RouterNavLink to="/faq" className="nav-link" role="button">
+                    <RouterNavLink to="/faq" className="nav-link" role="button" onClick={toggleOffCanvas}>
                         <FAQNavText />
                     </RouterNavLink>
                 </Nav>

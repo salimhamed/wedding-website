@@ -10,7 +10,7 @@ export default {
         Date: () => (
             <div className="d-flex flex-column">
                 <div>
-                    <span style={{ textDecoration: "line-through" }}>
+                    <span >
                         09/10/2022
                     </span>
                 </div>
@@ -26,7 +26,7 @@ export default {
         Date: () => (
             <div className="d-flex flex-column">
                 <div>
-                    <span style={{ textDecoration: "line-through" }}>
+                    <span >
                         10/09/2022
                     </span>
                 </div>
